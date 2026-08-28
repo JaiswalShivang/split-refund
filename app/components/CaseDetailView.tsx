@@ -6,8 +6,10 @@ import {
   ArrowLeft,
   Play,
   ShieldCheck,
+  CheckCircle2,
   AlertCircle,
   ShieldAlert,
+  Gavel,
   Copy,
   Check,
   Store,
@@ -419,6 +421,139 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
       {/* SIGNATURE VISUAL CENTERPIECE: FAULT ATTRIBUTION & CAUSAL SETTLEMENT */}
       {decision ? (
         <div className="space-y-4">
+          {/* EXPLICIT FINAL SETTLEMENT VERDICT BOX (Evidence-Based Ruling) */}
+          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs space-y-3.5">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 border border-blue-200 text-blue-700 shrink-0">
+                  <Gavel className="h-4 w-4" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                    <span>Final Attribution Verdict &amp; Settlement Ruling</span>
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Conclusive ruling synthesized from dual-truth telemetry &amp; deterministic Route rules
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 flex-wrap">
+                {decision.status === "AUTO_RESOLVED" && (
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-300 bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-800">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                    <span>AUTONOMOUS VERDICT ISSUED</span>
+                  </span>
+                )}
+                {decision.status === "NEEDS_HUMAN_REVIEW" && (
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-300 bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-900">
+                    <AlertCircle className="h-3.5 w-3.5 text-[#D97706]" />
+                    <span>AMBIGUOUS HOLD FOR ADJUSTER</span>
+                  </span>
+                )}
+                {decision.status === "FRAUD_SUSPECT_REVIEW" && (
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-rose-300 bg-rose-50 px-2.5 py-1 text-xs font-bold text-rose-800">
+                    <ShieldAlert className="h-3.5 w-3.5 text-rose-600" />
+                    <span>POLICY ABUSE WATCH HOLD</span>
+                  </span>
+                )}
+                {decision.status === "MANUALLY_OVERRIDDEN" && (
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-blue-300 bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-800">
+                    <span>ADJUSTER MANUAL OVERRIDE</span>
+                  </span>
+                )}
+                <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 border border-slate-200 rounded px-2.5 py-1">
+                  Confidence: {decision.confidence}%
+                </span>
+              </div>
+            </div>
+
+            {/* Verdict Ruling Callout */}
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-3.5 text-xs text-slate-800 leading-relaxed">
+              <div className="font-semibold text-slate-900 mb-1 flex items-center gap-1.5 flex-wrap">
+                <span className="text-blue-700 font-bold">Causal Verdict Finding:</span>
+                <span className="font-mono text-slate-600 text-[11px] bg-white border border-slate-200 rounded px-1.5 py-0.5">
+                  {decision.primary_cause.replace(/_/g, " ").toUpperCase()}
+                </span>
+              </div>
+              <p className="text-slate-700">{decision.reasoning}</p>
+            </div>
+
+            {/* Executive Settlement Summary Metrics Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-0.5 text-xs">
+              {/* 1. Primary Liable Party */}
+              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
+                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Primary Liable Party</span>
+                <div className="mt-1 flex items-baseline gap-1 font-semibold text-slate-900">
+                  {decision.fault_attribution.restaurant >= 50 && (
+                    <span className="text-[#B45309] flex items-center gap-1">
+                      <Store className="h-3.5 w-3.5" /> Merchant ({decision.fault_attribution.restaurant}%)
+                    </span>
+                  )}
+                  {decision.fault_attribution.delivery_partner >= 50 && (
+                    <span className="text-[#0369A1] flex items-center gap-1">
+                      <Bike className="h-3.5 w-3.5" /> Delivery Partner ({decision.fault_attribution.delivery_partner}%)
+                    </span>
+                  )}
+                  {decision.fault_attribution.customer >= 50 && (
+                    <span className="text-[#047857] flex items-center gap-1">
+                      Customer Remorse ({decision.fault_attribution.customer}%)
+                    </span>
+                  )}
+                  {decision.fault_attribution.platform >= 50 && (
+                    <span className="text-[#6D28D9] flex items-center gap-1">
+                      Platform Subsidized ({decision.fault_attribution.platform}%)
+                    </span>
+                  )}
+                  {Math.max(
+                    decision.fault_attribution.restaurant,
+                    decision.fault_attribution.delivery_partner,
+                    decision.fault_attribution.customer,
+                    decision.fault_attribution.platform
+                  ) < 50 && (
+                    <span className="text-amber-800">Shared Multi-Party Split</span>
+                  )}
+                </div>
+              </div>
+
+              {/* 2. Customer Refund Debited */}
+              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
+                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Customer Refund Executed</span>
+                <div className="mt-1 text-base font-bold font-mono text-emerald-700 flex items-center gap-0.5">
+                  <IndianRupee className="h-3.5 w-3.5 text-emerald-600" />
+                  <span>{decision.total_refund_to_customer.toFixed(2)}</span>
+                </div>
+              </div>
+
+              {/* 3. Innocent Capital Preserved */}
+              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
+                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Innocent Capital Preserved</span>
+                <div className="mt-1 text-base font-bold font-mono text-slate-900 flex items-center gap-0.5">
+                  {decision.is_innocent_party_protected ? (
+                    <span className="text-emerald-700 flex items-center gap-1">
+                      <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <span>₹{decision.protected_amount.toFixed(2)}</span>
+                    </span>
+                  ) : (
+                    <span className="text-slate-400 font-normal text-xs">—</span>
+                  )}
+                </div>
+              </div>
+
+              {/* 4. Escrow Reversal Action */}
+              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
+                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Route Settlement Status</span>
+                <span className="mt-1 inline-block text-[11px] font-mono font-semibold text-blue-700">
+                  {decision.status === "AUTO_RESOLVED"
+                    ? "Split Reversal Posted"
+                    : decision.status === "MANUALLY_OVERRIDDEN"
+                    ? "Adjuster Override Posted"
+                    : "Escrow Transfer Held"}
+                </span>
+              </div>
+            </div>
+          </div>
+
           {/* Innocent Party Protected Causal Outcome Banner */}
           {decision.is_innocent_party_protected && (
             <div className="rounded-xl border border-emerald-300 bg-emerald-50/60 p-4 shadow-xs">
