@@ -67,7 +67,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install Vercel CLI
-        run: pnpm add -g vercel@latest
+        run: npm install --global vercel@latest
 
       - name: Check Vercel Credentials
         id: check-secrets
