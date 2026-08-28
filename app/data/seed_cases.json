@@ -1,0 +1,3897 @@
+[
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1001",
+      "customer_id": "cust_101",
+      "customer_name": "Rahul Sharma",
+      "restaurant_id": "rest_101",
+      "restaurant_name": "Paradise Biryani Hub",
+      "delivery_partner_id": "dp_201",
+      "delivery_partner_name": "Rider 201",
+      "items": [
+        {
+          "name": "Royal Mutton Biryani (Handi)",
+          "quantity": 2,
+          "price": 380
+        },
+        {
+          "name": "Gulab Jamun (2 pcs)",
+          "quantity": 1,
+          "price": 90
+        }
+      ],
+      "total_amount": 850,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_101",
+          "amount": 650,
+          "percentage": 76.47058823529412
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_201",
+          "amount": 120,
+          "percentage": 14.117647058823529
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 80,
+          "percentage": 9.411764705882353
+        }
+      ],
+      "order_time": "2026-08-20T19:00:00Z",
+      "promised_by": "2026-08-20T19:35:00Z",
+      "delivered_at": "2026-08-20T20:00:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5001",
+      "order_id": "ord_1001",
+      "customer_id": "cust_101",
+      "customer_text": "Order took 1 hour 15 minutes! The biryani was cold and mutton was undercooked and tough. Unacceptable service.",
+      "dispute_category": "poor_food_quality_delay",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T20:06:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1001",
+      "assigned_at": "2026-08-20T19:01:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T19:10:00Z",
+      "pickup_time": "2026-08-20T19:48:00Z",
+      "actual_delivery_time": "2026-08-20T20:00:00Z",
+      "kitchen_prep_time_minutes": 48,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Rider arrived at restaurant at +9 min and waited 39 minutes for food preparation. Transit was only 11 mins."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1002",
+      "customer_id": "cust_102",
+      "customer_name": "Pooja Hegde",
+      "restaurant_id": "rest_102",
+      "restaurant_name": "Truffles Gourmet Burgers",
+      "delivery_partner_id": "dp_202",
+      "delivery_partner_name": "Rider 202",
+      "items": [
+        {
+          "name": "All-American Bacon Double Cheeseburger",
+          "quantity": 2,
+          "price": 290
+        },
+        {
+          "name": "Peri-Peri Fries",
+          "quantity": 1,
+          "price": 140
+        }
+      ],
+      "total_amount": 720,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_102",
+          "amount": 540,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_202",
+          "amount": 110,
+          "percentage": 15.277777777777779
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 70,
+          "percentage": 9.722222222222223
+        }
+      ],
+      "order_time": "2026-08-20T19:17:00Z",
+      "promised_by": "2026-08-20T19:52:00Z",
+      "delivered_at": "2026-08-20T20:07:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5002",
+      "order_id": "ord_1002",
+      "customer_id": "cust_102",
+      "customer_text": "Missing fries entirely and the burger patties were completely charred and burnt to a crisp.",
+      "dispute_category": "missing_and_damaged_items",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T20:13:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1002",
+      "assigned_at": "2026-08-20T19:18:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T19:27:00Z",
+      "pickup_time": "2026-08-20T19:55:00Z",
+      "actual_delivery_time": "2026-08-20T20:07:00Z",
+      "kitchen_prep_time_minutes": 38,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Kitchen packing error flagged. Preparation delay 38m vs 15m SLA. Rider transit was fast (12m)."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1003",
+      "customer_id": "cust_103",
+      "customer_name": "Karan Patel",
+      "restaurant_id": "rest_103",
+      "restaurant_name": "Punjab Grill \u0026 Tandoor",
+      "delivery_partner_id": "dp_203",
+      "delivery_partner_name": "Rider 203",
+      "items": [
+        {
+          "name": "Butter Chicken Special",
+          "quantity": 1,
+          "price": 420
+        },
+        {
+          "name": "Garlic Naan",
+          "quantity": 3,
+          "price": 60
+        },
+        {
+          "name": "Dal Makhani",
+          "quantity": 1,
+          "price": 260
+        }
+      ],
+      "total_amount": 860,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_103",
+          "amount": 660,
+          "percentage": 76.74418604651163
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_203",
+          "amount": 120,
+          "percentage": 13.953488372093023
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 80,
+          "percentage": 9.30232558139535
+        }
+      ],
+      "order_time": "2026-08-20T19:34:00Z",
+      "promised_by": "2026-08-20T20:09:00Z",
+      "delivered_at": "2026-08-20T20:28:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5003",
+      "order_id": "ord_1003",
+      "customer_id": "cust_103",
+      "customer_text": "Received vegetarian Dal Tadka instead of Butter Chicken. Total mixup by kitchen staff!",
+      "dispute_category": "wrong_item_packed",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T20:34:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1003",
+      "assigned_at": "2026-08-20T19:35:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T19:44:00Z",
+      "pickup_time": "2026-08-20T20:16:00Z",
+      "actual_delivery_time": "2026-08-20T20:28:00Z",
+      "kitchen_prep_time_minutes": 42,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Kitchen placed wrong order token on bag. Prep duration 42m. Delivery partner picked up packed bag without opening sealed tamper tape."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1004",
+      "customer_id": "cust_104",
+      "customer_name": "Sneha Roy",
+      "restaurant_id": "rest_104",
+      "restaurant_name": "Dosa Planet \u0026 South Kitchen",
+      "delivery_partner_id": "dp_204",
+      "delivery_partner_name": "Rider 204",
+      "items": [
+        {
+          "name": "Ghee Roast Masala Dosa",
+          "quantity": 2,
+          "price": 160
+        },
+        {
+          "name": "Filter Coffee Flask",
+          "quantity": 1,
+          "price": 120
+        }
+      ],
+      "total_amount": 440,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_104",
+          "amount": 330,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_204",
+          "amount": 70,
+          "percentage": 15.909090909090908
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 9.090909090909092
+        }
+      ],
+      "order_time": "2026-08-20T19:51:00Z",
+      "promised_by": "2026-08-20T20:26:00Z",
+      "delivered_at": "2026-08-20T20:39:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5004",
+      "order_id": "ord_1004",
+      "customer_id": "cust_104",
+      "customer_text": "The sambar and chutney were sour and spoiled. Smelled completely stale.",
+      "dispute_category": "stale_spoiled_food",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T20:45:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1004",
+      "assigned_at": "2026-08-20T19:52:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T20:01:00Z",
+      "pickup_time": "2026-08-20T20:27:00Z",
+      "actual_delivery_time": "2026-08-20T20:39:00Z",
+      "kitchen_prep_time_minutes": 36,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Kitchen hygiene/stale stock complaint. Telemetry shows delivery was completed in just 10 minutes from pickup."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1005",
+      "customer_id": "cust_105",
+      "customer_name": "Vikas Dubey",
+      "restaurant_id": "rest_105",
+      "restaurant_name": "Wok Express \u0026 Dimsum House",
+      "delivery_partner_id": "dp_205",
+      "delivery_partner_name": "Rider 205",
+      "items": [
+        {
+          "name": "Chicken Schezwan Hakka Noodles",
+          "quantity": 2,
+          "price": 240
+        },
+        {
+          "name": "Steamed Dimsums (6 pcs)",
+          "quantity": 1,
+          "price": 210
+        }
+      ],
+      "total_amount": 690,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_105",
+          "amount": 510,
+          "percentage": 73.91304347826086
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_205",
+          "amount": 110,
+          "percentage": 15.942028985507244
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 70,
+          "percentage": 10.144927536231885
+        }
+      ],
+      "order_time": "2026-08-20T20:08:00Z",
+      "promised_by": "2026-08-20T20:43:00Z",
+      "delivered_at": "2026-08-20T21:12:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5005",
+      "order_id": "ord_1005",
+      "customer_id": "cust_105",
+      "customer_text": "Huge delay! Ordered at 8 PM, food ready at 9 PM. The dimsums were rock hard and dried out.",
+      "dispute_category": "kitchen_delay",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T21:18:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1005",
+      "assigned_at": "2026-08-20T20:09:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T20:18:00Z",
+      "pickup_time": "2026-08-20T21:00:00Z",
+      "actual_delivery_time": "2026-08-20T21:12:00Z",
+      "kitchen_prep_time_minutes": 52,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Severe kitchen bottleneck recorded. Food prep took 52 minutes. Rider transit time was 14 minutes."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1006",
+      "customer_id": "cust_106",
+      "customer_name": "Ananya Deshmukh",
+      "restaurant_id": "rest_106",
+      "restaurant_name": "Kebab \u0026 Curries Factory",
+      "delivery_partner_id": "dp_206",
+      "delivery_partner_name": "Rider 206",
+      "items": [
+        {
+          "name": "Galouti Kebab Platter",
+          "quantity": 1,
+          "price": 450
+        },
+        {
+          "name": "Ulte Tawa Ka Paratha",
+          "quantity": 2,
+          "price": 70
+        }
+      ],
+      "total_amount": 590,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_106",
+          "amount": 440,
+          "percentage": 74.57627118644068
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_206",
+          "amount": 90,
+          "percentage": 15.254237288135593
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 60,
+          "percentage": 10.16949152542373
+        }
+      ],
+      "order_time": "2026-08-20T20:25:00Z",
+      "promised_by": "2026-08-20T21:00:00Z",
+      "delivered_at": "2026-08-20T21:12:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5006",
+      "order_id": "ord_1006",
+      "customer_id": "cust_106",
+      "customer_text": "No parathas included in the bag! Only received the kebabs.",
+      "dispute_category": "missing_items",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T21:18:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1006",
+      "assigned_at": "2026-08-20T20:26:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T20:35:00Z",
+      "pickup_time": "2026-08-20T21:00:00Z",
+      "actual_delivery_time": "2026-08-20T21:12:00Z",
+      "kitchen_prep_time_minutes": 35,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Tamper-proof seal intact upon delivery. Item omission occurred during kitchen bagging."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1007",
+      "customer_id": "cust_107",
+      "customer_name": "Siddharth Sen",
+      "restaurant_id": "rest_107",
+      "restaurant_name": "Pizza Roma Woodfire",
+      "delivery_partner_id": "dp_207",
+      "delivery_partner_name": "Rider 207",
+      "items": [
+        {
+          "name": "12\" Pepperoni \u0026 Mozzarella",
+          "quantity": 1,
+          "price": 580
+        },
+        {
+          "name": "Cheesy Garlic Breadsticks",
+          "quantity": 1,
+          "price": 180
+        }
+      ],
+      "total_amount": 760,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_107",
+          "amount": 580,
+          "percentage": 76.31578947368422
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_207",
+          "amount": 110,
+          "percentage": 14.473684210526317
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 70,
+          "percentage": 9.210526315789473
+        }
+      ],
+      "order_time": "2026-08-20T20:42:00Z",
+      "promised_by": "2026-08-20T21:17:00Z",
+      "delivered_at": "2026-08-20T21:34:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5007",
+      "order_id": "ord_1007",
+      "customer_id": "cust_107",
+      "customer_text": "The pizza crust was completely raw and doughy inside.",
+      "dispute_category": "undercooked_food",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T21:40:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1007",
+      "assigned_at": "2026-08-20T20:43:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T20:52:00Z",
+      "pickup_time": "2026-08-20T21:22:00Z",
+      "actual_delivery_time": "2026-08-20T21:34:00Z",
+      "kitchen_prep_time_minutes": 40,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Kitchen rushed undercooked pizza after 40 minute delay. Rider transit was on-time (13m)."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1008",
+      "customer_id": "cust_108",
+      "customer_name": "Meera Nair",
+      "restaurant_id": "rest_108",
+      "restaurant_name": "Mainland China Delights",
+      "delivery_partner_id": "dp_208",
+      "delivery_partner_name": "Rider 208",
+      "items": [
+        {
+          "name": "Kung Pao Chicken",
+          "quantity": 1,
+          "price": 390
+        },
+        {
+          "name": "Egg Fried Rice",
+          "quantity": 1,
+          "price": 260
+        }
+      ],
+      "total_amount": 650,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_108",
+          "amount": 490,
+          "percentage": 75.38461538461539
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_208",
+          "amount": 100,
+          "percentage": 15.384615384615385
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 60,
+          "percentage": 9.230769230769232
+        }
+      ],
+      "order_time": "2026-08-20T20:59:00Z",
+      "promised_by": "2026-08-20T21:34:00Z",
+      "delivered_at": "2026-08-20T21:43:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5008",
+      "order_id": "ord_1008",
+      "customer_id": "cust_108",
+      "customer_text": "Found a staple pin inside the fried rice container! Extremely dangerous!",
+      "dispute_category": "foreign_object_safety",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T21:49:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1008",
+      "assigned_at": "2026-08-20T21:00:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T21:09:00Z",
+      "pickup_time": "2026-08-20T21:31:00Z",
+      "actual_delivery_time": "2026-08-20T21:43:00Z",
+      "kitchen_prep_time_minutes": 32,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Kitchen foreign contamination report. Strict merchant liability."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1009",
+      "customer_id": "cust_109",
+      "customer_name": "Arjun Reddy",
+      "restaurant_id": "rest_109",
+      "restaurant_name": "Biryani Blues",
+      "delivery_partner_id": "dp_209",
+      "delivery_partner_name": "Rider 209",
+      "items": [
+        {
+          "name": "Hyderabadi Dum Biryani (Family Pack)",
+          "quantity": 1,
+          "price": 750
+        }
+      ],
+      "total_amount": 750,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_109",
+          "amount": 570,
+          "percentage": 76
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_209",
+          "amount": 110,
+          "percentage": 14.666666666666666
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 70,
+          "percentage": 9.333333333333334
+        }
+      ],
+      "order_time": "2026-08-20T21:16:00Z",
+      "promised_by": "2026-08-20T21:51:00Z",
+      "delivered_at": "2026-08-20T22:14:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5009",
+      "order_id": "ord_1009",
+      "customer_id": "cust_109",
+      "customer_text": "Kitchen kept rider waiting for 45 minutes. Raita was leaking inside because lid was half-open.",
+      "dispute_category": "poor_packaging_kitchen",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T22:20:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1009",
+      "assigned_at": "2026-08-20T21:17:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T21:26:00Z",
+      "pickup_time": "2026-08-20T22:02:00Z",
+      "actual_delivery_time": "2026-08-20T22:14:00Z",
+      "kitchen_prep_time_minutes": 46,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Lid improperly secured at restaurant dispatch counter. Kitchen prep 46m."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1010",
+      "customer_id": "cust_110",
+      "customer_name": "Kriti Sanon",
+      "restaurant_id": "rest_110",
+      "restaurant_name": "The Belgian Waffle Co",
+      "delivery_partner_id": "dp_210",
+      "delivery_partner_name": "Rider 210",
+      "items": [
+        {
+          "name": "Nutella Overload Waffle",
+          "quantity": 2,
+          "price": 190
+        },
+        {
+          "name": "Belgian Chocolate Shake",
+          "quantity": 1,
+          "price": 170
+        }
+      ],
+      "total_amount": 550,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_110",
+          "amount": 410,
+          "percentage": 74.54545454545455
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_210",
+          "amount": 90,
+          "percentage": 16.363636363636363
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 50,
+          "percentage": 9.090909090909092
+        }
+      ],
+      "order_time": "2026-08-20T21:33:00Z",
+      "promised_by": "2026-08-20T22:08:00Z",
+      "delivered_at": "2026-08-20T22:19:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5010",
+      "order_id": "ord_1010",
+      "customer_id": "cust_110",
+      "customer_text": "Waffles were completely burnt black on one side.",
+      "dispute_category": "burnt_food",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T22:25:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1010",
+      "assigned_at": "2026-08-20T21:34:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T21:43:00Z",
+      "pickup_time": "2026-08-20T22:07:00Z",
+      "actual_delivery_time": "2026-08-20T22:19:00Z",
+      "kitchen_prep_time_minutes": 34,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Merchant quality defect. Rider picked up sealed package and delivered in 9 minutes."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1011",
+      "customer_id": "cust_111",
+      "customer_name": "Varun Dhawan",
+      "restaurant_id": "rest_111",
+      "restaurant_name": "Bikanervala Sweets \u0026 Snacks",
+      "delivery_partner_id": "dp_211",
+      "delivery_partner_name": "Rider 211",
+      "items": [
+        {
+          "name": "Chole Bhature (2 Sets)",
+          "quantity": 2,
+          "price": 180
+        },
+        {
+          "name": "Kaju Katli (250g)",
+          "quantity": 1,
+          "price": 280
+        }
+      ],
+      "total_amount": 640,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_111",
+          "amount": 480,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_211",
+          "amount": 100,
+          "percentage": 15.625
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 60,
+          "percentage": 9.375
+        }
+      ],
+      "order_time": "2026-08-20T21:50:00Z",
+      "promised_by": "2026-08-20T22:25:00Z",
+      "delivered_at": "2026-08-20T22:39:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5011",
+      "order_id": "ord_1011",
+      "customer_id": "cust_111",
+      "customer_text": "Did not receive Chole at all, only Bhature were in the bag.",
+      "dispute_category": "missing_items",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T22:45:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1011",
+      "assigned_at": "2026-08-20T21:51:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T22:00:00Z",
+      "pickup_time": "2026-08-20T22:27:00Z",
+      "actual_delivery_time": "2026-08-20T22:39:00Z",
+      "kitchen_prep_time_minutes": 37,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Kitchen staff forgot the curry container during packaging."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1012",
+      "customer_id": "cust_112",
+      "customer_name": "Neha Kakkar",
+      "restaurant_id": "rest_112",
+      "restaurant_name": "Beirut Shawarma \u0026 Grill",
+      "delivery_partner_id": "dp_212",
+      "delivery_partner_name": "Rider 212",
+      "items": [
+        {
+          "name": "Jumbo Chicken Shawarma Roll",
+          "quantity": 2,
+          "price": 210
+        },
+        {
+          "name": "Hummus \u0026 Pita Plate",
+          "quantity": 1,
+          "price": 190
+        }
+      ],
+      "total_amount": 610,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_112",
+          "amount": 460,
+          "percentage": 75.40983606557377
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_212",
+          "amount": 95,
+          "percentage": 15.573770491803279
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 55,
+          "percentage": 9.01639344262295
+        }
+      ],
+      "order_time": "2026-08-20T22:07:00Z",
+      "promised_by": "2026-08-20T22:42:00Z",
+      "delivered_at": "2026-08-20T22:58:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5012",
+      "order_id": "ord_1012",
+      "customer_id": "cust_112",
+      "customer_text": "Ordered spicy tahini rolls, received bland vegetarian paneer rolls.",
+      "dispute_category": "wrong_item_packed",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T23:04:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1012",
+      "assigned_at": "2026-08-20T22:08:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T22:17:00Z",
+      "pickup_time": "2026-08-20T22:46:00Z",
+      "actual_delivery_time": "2026-08-20T22:58:00Z",
+      "kitchen_prep_time_minutes": 39,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Wrong label attached by merchant dispatch."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1013",
+      "customer_id": "cust_113",
+      "customer_name": "Rohan Joshi",
+      "restaurant_id": "rest_113",
+      "restaurant_name": "Haldiram's Express",
+      "delivery_partner_id": "dp_213",
+      "delivery_partner_name": "Rider 213",
+      "items": [
+        {
+          "name": "Raj Kachori Platter",
+          "quantity": 2,
+          "price": 150
+        },
+        {
+          "name": "Pav Bhaji",
+          "quantity": 1,
+          "price": 180
+        }
+      ],
+      "total_amount": 480,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_113",
+          "amount": 360,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_213",
+          "amount": 80,
+          "percentage": 16.666666666666664
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 8.333333333333332
+        }
+      ],
+      "order_time": "2026-08-20T22:24:00Z",
+      "promised_by": "2026-08-20T22:59:00Z",
+      "delivered_at": "2026-08-20T23:20:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5013",
+      "order_id": "ord_1013",
+      "customer_id": "cust_113",
+      "customer_text": "Kitchen delayed order by 40 minutes. Curd in the kachori had turned bad.",
+      "dispute_category": "kitchen_delay_stale",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T23:26:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1013",
+      "assigned_at": "2026-08-20T22:25:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T22:34:00Z",
+      "pickup_time": "2026-08-20T23:08:00Z",
+      "actual_delivery_time": "2026-08-20T23:20:00Z",
+      "kitchen_prep_time_minutes": 44,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Prep time 44m against 15m SLA. Rider transit swift (11m)."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1014",
+      "customer_id": "cust_114",
+      "customer_name": "Tanmay Bhat",
+      "restaurant_id": "rest_114",
+      "restaurant_name": "Chai Point Snacks",
+      "delivery_partner_id": "dp_214",
+      "delivery_partner_name": "Rider 214",
+      "items": [
+        {
+          "name": "Ginger Chai Flask (500ml)",
+          "quantity": 1,
+          "price": 220
+        },
+        {
+          "name": "Bun Maska",
+          "quantity": 2,
+          "price": 80
+        },
+        {
+          "name": "Samosa (4 pcs)",
+          "quantity": 1,
+          "price": 120
+        }
+      ],
+      "total_amount": 500,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_114",
+          "amount": 370,
+          "percentage": 74
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_214",
+          "amount": 85,
+          "percentage": 17
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 45,
+          "percentage": 9
+        }
+      ],
+      "order_time": "2026-08-20T22:41:00Z",
+      "promised_by": "2026-08-20T23:16:00Z",
+      "delivered_at": "2026-08-20T23:26:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5014",
+      "order_id": "ord_1014",
+      "customer_id": "cust_114",
+      "customer_text": "Chai flask seal was broken and half the tea was missing from the container before sealing.",
+      "dispute_category": "packaging_fault",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T23:32:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1014",
+      "assigned_at": "2026-08-20T22:42:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T22:51:00Z",
+      "pickup_time": "2026-08-20T23:14:00Z",
+      "actual_delivery_time": "2026-08-20T23:26:00Z",
+      "kitchen_prep_time_minutes": 33,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Defective flask seal applied at outlet."
+    }
+  },
+  {
+    "archetype": "clear_restaurant_fault",
+    "order": {
+      "order_id": "ord_1015",
+      "customer_id": "cust_115",
+      "customer_name": "Alia Bhatt",
+      "restaurant_id": "rest_115",
+      "restaurant_name": "Madras Tiffin Room",
+      "delivery_partner_id": "dp_215",
+      "delivery_partner_name": "Rider 215",
+      "items": [
+        {
+          "name": "Mini Idli Sambar (14 pcs)",
+          "quantity": 2,
+          "price": 140
+        },
+        {
+          "name": "Medu Vada",
+          "quantity": 2,
+          "price": 90
+        }
+      ],
+      "total_amount": 460,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_115",
+          "amount": 345,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_215",
+          "amount": 75,
+          "percentage": 16.304347826086957
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 8.695652173913043
+        }
+      ],
+      "order_time": "2026-08-20T22:58:00Z",
+      "promised_by": "2026-08-20T23:33:00Z",
+      "delivered_at": "2026-08-20T23:46:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5015",
+      "order_id": "ord_1015",
+      "customer_id": "cust_115",
+      "customer_text": "Idlis were raw in the center and rock hard. Completely unedible.",
+      "dispute_category": "undercooked_food",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-20T23:52:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1015",
+      "assigned_at": "2026-08-20T22:59:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T23:08:00Z",
+      "pickup_time": "2026-08-20T23:34:00Z",
+      "actual_delivery_time": "2026-08-20T23:46:00Z",
+      "kitchen_prep_time_minutes": 36,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "restaurant_prep_delay",
+      "telemetry_notes": "Batch undercooked by merchant. Transit was completed in 10 minutes."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1016",
+      "customer_id": "cust_201",
+      "customer_name": "Divya Menon",
+      "restaurant_id": "rest_201",
+      "restaurant_name": "Cream Stone Ice Cream",
+      "delivery_partner_id": "dp_301",
+      "delivery_partner_name": "Delivery Partner 301",
+      "items": [
+        {
+          "name": "Willy Wonka Ice Cream Tub (500ml)",
+          "quantity": 1,
+          "price": 390
+        },
+        {
+          "name": "Ferrero Rocher Sundae",
+          "quantity": 1,
+          "price": 260
+        }
+      ],
+      "total_amount": 650,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_201",
+          "amount": 490,
+          "percentage": 75.38461538461539
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_301",
+          "amount": 100,
+          "percentage": 15.384615384615385
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 60,
+          "percentage": 9.230769230769232
+        }
+      ],
+      "order_time": "2026-08-20T23:15:00Z",
+      "promised_by": "2026-08-20T23:50:00Z",
+      "delivered_at": "2026-08-21T00:21:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5016",
+      "order_id": "ord_1016",
+      "customer_id": "cust_201",
+      "customer_text": "Ice cream was completely melted into soup! Driver took 55 minutes to reach after picking it up.",
+      "dispute_category": "melted_transit_delay",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T00:27:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1016",
+      "assigned_at": "2026-08-20T23:16:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T23:25:00Z",
+      "pickup_time": "2026-08-20T23:27:00Z",
+      "actual_delivery_time": "2026-08-21T00:21:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 54,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Food ready in 11 minutes. Rider took 54 mins for a 3km delivery due to unauthorized multi-app detours."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1017",
+      "customer_id": "cust_202",
+      "customer_name": "Aman Gupta",
+      "restaurant_id": "rest_202",
+      "restaurant_name": "Burger King",
+      "delivery_partner_id": "dp_302",
+      "delivery_partner_name": "Delivery Partner 302",
+      "items": [
+        {
+          "name": "Whopper Meal",
+          "quantity": 2,
+          "price": 340
+        },
+        {
+          "name": "Chocolate Shake",
+          "quantity": 1,
+          "price": 150
+        }
+      ],
+      "total_amount": 830,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_202",
+          "amount": 620,
+          "percentage": 74.69879518072288
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_302",
+          "amount": 130,
+          "percentage": 15.66265060240964
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 80,
+          "percentage": 9.63855421686747
+        }
+      ],
+      "order_time": "2026-08-20T23:32:00Z",
+      "promised_by": "2026-08-21T00:07:00Z",
+      "delivered_at": "2026-08-21T00:32:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5017",
+      "order_id": "ord_1017",
+      "customer_id": "cust_202",
+      "customer_text": "The shake had fallen over inside the bag and soaked all the burgers. Total mess.",
+      "dispute_category": "spilled_in_transit",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T00:38:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1017",
+      "assigned_at": "2026-08-20T23:33:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T23:42:00Z",
+      "pickup_time": "2026-08-20T23:44:00Z",
+      "actual_delivery_time": "2026-08-21T00:32:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 48,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Telemetry records rough transit / vehicle drop. Kitchen packed with plastic dividers intact."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1018",
+      "customer_id": "cust_203",
+      "customer_name": "Rishi Kapoor",
+      "restaurant_id": "rest_203",
+      "restaurant_name": "Domino's Pizza",
+      "delivery_partner_id": "dp_303",
+      "delivery_partner_name": "Delivery Partner 303",
+      "items": [
+        {
+          "name": "Farmhouse Large Pizza",
+          "quantity": 1,
+          "price": 520
+        },
+        {
+          "name": "Garlic Breadsticks",
+          "quantity": 1,
+          "price": 140
+        }
+      ],
+      "total_amount": 660,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_203",
+          "amount": 500,
+          "percentage": 75.75757575757575
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_303",
+          "amount": 100,
+          "percentage": 15.151515151515152
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 60,
+          "percentage": 9.090909090909092
+        }
+      ],
+      "order_time": "2026-08-20T23:49:00Z",
+      "promised_by": "2026-08-21T00:24:00Z",
+      "delivered_at": "2026-08-21T00:39:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5018",
+      "order_id": "ord_1018",
+      "customer_id": "cust_203",
+      "customer_text": "Pizza was flipped upside down and stuck to the lid of the box. Driver dropped the delivery bag.",
+      "dispute_category": "transit_physical_damage",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T00:45:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1018",
+      "assigned_at": "2026-08-20T23:50:00Z",
+      "rider_arrival_at_restaurant": "2026-08-20T23:59:00Z",
+      "pickup_time": "2026-08-21T00:01:00Z",
+      "actual_delivery_time": "2026-08-21T00:39:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 38,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Rider reported accidental drop during bike mounting. Kitchen dispatched in 12m."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1019",
+      "customer_id": "cust_204",
+      "customer_name": "Shruti Haasan",
+      "restaurant_id": "rest_204",
+      "restaurant_name": "Subway Fresh Sandwiches",
+      "delivery_partner_id": "dp_304",
+      "delivery_partner_name": "Delivery Partner 304",
+      "items": [
+        {
+          "name": "Italian BMT Footlong",
+          "quantity": 1,
+          "price": 360
+        },
+        {
+          "name": "Roasted Chicken Footlong",
+          "quantity": 1,
+          "price": 380
+        }
+      ],
+      "total_amount": 740,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_204",
+          "amount": 560,
+          "percentage": 75.67567567567568
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_304",
+          "amount": 110,
+          "percentage": 14.864864864864865
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 70,
+          "percentage": 9.45945945945946
+        }
+      ],
+      "order_time": "2026-08-21T00:06:00Z",
+      "promised_by": "2026-08-21T00:41:00Z",
+      "delivered_at": "2026-08-21T01:16:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5019",
+      "order_id": "ord_1019",
+      "customer_id": "cust_204",
+      "customer_text": "Delivery took over an hour after pickup. Sandwiches were cold and soggy.",
+      "dispute_category": "transit_delay",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T01:22:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1019",
+      "assigned_at": "2026-08-21T00:07:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T00:16:00Z",
+      "pickup_time": "2026-08-21T00:18:00Z",
+      "actual_delivery_time": "2026-08-21T01:16:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 58,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Kitchen prep was 10m. Rider GPS show standstill in wrong sector for 38 minutes."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1020",
+      "customer_id": "cust_205",
+      "customer_name": "Naveen Polishetty",
+      "restaurant_id": "rest_205",
+      "restaurant_name": "Nando's Flame Grilled Chicken",
+      "delivery_partner_id": "dp_305",
+      "delivery_partner_name": "Delivery Partner 305",
+      "items": [
+        {
+          "name": "Half Peri-Peri Chicken",
+          "quantity": 1,
+          "price": 490
+        },
+        {
+          "name": "Peri Wedges",
+          "quantity": 1,
+          "price": 160
+        }
+      ],
+      "total_amount": 650,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_205",
+          "amount": 490,
+          "percentage": 75.38461538461539
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_305",
+          "amount": 100,
+          "percentage": 15.384615384615385
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 60,
+          "percentage": 9.230769230769232
+        }
+      ],
+      "order_time": "2026-08-21T00:23:00Z",
+      "promised_by": "2026-08-21T00:58:00Z",
+      "delivered_at": "2026-08-21T01:20:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5020",
+      "order_id": "ord_1020",
+      "customer_id": "cust_205",
+      "customer_text": "Driver marked order delivered but left it at the wrong building lobby 2 blocks away.",
+      "dispute_category": "wrong_address_delivered",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T01:26:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1020",
+      "assigned_at": "2026-08-21T00:24:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T00:33:00Z",
+      "pickup_time": "2026-08-21T00:35:00Z",
+      "actual_delivery_time": "2026-08-21T01:20:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 45,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Rider GPS geolocation 400m away from customer pin at delivery timestamp."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1021",
+      "customer_id": "cust_206",
+      "customer_name": "Tara Sutaria",
+      "restaurant_id": "rest_206",
+      "restaurant_name": "Behrouz Biryani",
+      "delivery_partner_id": "dp_306",
+      "delivery_partner_name": "Delivery Partner 306",
+      "items": [
+        {
+          "name": "Dum Gosht Biryani",
+          "quantity": 1,
+          "price": 480
+        },
+        {
+          "name": "Mint Chaas",
+          "quantity": 2,
+          "price": 60
+        }
+      ],
+      "total_amount": 600,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_206",
+          "amount": 450,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_306",
+          "amount": 95,
+          "percentage": 15.833333333333332
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 55,
+          "percentage": 9.166666666666666
+        }
+      ],
+      "order_time": "2026-08-21T00:40:00Z",
+      "promised_by": "2026-08-21T01:15:00Z",
+      "delivered_at": "2026-08-21T01:34:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5021",
+      "order_id": "ord_1021",
+      "customer_id": "cust_206",
+      "customer_text": "Chaas bottles were leaking throughout the bag. Rider was very careless.",
+      "dispute_category": "spilled_in_transit",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T01:40:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1021",
+      "assigned_at": "2026-08-21T00:41:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T00:50:00Z",
+      "pickup_time": "2026-08-21T00:52:00Z",
+      "actual_delivery_time": "2026-08-21T01:34:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 42,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Transit damage attributable to improper carrier stowage by rider."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1022",
+      "customer_id": "cust_207",
+      "customer_name": "Kartik Aaryan",
+      "restaurant_id": "rest_207",
+      "restaurant_name": "California Burrito",
+      "delivery_partner_id": "dp_307",
+      "delivery_partner_name": "Delivery Partner 307",
+      "items": [
+        {
+          "name": "Crispy Chicken Rice Bowl",
+          "quantity": 2,
+          "price": 280
+        },
+        {
+          "name": "Nachos with Salsa",
+          "quantity": 1,
+          "price": 140
+        }
+      ],
+      "total_amount": 700,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_207",
+          "amount": 530,
+          "percentage": 75.71428571428571
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_307",
+          "amount": 105,
+          "percentage": 15
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 65,
+          "percentage": 9.285714285714286
+        }
+      ],
+      "order_time": "2026-08-21T00:57:00Z",
+      "promised_by": "2026-08-21T01:32:00Z",
+      "delivered_at": "2026-08-21T02:01:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5022",
+      "order_id": "ord_1022",
+      "customer_id": "cust_207",
+      "customer_text": "Food was stone cold. Rider arrived 50 minutes after picking it up.",
+      "dispute_category": "excessive_transit_delay",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T02:07:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1022",
+      "assigned_at": "2026-08-21T00:58:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T01:07:00Z",
+      "pickup_time": "2026-08-21T01:09:00Z",
+      "actual_delivery_time": "2026-08-21T02:01:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 52,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Prep 13m. Rider took 52m for 4.2km. Route deviation detected."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1023",
+      "customer_id": "cust_208",
+      "customer_name": "Deepika Padukone",
+      "restaurant_id": "rest_208",
+      "restaurant_name": "Krispy Kreme Doughnuts",
+      "delivery_partner_id": "dp_308",
+      "delivery_partner_name": "Delivery Partner 308",
+      "items": [
+        {
+          "name": "Box of 6 Glazed Doughnuts",
+          "quantity": 1,
+          "price": 450
+        },
+        {
+          "name": "Cold Coffee",
+          "quantity": 1,
+          "price": 150
+        }
+      ],
+      "total_amount": 600,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_208",
+          "amount": 450,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_308",
+          "amount": 95,
+          "percentage": 15.833333333333332
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 55,
+          "percentage": 9.166666666666666
+        }
+      ],
+      "order_time": "2026-08-21T01:14:00Z",
+      "promised_by": "2026-08-21T01:49:00Z",
+      "delivered_at": "2026-08-21T02:02:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5023",
+      "order_id": "ord_1023",
+      "customer_id": "cust_208",
+      "customer_text": "Doughnuts were crushed flat because rider stuffed them under his backpack.",
+      "dispute_category": "transit_physical_damage",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T02:08:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1023",
+      "assigned_at": "2026-08-21T01:15:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T01:24:00Z",
+      "pickup_time": "2026-08-21T01:26:00Z",
+      "actual_delivery_time": "2026-08-21T02:02:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 36,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Physical compression during transit. Food packed in rigid box by merchant."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1024",
+      "customer_id": "cust_209",
+      "customer_name": "Ranveer Singh",
+      "restaurant_id": "rest_209",
+      "restaurant_name": "Faasos Wraps",
+      "delivery_partner_id": "dp_309",
+      "delivery_partner_name": "Delivery Partner 309",
+      "items": [
+        {
+          "name": "Classic Chicken Wrap",
+          "quantity": 2,
+          "price": 210
+        },
+        {
+          "name": "Cheese Melt Fries",
+          "quantity": 1,
+          "price": 130
+        }
+      ],
+      "total_amount": 550,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_209",
+          "amount": 410,
+          "percentage": 74.54545454545455
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_309",
+          "amount": 90,
+          "percentage": 16.363636363636363
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 50,
+          "percentage": 9.090909090909092
+        }
+      ],
+      "order_time": "2026-08-21T01:31:00Z",
+      "promised_by": "2026-08-21T02:06:00Z",
+      "delivered_at": "2026-08-21T02:23:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5024",
+      "order_id": "ord_1024",
+      "customer_id": "cust_209",
+      "customer_text": "Delivery partner was extremely rude and threw the packet at my gate.",
+      "dispute_category": "rider_misconduct_damage",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T02:29:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1024",
+      "assigned_at": "2026-08-21T01:32:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T01:41:00Z",
+      "pickup_time": "2026-08-21T01:43:00Z",
+      "actual_delivery_time": "2026-08-21T02:23:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 40,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Rider misconduct ticket raised with delivery operations."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1025",
+      "customer_id": "cust_210",
+      "customer_name": "Ishaan Khatter",
+      "restaurant_id": "rest_210",
+      "restaurant_name": "Keventers Milkshakes",
+      "delivery_partner_id": "dp_310",
+      "delivery_partner_name": "Delivery Partner 310",
+      "items": [
+        {
+          "name": "Thick Chocolate Shake (Glass Bottle)",
+          "quantity": 2,
+          "price": 240
+        }
+      ],
+      "total_amount": 480,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_210",
+          "amount": 360,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_310",
+          "amount": 80,
+          "percentage": 16.666666666666664
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 8.333333333333332
+        }
+      ],
+      "order_time": "2026-08-21T01:48:00Z",
+      "promised_by": "2026-08-21T02:23:00Z",
+      "delivered_at": "2026-08-21T02:39:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5025",
+      "order_id": "ord_1025",
+      "customer_id": "cust_210",
+      "customer_text": "One bottle was broken in the bag upon arrival. Spilled glass pieces inside.",
+      "dispute_category": "broken_goods_transit",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T02:45:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1025",
+      "assigned_at": "2026-08-21T01:49:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T01:58:00Z",
+      "pickup_time": "2026-08-21T02:00:00Z",
+      "actual_delivery_time": "2026-08-21T02:39:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 39,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Rider reported bike skidding incident in transit."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1026",
+      "customer_id": "cust_211",
+      "customer_name": "Janhvi Kapoor",
+      "restaurant_id": "rest_211",
+      "restaurant_name": "Chaayos Snacks",
+      "delivery_partner_id": "dp_311",
+      "delivery_partner_name": "Delivery Partner 311",
+      "items": [
+        {
+          "name": "Kulhad Chai Flask",
+          "quantity": 1,
+          "price": 190
+        },
+        {
+          "name": "Loaded Keema Pav",
+          "quantity": 2,
+          "price": 140
+        }
+      ],
+      "total_amount": 470,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_211",
+          "amount": 350,
+          "percentage": 74.46808510638297
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_311",
+          "amount": 80,
+          "percentage": 17.02127659574468
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 8.51063829787234
+        }
+      ],
+      "order_time": "2026-08-21T02:05:00Z",
+      "promised_by": "2026-08-21T02:40:00Z",
+      "delivered_at": "2026-08-21T03:07:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5026",
+      "order_id": "ord_1026",
+      "customer_id": "cust_211",
+      "customer_text": "Food delivered 45 minutes late and completely frozen.",
+      "dispute_category": "transit_delay",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T03:13:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1026",
+      "assigned_at": "2026-08-21T02:06:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T02:15:00Z",
+      "pickup_time": "2026-08-21T02:17:00Z",
+      "actual_delivery_time": "2026-08-21T03:07:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 50,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Kitchen prep was 11 mins. Transit took 50 mins."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1027",
+      "customer_id": "cust_212",
+      "customer_name": "Sara Ali Khan",
+      "restaurant_id": "rest_212",
+      "restaurant_name": "Wow! Momo",
+      "delivery_partner_id": "dp_312",
+      "delivery_partner_name": "Delivery Partner 312",
+      "items": [
+        {
+          "name": "Pan Fried Chicken Momos (8 pcs)",
+          "quantity": 2,
+          "price": 210
+        },
+        {
+          "name": "Momo Chutney Extra",
+          "quantity": 2,
+          "price": 30
+        }
+      ],
+      "total_amount": 480,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_212",
+          "amount": 360,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_312",
+          "amount": 80,
+          "percentage": 16.666666666666664
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 8.333333333333332
+        }
+      ],
+      "order_time": "2026-08-21T02:22:00Z",
+      "promised_by": "2026-08-21T02:57:00Z",
+      "delivered_at": "2026-08-21T03:18:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5027",
+      "order_id": "ord_1027",
+      "customer_id": "cust_212",
+      "customer_text": "Momo sauce was spilled all over the outer bag.",
+      "dispute_category": "spilled_in_transit",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T03:24:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1027",
+      "assigned_at": "2026-08-21T02:23:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T02:32:00Z",
+      "pickup_time": "2026-08-21T02:34:00Z",
+      "actual_delivery_time": "2026-08-21T03:18:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 44,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Transit handling fault."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1028",
+      "customer_id": "cust_213",
+      "customer_name": "Tiger Shroff",
+      "restaurant_id": "rest_213",
+      "restaurant_name": "Starbucks Coffee",
+      "delivery_partner_id": "dp_313",
+      "delivery_partner_name": "Delivery Partner 313",
+      "items": [
+        {
+          "name": "Caramel Macchiato Grande",
+          "quantity": 2,
+          "price": 360
+        },
+        {
+          "name": "Blueberry Muffin",
+          "quantity": 1,
+          "price": 220
+        }
+      ],
+      "total_amount": 940,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_213",
+          "amount": 720,
+          "percentage": 76.59574468085107
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_313",
+          "amount": 135,
+          "percentage": 14.361702127659576
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 85,
+          "percentage": 9.042553191489363
+        }
+      ],
+      "order_time": "2026-08-21T02:39:00Z",
+      "promised_by": "2026-08-21T03:14:00Z",
+      "delivered_at": "2026-08-21T03:29:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5028",
+      "order_id": "ord_1028",
+      "customer_id": "cust_213",
+      "customer_text": "Both coffee cups had popped lids in the bike bag and spilled 80% of drink.",
+      "dispute_category": "spilled_in_transit",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T03:35:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1028",
+      "assigned_at": "2026-08-21T02:40:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T02:49:00Z",
+      "pickup_time": "2026-08-21T02:51:00Z",
+      "actual_delivery_time": "2026-08-21T03:29:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 38,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Rider placed drinks sideways in carrier bag."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1029",
+      "customer_id": "cust_214",
+      "customer_name": "Disha Patani",
+      "restaurant_id": "rest_214",
+      "restaurant_name": "Leon's Burgers",
+      "delivery_partner_id": "dp_314",
+      "delivery_partner_name": "Delivery Partner 314",
+      "items": [
+        {
+          "name": "Crispy Chicken Wings (6 pcs)",
+          "quantity": 2,
+          "price": 240
+        },
+        {
+          "name": "Jalapeno Cheesy Dip",
+          "quantity": 2,
+          "price": 40
+        }
+      ],
+      "total_amount": 560,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_214",
+          "amount": 420,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_314",
+          "amount": 90,
+          "percentage": 16.071428571428573
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 50,
+          "percentage": 8.928571428571429
+        }
+      ],
+      "order_time": "2026-08-21T02:56:00Z",
+      "promised_by": "2026-08-21T03:31:00Z",
+      "delivered_at": "2026-08-21T04:03:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5029",
+      "order_id": "ord_1029",
+      "customer_id": "cust_214",
+      "customer_text": "Took 55 minutes for a 2km ride. Food arrived ice cold.",
+      "dispute_category": "transit_delay",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T04:09:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1029",
+      "assigned_at": "2026-08-21T02:57:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T03:06:00Z",
+      "pickup_time": "2026-08-21T03:08:00Z",
+      "actual_delivery_time": "2026-08-21T04:03:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 55,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Rider delayed due to personal unscheduled stop."
+    }
+  },
+  {
+    "archetype": "clear_delivery_fault",
+    "order": {
+      "order_id": "ord_1030",
+      "customer_id": "cust_215",
+      "customer_name": "Vicky Kaushal",
+      "restaurant_id": "rest_215",
+      "restaurant_name": "Mani's Dum Biryani",
+      "delivery_partner_id": "dp_315",
+      "delivery_partner_name": "Delivery Partner 315",
+      "items": [
+        {
+          "name": "Egg Biryani",
+          "quantity": 2,
+          "price": 220
+        },
+        {
+          "name": "Guntur Chicken Dry",
+          "quantity": 1,
+          "price": 250
+        }
+      ],
+      "total_amount": 690,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_215",
+          "amount": 520,
+          "percentage": 75.36231884057972
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_315",
+          "amount": 105,
+          "percentage": 15.217391304347828
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 65,
+          "percentage": 9.420289855072465
+        }
+      ],
+      "order_time": "2026-08-21T03:13:00Z",
+      "promised_by": "2026-08-21T03:48:00Z",
+      "delivered_at": "2026-08-21T04:07:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5030",
+      "order_id": "ord_1030",
+      "customer_id": "cust_215",
+      "customer_text": "Driver delivered to a neighbor's doorstep without calling or ringing bell.",
+      "dispute_category": "wrong_dropoff",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T04:13:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1030",
+      "assigned_at": "2026-08-21T03:14:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T03:23:00Z",
+      "pickup_time": "2026-08-21T03:25:00Z",
+      "actual_delivery_time": "2026-08-21T04:07:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 42,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "rider_transit_delay",
+      "telemetry_notes": "Wrong GPS pin drop confirmation by rider."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1031",
+      "customer_id": "cust_301",
+      "customer_name": "Abhishek Bachchan",
+      "restaurant_id": "rest_301",
+      "restaurant_name": "McDonald's",
+      "delivery_partner_id": "dp_401",
+      "delivery_partner_name": "Delivery Partner 401",
+      "items": [
+        {
+          "name": "McVeggie Combo Meal",
+          "quantity": 2,
+          "price": 260
+        }
+      ],
+      "total_amount": 520,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_301",
+          "amount": 390,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_401",
+          "amount": 85,
+          "percentage": 16.346153846153847
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 45,
+          "percentage": 8.653846153846153
+        }
+      ],
+      "order_time": "2026-08-21T03:30:00Z",
+      "promised_by": "2026-08-21T04:05:00Z",
+      "delivered_at": "2026-08-21T03:56:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5031",
+      "order_id": "ord_1031",
+      "customer_id": "cust_301",
+      "customer_text": "I ordered by mistake while checking menu. Cancelled 2 minutes before delivery, want full money back.",
+      "dispute_category": "buyer_remorse_late_cancel",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T04:02:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1031",
+      "assigned_at": "2026-08-21T03:31:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T03:40:00Z",
+      "pickup_time": "2026-08-21T03:42:00Z",
+      "actual_delivery_time": "2026-08-21T03:56:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Customer cancelled after food was prepared and rider was 200m from destination. On-time delivery."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1032",
+      "customer_id": "cust_302",
+      "customer_name": "Kareena Kapoor",
+      "restaurant_id": "rest_302",
+      "restaurant_name": "KFC",
+      "delivery_partner_id": "dp_402",
+      "delivery_partner_name": "Delivery Partner 402",
+      "items": [
+        {
+          "name": "Hot \u0026 Crispy Chicken Bucket (6 pcs)",
+          "quantity": 1,
+          "price": 550
+        }
+      ],
+      "total_amount": 550,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_302",
+          "amount": 410,
+          "percentage": 74.54545454545455
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_402",
+          "amount": 90,
+          "percentage": 16.363636363636363
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 50,
+          "percentage": 9.090909090909092
+        }
+      ],
+      "order_time": "2026-08-21T03:47:00Z",
+      "promised_by": "2026-08-21T04:22:00Z",
+      "delivered_at": "2026-08-21T04:13:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5032",
+      "order_id": "ord_1032",
+      "customer_id": "cust_302",
+      "customer_text": "My friends brought food from outside so I don't need this anymore. Refund my payment.",
+      "dispute_category": "buyer_remorse",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T04:19:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1032",
+      "assigned_at": "2026-08-21T03:48:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T03:57:00Z",
+      "pickup_time": "2026-08-21T03:59:00Z",
+      "actual_delivery_time": "2026-08-21T04:13:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Rider reached destination on time. Customer refused to accept at doorstep."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1033",
+      "customer_id": "cust_303",
+      "customer_name": "Saif Ali Khan",
+      "restaurant_id": "rest_303",
+      "restaurant_name": "Haldiram's",
+      "delivery_partner_id": "dp_403",
+      "delivery_partner_name": "Delivery Partner 403",
+      "items": [
+        {
+          "name": "Rasgulla Tin (1kg)",
+          "quantity": 1,
+          "price": 260
+        },
+        {
+          "name": "Soan Papdi",
+          "quantity": 1,
+          "price": 180
+        }
+      ],
+      "total_amount": 440,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_303",
+          "amount": 330,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_403",
+          "amount": 70,
+          "percentage": 15.909090909090908
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 9.090909090909092
+        }
+      ],
+      "order_time": "2026-08-21T04:04:00Z",
+      "promised_by": "2026-08-21T04:39:00Z",
+      "delivered_at": "2026-08-21T04:30:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5033",
+      "order_id": "ord_1033",
+      "customer_id": "cust_303",
+      "customer_text": "I put my office address instead of home address by mistake. Cancel and refund.",
+      "dispute_category": "customer_address_error",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T04:36:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1033",
+      "assigned_at": "2026-08-21T04:05:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T04:14:00Z",
+      "pickup_time": "2026-08-21T04:16:00Z",
+      "actual_delivery_time": "2026-08-21T04:30:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Customer entered incorrect delivery address. Merchant and rider fulfilled to entered coordinates."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1034",
+      "customer_id": "cust_304",
+      "customer_name": "Shahid Kapoor",
+      "restaurant_id": "rest_304",
+      "restaurant_name": "Subway",
+      "delivery_partner_id": "dp_404",
+      "delivery_partner_name": "Delivery Partner 404",
+      "items": [
+        {
+          "name": "Paneer Tikka Sub",
+          "quantity": 2,
+          "price": 250
+        }
+      ],
+      "total_amount": 500,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_304",
+          "amount": 375,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_404",
+          "amount": 80,
+          "percentage": 16
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 45,
+          "percentage": 9
+        }
+      ],
+      "order_time": "2026-08-21T04:21:00Z",
+      "promised_by": "2026-08-21T04:56:00Z",
+      "delivered_at": "2026-08-21T04:47:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5034",
+      "order_id": "ord_1034",
+      "customer_id": "cust_304",
+      "customer_text": "I wanted brown bread but accidentally selected white bread in app. Refund me.",
+      "dispute_category": "customer_ordering_error",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T04:53:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1034",
+      "assigned_at": "2026-08-21T04:22:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T04:31:00Z",
+      "pickup_time": "2026-08-21T04:33:00Z",
+      "actual_delivery_time": "2026-08-21T04:47:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Merchant fulfilled order exactly per received specification on ticket."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1035",
+      "customer_id": "cust_305",
+      "customer_name": "Mira Rajput",
+      "restaurant_id": "rest_305",
+      "restaurant_name": "Taco Bell",
+      "delivery_partner_id": "dp_405",
+      "delivery_partner_name": "Delivery Partner 405",
+      "items": [
+        {
+          "name": "7 Layer Burrito",
+          "quantity": 2,
+          "price": 220
+        },
+        {
+          "name": "Seasoned Fries",
+          "quantity": 1,
+          "price": 110
+        }
+      ],
+      "total_amount": 550,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_305",
+          "amount": 410,
+          "percentage": 74.54545454545455
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_405",
+          "amount": 90,
+          "percentage": 16.363636363636363
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 50,
+          "percentage": 9.090909090909092
+        }
+      ],
+      "order_time": "2026-08-21T04:38:00Z",
+      "promised_by": "2026-08-21T05:13:00Z",
+      "delivered_at": "2026-08-21T05:04:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5035",
+      "order_id": "ord_1035",
+      "customer_id": "cust_305",
+      "customer_text": "Found a better coupon code on another app after placing order. Want refund.",
+      "dispute_category": "buyer_remorse",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T05:10:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1035",
+      "assigned_at": "2026-08-21T04:39:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T04:48:00Z",
+      "pickup_time": "2026-08-21T04:50:00Z",
+      "actual_delivery_time": "2026-08-21T05:04:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "On-time preparation and delivery. No quality or transit defects."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1036",
+      "customer_id": "cust_306",
+      "customer_name": "Ayushmann Khurrana",
+      "restaurant_id": "rest_306",
+      "restaurant_name": "Starbucks",
+      "delivery_partner_id": "dp_406",
+      "delivery_partner_name": "Delivery Partner 406",
+      "items": [
+        {
+          "name": "Iced Caramel Macchiato",
+          "quantity": 1,
+          "price": 380
+        }
+      ],
+      "total_amount": 380,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_306",
+          "amount": 285,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_406",
+          "amount": 60,
+          "percentage": 15.789473684210526
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 35,
+          "percentage": 9.210526315789473
+        }
+      ],
+      "order_time": "2026-08-21T04:55:00Z",
+      "promised_by": "2026-08-21T05:30:00Z",
+      "delivered_at": "2026-08-21T05:21:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5036",
+      "order_id": "ord_1036",
+      "customer_id": "cust_306",
+      "customer_text": "Meeting got cancelled so I left office before rider arrived. Refund my coffee.",
+      "dispute_category": "customer_unavailable",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T05:27:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1036",
+      "assigned_at": "2026-08-21T04:56:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T05:05:00Z",
+      "pickup_time": "2026-08-21T05:07:00Z",
+      "actual_delivery_time": "2026-08-21T05:21:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Rider attempted delivery at specified time. Customer not present."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1037",
+      "customer_id": "cust_307",
+      "customer_name": "Rajkummar Rao",
+      "restaurant_id": "rest_307",
+      "restaurant_name": "Baskin Robbins",
+      "delivery_partner_id": "dp_407",
+      "delivery_partner_name": "Delivery Partner 407",
+      "items": [
+        {
+          "name": "Mississippi Mud Tub",
+          "quantity": 1,
+          "price": 420
+        }
+      ],
+      "total_amount": 420,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_307",
+          "amount": 315,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_407",
+          "amount": 68,
+          "percentage": 16.19047619047619
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 37,
+          "percentage": 8.80952380952381
+        }
+      ],
+      "order_time": "2026-08-21T05:12:00Z",
+      "promised_by": "2026-08-21T05:47:00Z",
+      "delivered_at": "2026-08-21T05:38:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5037",
+      "order_id": "ord_1037",
+      "customer_id": "cust_307",
+      "customer_text": "Ordered wrong flavour. I meant to order Cotton Candy.",
+      "dispute_category": "customer_error",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T05:44:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1037",
+      "assigned_at": "2026-08-21T05:13:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T05:22:00Z",
+      "pickup_time": "2026-08-21T05:24:00Z",
+      "actual_delivery_time": "2026-08-21T05:38:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Order fulfilled per customer selection. Food delivered frozen and sealed."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1038",
+      "customer_id": "cust_308",
+      "customer_name": "Patralekhaa",
+      "restaurant_id": "rest_308",
+      "restaurant_name": "Chai Point",
+      "delivery_partner_id": "dp_408",
+      "delivery_partner_name": "Delivery Partner 408",
+      "items": [
+        {
+          "name": "Masala Chai Flask",
+          "quantity": 1,
+          "price": 210
+        },
+        {
+          "name": "Banana Walnut Cake",
+          "quantity": 1,
+          "price": 140
+        }
+      ],
+      "total_amount": 350,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_308",
+          "amount": 260,
+          "percentage": 74.28571428571429
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_408",
+          "amount": 58,
+          "percentage": 16.57142857142857
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 32,
+          "percentage": 9.142857142857142
+        }
+      ],
+      "order_time": "2026-08-21T05:29:00Z",
+      "promised_by": "2026-08-21T06:04:00Z",
+      "delivered_at": "2026-08-21T05:55:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5038",
+      "order_id": "ord_1038",
+      "customer_id": "cust_308",
+      "customer_text": "Changed my mind, won't drink tea now.",
+      "dispute_category": "buyer_remorse",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T06:01:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1038",
+      "assigned_at": "2026-08-21T05:30:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T05:39:00Z",
+      "pickup_time": "2026-08-21T05:41:00Z",
+      "actual_delivery_time": "2026-08-21T05:55:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Customer cancelled at doorstep. Delivery on-time (22 min total)."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1039",
+      "customer_id": "cust_309",
+      "customer_name": "Yami Gautam",
+      "restaurant_id": "rest_309",
+      "restaurant_name": "Pizza Hut",
+      "delivery_partner_id": "dp_409",
+      "delivery_partner_name": "Delivery Partner 409",
+      "items": [
+        {
+          "name": "Medium Veggie Feast Pizza",
+          "quantity": 1,
+          "price": 420
+        }
+      ],
+      "total_amount": 420,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_309",
+          "amount": 315,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_409",
+          "amount": 68,
+          "percentage": 16.19047619047619
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 37,
+          "percentage": 8.80952380952381
+        }
+      ],
+      "order_time": "2026-08-21T05:46:00Z",
+      "promised_by": "2026-08-21T06:21:00Z",
+      "delivered_at": "2026-08-21T06:12:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5039",
+      "order_id": "ord_1039",
+      "customer_id": "cust_309",
+      "customer_text": "My child placed order playing with phone without permission. Refund immediately.",
+      "dispute_category": "unauthorized_order_claim",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T06:18:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1039",
+      "assigned_at": "2026-08-21T05:47:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T05:56:00Z",
+      "pickup_time": "2026-08-21T05:58:00Z",
+      "actual_delivery_time": "2026-08-21T06:12:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Full transaction completed with 2FA OTP verification."
+    }
+  },
+  {
+    "archetype": "customer_remorse",
+    "order": {
+      "order_id": "ord_1040",
+      "customer_id": "cust_310",
+      "customer_name": "Aditya Dhar",
+      "restaurant_id": "rest_310",
+      "restaurant_name": "Rolls Mania",
+      "delivery_partner_id": "dp_410",
+      "delivery_partner_name": "Delivery Partner 410",
+      "items": [
+        {
+          "name": "Double Egg Roll",
+          "quantity": 2,
+          "price": 160
+        }
+      ],
+      "total_amount": 320,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_310",
+          "amount": 240,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_410",
+          "amount": 52,
+          "percentage": 16.25
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 28,
+          "percentage": 8.75
+        }
+      ],
+      "order_time": "2026-08-21T06:03:00Z",
+      "promised_by": "2026-08-21T06:38:00Z",
+      "delivered_at": "2026-08-21T06:29:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5040",
+      "order_id": "ord_1040",
+      "customer_id": "cust_310",
+      "customer_text": "Forgot I had dinner outside already. Don't want this food.",
+      "dispute_category": "buyer_remorse",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T06:35:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1040",
+      "assigned_at": "2026-08-21T06:04:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T06:13:00Z",
+      "pickup_time": "2026-08-21T06:15:00Z",
+      "actual_delivery_time": "2026-08-21T06:29:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 14,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Delivered within 20 minutes from order creation. Merchant prepared food in 9m."
+    }
+  },
+  {
+    "archetype": "ambiguous_shared_fault",
+    "order": {
+      "order_id": "ord_1041",
+      "customer_id": "cust_401",
+      "customer_name": "Hrithik Roshan",
+      "restaurant_id": "rest_401",
+      "restaurant_name": "Social Pub \u0026 Cafe",
+      "delivery_partner_id": "dp_501",
+      "delivery_partner_name": "Delivery Partner 501",
+      "items": [
+        {
+          "name": "Butter Chicken Bao",
+          "quantity": 2,
+          "price": 280
+        },
+        {
+          "name": "Death Wings",
+          "quantity": 1,
+          "price": 260
+        }
+      ],
+      "total_amount": 820,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_401",
+          "amount": 620,
+          "percentage": 75.60975609756098
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_501",
+          "amount": 125,
+          "percentage": 15.24390243902439
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 75,
+          "percentage": 9.146341463414634
+        }
+      ],
+      "order_time": "2026-08-21T06:20:00Z",
+      "promised_by": "2026-08-21T06:55:00Z",
+      "delivered_at": "2026-08-21T07:20:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5041",
+      "order_id": "ord_1041",
+      "customer_id": "cust_401",
+      "customer_text": "Order was delayed by over 45 minutes and arrived lukewarm during evening thunderstorm.",
+      "dispute_category": "shared_delay_dispute",
+      "requested_action": "partial_refund",
+      "filed_at": "2026-08-21T07:26:00Z",
+      "customer_dispute_history_count": 1
+    },
+    "delivery_event": {
+      "order_id": "ord_1041",
+      "assigned_at": "2026-08-21T06:21:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T06:30:00Z",
+      "pickup_time": "2026-08-21T06:48:00Z",
+      "actual_delivery_time": "2026-08-21T07:20:00Z",
+      "kitchen_prep_time_minutes": 28,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 32,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "weather_traffic_external",
+      "telemetry_notes": "Moderate kitchen delay (28m vs 15m) combined with traffic/rain transit delay (32m vs 15m)."
+    }
+  },
+  {
+    "archetype": "ambiguous_shared_fault",
+    "order": {
+      "order_id": "ord_1042",
+      "customer_id": "cust_402",
+      "customer_name": "Saba Azad",
+      "restaurant_id": "rest_402",
+      "restaurant_name": "Copper Chimney",
+      "delivery_partner_id": "dp_502",
+      "delivery_partner_name": "Delivery Partner 502",
+      "items": [
+        {
+          "name": "Paneer Masala",
+          "quantity": 1,
+          "price": 380
+        },
+        {
+          "name": "Roomali Roti (4 pcs)",
+          "quantity": 1,
+          "price": 160
+        }
+      ],
+      "total_amount": 540,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_402",
+          "amount": 405,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_502",
+          "amount": 85,
+          "percentage": 15.74074074074074
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 50,
+          "percentage": 9.25925925925926
+        }
+      ],
+      "order_time": "2026-08-21T06:37:00Z",
+      "promised_by": "2026-08-21T07:12:00Z",
+      "delivered_at": "2026-08-21T07:32:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5042",
+      "order_id": "ord_1042",
+      "customer_id": "cust_402",
+      "customer_text": "Food took nearly an hour and gravies were leaking slightly around edges.",
+      "dispute_category": "shared_delay_dispute",
+      "requested_action": "partial_refund",
+      "filed_at": "2026-08-21T07:38:00Z",
+      "customer_dispute_history_count": 1
+    },
+    "delivery_event": {
+      "order_id": "ord_1042",
+      "assigned_at": "2026-08-21T06:38:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T06:47:00Z",
+      "pickup_time": "2026-08-21T07:03:00Z",
+      "actual_delivery_time": "2026-08-21T07:32:00Z",
+      "kitchen_prep_time_minutes": 26,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 29,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "weather_traffic_external",
+      "telemetry_notes": "Both prep and transit exceeded baseline SLA by ~12-14 mins each. Packaging seal weak."
+    }
+  },
+  {
+    "archetype": "ambiguous_shared_fault",
+    "order": {
+      "order_id": "ord_1043",
+      "customer_id": "cust_403",
+      "customer_name": "Farhan Akhtar",
+      "restaurant_id": "rest_403",
+      "restaurant_name": "Smoke House Deli",
+      "delivery_partner_id": "dp_503",
+      "delivery_partner_name": "Delivery Partner 503",
+      "items": [
+        {
+          "name": "Peri Peri Chicken Pizza",
+          "quantity": 1,
+          "price": 520
+        },
+        {
+          "name": "Iced Tea",
+          "quantity": 2,
+          "price": 120
+        }
+      ],
+      "total_amount": 760,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_403",
+          "amount": 570,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_503",
+          "amount": 115,
+          "percentage": 15.131578947368421
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 75,
+          "percentage": 9.868421052631579
+        }
+      ],
+      "order_time": "2026-08-21T06:54:00Z",
+      "promised_by": "2026-08-21T07:29:00Z",
+      "delivered_at": "2026-08-21T07:49:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5043",
+      "order_id": "ord_1043",
+      "customer_id": "cust_403",
+      "customer_text": "Took 55 mins total. Pizza was warm but crust was soggy from prolonged steam.",
+      "dispute_category": "shared_delay_dispute",
+      "requested_action": "partial_refund",
+      "filed_at": "2026-08-21T07:55:00Z",
+      "customer_dispute_history_count": 1
+    },
+    "delivery_event": {
+      "order_id": "ord_1043",
+      "assigned_at": "2026-08-21T06:55:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T07:04:00Z",
+      "pickup_time": "2026-08-21T07:21:00Z",
+      "actual_delivery_time": "2026-08-21T07:49:00Z",
+      "kitchen_prep_time_minutes": 27,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 28,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "weather_traffic_external",
+      "telemetry_notes": "Even delay distribution across merchant prep and logistics transit."
+    }
+  },
+  {
+    "archetype": "ambiguous_shared_fault",
+    "order": {
+      "order_id": "ord_1044",
+      "customer_id": "cust_404",
+      "customer_name": "Shibani Dandekar",
+      "restaurant_id": "rest_404",
+      "restaurant_name": "Barbeque Nation Express",
+      "delivery_partner_id": "dp_504",
+      "delivery_partner_name": "Delivery Partner 504",
+      "items": [
+        {
+          "name": "Cajun Spiced Potatoes",
+          "quantity": 2,
+          "price": 180
+        },
+        {
+          "name": "Chicken Kebab Box",
+          "quantity": 1,
+          "price": 340
+        }
+      ],
+      "total_amount": 700,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_404",
+          "amount": 525,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_504",
+          "amount": 110,
+          "percentage": 15.714285714285714
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 65,
+          "percentage": 9.285714285714286
+        }
+      ],
+      "order_time": "2026-08-21T07:11:00Z",
+      "promised_by": "2026-08-21T07:46:00Z",
+      "delivered_at": "2026-08-21T08:11:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5044",
+      "order_id": "ord_1044",
+      "customer_id": "cust_404",
+      "customer_text": "Overall delay ruined party timing. Arrived 40 minutes past promised slot.",
+      "dispute_category": "shared_delay_dispute",
+      "requested_action": "partial_refund",
+      "filed_at": "2026-08-21T08:17:00Z",
+      "customer_dispute_history_count": 1
+    },
+    "delivery_event": {
+      "order_id": "ord_1044",
+      "assigned_at": "2026-08-21T07:12:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T07:21:00Z",
+      "pickup_time": "2026-08-21T07:40:00Z",
+      "actual_delivery_time": "2026-08-21T08:11:00Z",
+      "kitchen_prep_time_minutes": 29,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 31,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "weather_traffic_external",
+      "telemetry_notes": "Peak rush congestion at both kitchen and city traffic junction."
+    }
+  },
+  {
+    "archetype": "ambiguous_shared_fault",
+    "order": {
+      "order_id": "ord_1045",
+      "customer_id": "cust_405",
+      "customer_name": "Zoya Akhtar",
+      "restaurant_id": "rest_405",
+      "restaurant_name": "Chili's Grill \u0026 Bar",
+      "delivery_partner_id": "dp_505",
+      "delivery_partner_name": "Delivery Partner 505",
+      "items": [
+        {
+          "name": "Classic Bacon Burger",
+          "quantity": 1,
+          "price": 450
+        },
+        {
+          "name": "Texas Cheese Poppers",
+          "quantity": 1,
+          "price": 260
+        }
+      ],
+      "total_amount": 710,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_405",
+          "amount": 535,
+          "percentage": 75.35211267605634
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_505",
+          "amount": 110,
+          "percentage": 15.492957746478872
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 65,
+          "percentage": 9.15492957746479
+        }
+      ],
+      "order_time": "2026-08-21T07:28:00Z",
+      "promised_by": "2026-08-21T08:03:00Z",
+      "delivered_at": "2026-08-21T08:23:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5045",
+      "order_id": "ord_1045",
+      "customer_id": "cust_405",
+      "customer_text": "Late delivery and burger box was bent in half.",
+      "dispute_category": "shared_delay_dispute",
+      "requested_action": "partial_refund",
+      "filed_at": "2026-08-21T08:29:00Z",
+      "customer_dispute_history_count": 1
+    },
+    "delivery_event": {
+      "order_id": "ord_1045",
+      "assigned_at": "2026-08-21T07:29:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T07:38:00Z",
+      "pickup_time": "2026-08-21T07:53:00Z",
+      "actual_delivery_time": "2026-08-21T08:23:00Z",
+      "kitchen_prep_time_minutes": 25,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 30,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "weather_traffic_external",
+      "telemetry_notes": "Combined slight merchant prep delay and handling transit strain."
+    }
+  },
+  {
+    "archetype": "repeat_offender_fraud",
+    "order": {
+      "order_id": "ord_1046",
+      "customer_id": "cust_fraud_501",
+      "customer_name": "Vikramaditya Singhania",
+      "restaurant_id": "rest_501",
+      "restaurant_name": "Paradise Biryani",
+      "delivery_partner_id": "dp_601",
+      "delivery_partner_name": "Delivery Partner 601",
+      "items": [
+        {
+          "name": "Mutton Biryani Special",
+          "quantity": 2,
+          "price": 390
+        }
+      ],
+      "total_amount": 780,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_501",
+          "amount": 590,
+          "percentage": 75.64102564102564
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_601",
+          "amount": 120,
+          "percentage": 15.384615384615385
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 70,
+          "percentage": 8.974358974358974
+        }
+      ],
+      "order_time": "2026-08-21T07:45:00Z",
+      "promised_by": "2026-08-21T08:20:00Z",
+      "delivered_at": "2026-08-21T08:03:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5046",
+      "order_id": "ord_1046",
+      "customer_id": "cust_fraud_501",
+      "customer_text": "Food was completely ice cold and inedible. Give full refund immediately.",
+      "dispute_category": "suspected_fraud_pattern",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T08:09:00Z",
+      "customer_dispute_history_count": 6
+    },
+    "delivery_event": {
+      "order_id": "ord_1046",
+      "assigned_at": "2026-08-21T07:46:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T07:55:00Z",
+      "pickup_time": "2026-08-21T07:55:00Z",
+      "actual_delivery_time": "2026-08-21T08:03:00Z",
+      "kitchen_prep_time_minutes": 10,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 8,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Customer has filed 6 'cold food' claims in past 21 days. Telemetry proves delivery done in 16m total from hot kitchen oven."
+    }
+  },
+  {
+    "archetype": "repeat_offender_fraud",
+    "order": {
+      "order_id": "ord_1047",
+      "customer_id": "cust_fraud_502",
+      "customer_name": "Mohit Aggarwal",
+      "restaurant_id": "rest_502",
+      "restaurant_name": "McDonald's",
+      "delivery_partner_id": "dp_602",
+      "delivery_partner_name": "Delivery Partner 602",
+      "items": [
+        {
+          "name": "Big Spicy Chicken Wrap Meal",
+          "quantity": 2,
+          "price": 320
+        }
+      ],
+      "total_amount": 640,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_502",
+          "amount": 480,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_602",
+          "amount": 100,
+          "percentage": 15.625
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 60,
+          "percentage": 9.375
+        }
+      ],
+      "order_time": "2026-08-21T08:02:00Z",
+      "promised_by": "2026-08-21T08:37:00Z",
+      "delivered_at": "2026-08-21T08:20:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5047",
+      "order_id": "ord_1047",
+      "customer_id": "cust_fraud_502",
+      "customer_text": "Claiming missing fries and burger in bag. Want full refund.",
+      "dispute_category": "suspected_fraud_pattern",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T08:26:00Z",
+      "customer_dispute_history_count": 5
+    },
+    "delivery_event": {
+      "order_id": "ord_1047",
+      "assigned_at": "2026-08-21T08:03:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T08:12:00Z",
+      "pickup_time": "2026-08-21T08:12:00Z",
+      "actual_delivery_time": "2026-08-21T08:20:00Z",
+      "kitchen_prep_time_minutes": 10,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 8,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Customer filed 5 missing item complaints this month. Merchant weight sensor verified bag weighed 1.1kg (all items present)."
+    }
+  },
+  {
+    "archetype": "repeat_offender_fraud",
+    "order": {
+      "order_id": "ord_1048",
+      "customer_id": "cust_fraud_503",
+      "customer_name": "Harshita Jain",
+      "restaurant_id": "rest_503",
+      "restaurant_name": "KFC",
+      "delivery_partner_id": "dp_603",
+      "delivery_partner_name": "Delivery Partner 603",
+      "items": [
+        {
+          "name": "12 pc Hot \u0026 Crispy Bucket",
+          "quantity": 1,
+          "price": 790
+        }
+      ],
+      "total_amount": 790,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_503",
+          "amount": 600,
+          "percentage": 75.9493670886076
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_603",
+          "amount": 120,
+          "percentage": 15.18987341772152
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 70,
+          "percentage": 8.860759493670885
+        }
+      ],
+      "order_time": "2026-08-21T08:19:00Z",
+      "promised_by": "2026-08-21T08:54:00Z",
+      "delivered_at": "2026-08-21T08:37:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5048",
+      "order_id": "ord_1048",
+      "customer_id": "cust_fraud_503",
+      "customer_text": "Chicken was raw and undercooked, refund my money.",
+      "dispute_category": "suspected_fraud_pattern",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T08:43:00Z",
+      "customer_dispute_history_count": 4
+    },
+    "delivery_event": {
+      "order_id": "ord_1048",
+      "assigned_at": "2026-08-21T08:20:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T08:29:00Z",
+      "pickup_time": "2026-08-21T08:29:00Z",
+      "actual_delivery_time": "2026-08-21T08:37:00Z",
+      "kitchen_prep_time_minutes": 10,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 8,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Customer repeated exact copy-paste claim on 4 different orders this week. Audit flagged."
+    }
+  },
+  {
+    "archetype": "repeat_offender_fraud",
+    "order": {
+      "order_id": "ord_1049",
+      "customer_id": "cust_fraud_504",
+      "customer_name": "Sanjay Oberoi",
+      "restaurant_id": "rest_504",
+      "restaurant_name": "Domino's Pizza",
+      "delivery_partner_id": "dp_604",
+      "delivery_partner_name": "Delivery Partner 604",
+      "items": [
+        {
+          "name": "Cheese Burst Pizza Large",
+          "quantity": 2,
+          "price": 490
+        }
+      ],
+      "total_amount": 980,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_504",
+          "amount": 750,
+          "percentage": 76.53061224489795
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_604",
+          "amount": 140,
+          "percentage": 14.285714285714285
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 90,
+          "percentage": 9.183673469387756
+        }
+      ],
+      "order_time": "2026-08-21T08:36:00Z",
+      "promised_by": "2026-08-21T09:11:00Z",
+      "delivered_at": "2026-08-21T08:54:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5049",
+      "order_id": "ord_1049",
+      "customer_id": "cust_fraud_504",
+      "customer_text": "Driver was 1 hour late. Food spoiled.",
+      "dispute_category": "suspected_fraud_pattern",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T09:00:00Z",
+      "customer_dispute_history_count": 7
+    },
+    "delivery_event": {
+      "order_id": "ord_1049",
+      "assigned_at": "2026-08-21T08:37:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T08:46:00Z",
+      "pickup_time": "2026-08-21T08:46:00Z",
+      "actual_delivery_time": "2026-08-21T08:54:00Z",
+      "kitchen_prep_time_minutes": 10,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 8,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Rider completed delivery in 18 minutes (17 minutes ahead of SLA). Fraudulent time claim."
+    }
+  },
+  {
+    "archetype": "repeat_offender_fraud",
+    "order": {
+      "order_id": "ord_1050",
+      "customer_id": "cust_fraud_505",
+      "customer_name": "Priyanka Saxena",
+      "restaurant_id": "rest_505",
+      "restaurant_name": "Subway",
+      "delivery_partner_id": "dp_605",
+      "delivery_partner_name": "Delivery Partner 605",
+      "items": [
+        {
+          "name": "Paneer Sub",
+          "quantity": 2,
+          "price": 260
+        },
+        {
+          "name": "Cookies (3 pcs)",
+          "quantity": 1,
+          "price": 150
+        }
+      ],
+      "total_amount": 670,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_505",
+          "amount": 500,
+          "percentage": 74.6268656716418
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_605",
+          "amount": 105,
+          "percentage": 15.671641791044777
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 65,
+          "percentage": 9.701492537313433
+        }
+      ],
+      "order_time": "2026-08-21T08:53:00Z",
+      "promised_by": "2026-08-21T09:28:00Z",
+      "delivered_at": "2026-08-21T09:11:00Z",
+      "delivery_status": "delivered_on_time"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5050",
+      "order_id": "ord_1050",
+      "customer_id": "cust_fraud_505",
+      "customer_text": "Claiming hair in food for the 5th time across different restaurants.",
+      "dispute_category": "suspected_fraud_pattern",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T09:17:00Z",
+      "customer_dispute_history_count": 5
+    },
+    "delivery_event": {
+      "order_id": "ord_1050",
+      "assigned_at": "2026-08-21T08:54:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T09:03:00Z",
+      "pickup_time": "2026-08-21T09:03:00Z",
+      "actual_delivery_time": "2026-08-21T09:11:00Z",
+      "kitchen_prep_time_minutes": 10,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 8,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "none",
+      "telemetry_notes": "Repeated hygiene refund exploitation pattern detected across 5 different restaurant brands."
+    }
+  },
+  {
+    "archetype": "platform_dispatch_error",
+    "order": {
+      "order_id": "ord_1051",
+      "customer_id": "cust_601",
+      "customer_name": "Ranbir Kapoor",
+      "restaurant_id": "rest_601",
+      "restaurant_name": "Punjab Grill",
+      "delivery_partner_id": "dp_701",
+      "delivery_partner_name": "Delivery Partner 701",
+      "items": [
+        {
+          "name": "Tandoori Chicken Full",
+          "quantity": 1,
+          "price": 520
+        },
+        {
+          "name": "Butter Naan",
+          "quantity": 2,
+          "price": 50
+        }
+      ],
+      "total_amount": 620,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_601",
+          "amount": 470,
+          "percentage": 75.80645161290323
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_701",
+          "amount": 95,
+          "percentage": 15.32258064516129
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 55,
+          "percentage": 8.870967741935484
+        }
+      ],
+      "order_time": "2026-08-21T09:10:00Z",
+      "promised_by": "2026-08-21T09:45:00Z",
+      "delivered_at": "2026-08-21T09:34:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5051",
+      "order_id": "ord_1051",
+      "customer_id": "cust_601",
+      "customer_text": "Food sat ready on restaurant counter for 40 minutes because no rider was assigned by platform!",
+      "dispute_category": "dispatch_system_outage",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T09:40:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1051",
+      "assigned_at": "2026-08-21T09:11:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T09:20:00Z",
+      "pickup_time": "2026-08-21T09:22:00Z",
+      "actual_delivery_time": "2026-08-21T09:34:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "platform_dispatch_error",
+      "telemetry_notes": "Platform auto-dispatch microservice timeout. Rider was assigned 37 minutes after kitchen marked order ready."
+    }
+  },
+  {
+    "archetype": "platform_dispatch_error",
+    "order": {
+      "order_id": "ord_1052",
+      "customer_id": "cust_602",
+      "customer_name": "Alia Bhatt-Kapoor",
+      "restaurant_id": "rest_602",
+      "restaurant_name": "Truffles Burgers",
+      "delivery_partner_id": "dp_702",
+      "delivery_partner_name": "Delivery Partner 702",
+      "items": [
+        {
+          "name": "Veg Burger Combo",
+          "quantity": 2,
+          "price": 240
+        },
+        {
+          "name": "Cold Coffee",
+          "quantity": 2,
+          "price": 110
+        }
+      ],
+      "total_amount": 700,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_602",
+          "amount": 530,
+          "percentage": 75.71428571428571
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_702",
+          "amount": 105,
+          "percentage": 15
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 65,
+          "percentage": 9.285714285714286
+        }
+      ],
+      "order_time": "2026-08-21T09:27:00Z",
+      "promised_by": "2026-08-21T10:02:00Z",
+      "delivered_at": "2026-08-21T09:51:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5052",
+      "order_id": "ord_1052",
+      "customer_id": "cust_602",
+      "customer_text": "Platform charged credit card twice due to payment gateway retry glitch.",
+      "dispute_category": "platform_billing_glitch",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T09:57:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1052",
+      "assigned_at": "2026-08-21T09:28:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T09:37:00Z",
+      "pickup_time": "2026-08-21T09:39:00Z",
+      "actual_delivery_time": "2026-08-21T09:51:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "platform_dispatch_error",
+      "telemetry_notes": "Duplicate payment capture on transaction ID route_tx_9921. Platform billing reversal required."
+    }
+  },
+  {
+    "archetype": "platform_dispatch_error",
+    "order": {
+      "order_id": "ord_1053",
+      "customer_id": "cust_603",
+      "customer_name": "Anil Kapoor",
+      "restaurant_id": "rest_603",
+      "restaurant_name": "Behrouz Biryani",
+      "delivery_partner_id": "dp_703",
+      "delivery_partner_name": "Delivery Partner 703",
+      "items": [
+        {
+          "name": "Paneer Subz Biryani",
+          "quantity": 1,
+          "price": 380
+        },
+        {
+          "name": "Gulab Jamun",
+          "quantity": 1,
+          "price": 90
+        }
+      ],
+      "total_amount": 470,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_603",
+          "amount": 350,
+          "percentage": 74.46808510638297
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_703",
+          "amount": 80,
+          "percentage": 17.02127659574468
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 40,
+          "percentage": 8.51063829787234
+        }
+      ],
+      "order_time": "2026-08-21T09:44:00Z",
+      "promised_by": "2026-08-21T10:19:00Z",
+      "delivered_at": "2026-08-21T10:08:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5053",
+      "order_id": "ord_1053",
+      "customer_id": "cust_603",
+      "customer_text": "App crashed during order placement and assigned an outlet 18km away instead of 1km local outlet.",
+      "dispute_category": "geo_routing_glitch",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T10:14:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1053",
+      "assigned_at": "2026-08-21T09:45:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T09:54:00Z",
+      "pickup_time": "2026-08-21T09:56:00Z",
+      "actual_delivery_time": "2026-08-21T10:08:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "platform_dispatch_error",
+      "telemetry_notes": "Platform geo-routing algorithm selected distant cluster node due to caching desync."
+    }
+  },
+  {
+    "archetype": "platform_dispatch_error",
+    "order": {
+      "order_id": "ord_1054",
+      "customer_id": "cust_604",
+      "customer_name": "Sonam Kapoor",
+      "restaurant_id": "rest_604",
+      "restaurant_name": "Wow! Momo",
+      "delivery_partner_id": "dp_704",
+      "delivery_partner_name": "Delivery Partner 704",
+      "items": [
+        {
+          "name": "Steamed Veg Momo Box",
+          "quantity": 2,
+          "price": 180
+        }
+      ],
+      "total_amount": 360,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_604",
+          "amount": 270,
+          "percentage": 75
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_704",
+          "amount": 60,
+          "percentage": 16.666666666666664
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 30,
+          "percentage": 8.333333333333332
+        }
+      ],
+      "order_time": "2026-08-21T10:01:00Z",
+      "promised_by": "2026-08-21T10:36:00Z",
+      "delivered_at": "2026-08-21T10:25:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5054",
+      "order_id": "ord_1054",
+      "customer_id": "cust_604",
+      "customer_text": "Platform catalog displayed 'Buy 1 Get 1' banner which didn't apply at checkout.",
+      "dispute_category": "catalog_pricing_error",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T10:31:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1054",
+      "assigned_at": "2026-08-21T10:02:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T10:11:00Z",
+      "pickup_time": "2026-08-21T10:13:00Z",
+      "actual_delivery_time": "2026-08-21T10:25:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "platform_dispatch_error",
+      "telemetry_notes": "Stale promotion banner displayed by platform CDN. Platform absorbs promo difference."
+    }
+  },
+  {
+    "archetype": "platform_dispatch_error",
+    "order": {
+      "order_id": "ord_1055",
+      "customer_id": "cust_605",
+      "customer_name": "Harsh Varrdhan Kapoor",
+      "restaurant_id": "rest_605",
+      "restaurant_name": "Subway",
+      "delivery_partner_id": "dp_705",
+      "delivery_partner_name": "Delivery Partner 705",
+      "items": [
+        {
+          "name": "Chicken Teriyaki Sub",
+          "quantity": 2,
+          "price": 310
+        }
+      ],
+      "total_amount": 620,
+      "split": [
+        {
+          "party": "restaurant",
+          "party_id": "rest_605",
+          "amount": 470,
+          "percentage": 75.80645161290323
+        },
+        {
+          "party": "delivery_partner",
+          "party_id": "dp_705",
+          "amount": 95,
+          "percentage": 15.32258064516129
+        },
+        {
+          "party": "platform",
+          "party_id": "swiggy_platform",
+          "amount": 55,
+          "percentage": 8.870967741935484
+        }
+      ],
+      "order_time": "2026-08-21T10:18:00Z",
+      "promised_by": "2026-08-21T10:53:00Z",
+      "delivered_at": "2026-08-21T10:42:00Z",
+      "delivery_status": "delivered_late"
+    },
+    "complaint": {
+      "complaint_id": "cmp_5055",
+      "order_id": "ord_1055",
+      "customer_id": "cust_605",
+      "customer_text": "App showed 'Delivered' 20 minutes before food actually arrived due to system sync error.",
+      "dispute_category": "platform_tracking_error",
+      "requested_action": "full_refund",
+      "filed_at": "2026-08-21T10:48:00Z",
+      "customer_dispute_history_count": 0
+    },
+    "delivery_event": {
+      "order_id": "ord_1055",
+      "assigned_at": "2026-08-21T10:19:00Z",
+      "rider_arrival_at_restaurant": "2026-08-21T10:28:00Z",
+      "pickup_time": "2026-08-21T10:30:00Z",
+      "actual_delivery_time": "2026-08-21T10:42:00Z",
+      "kitchen_prep_time_minutes": 12,
+      "expected_prep_time_minutes": 15,
+      "transit_time_minutes": 12,
+      "expected_transit_time_minutes": 15,
+      "delay_source_flag": "platform_dispatch_error",
+      "telemetry_notes": "Webhook race condition marked order delivered prematurely. Platform logistics error."
+    }
+  }
+]
