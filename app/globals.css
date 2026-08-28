@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #0C111D;
+    --bg-surface: #161B26;
+    --bg-elevated: #1F2430;
+    --border-subtle: #242D3D;
+    --border-strong: #334155;
+    
+    /* Semantic fault palette */
+    --fault-restaurant: #D97706;
+    --fault-delivery: #0284C7;
+    --fault-platform: #7C3AED;
+    --fault-customer: #059669;
+  }
+}
+
+/* Custom scrollbar for high-density tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C111D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #242D3D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
