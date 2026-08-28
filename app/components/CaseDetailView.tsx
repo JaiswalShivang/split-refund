@@ -58,15 +58,15 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
 
   if (!assembledCase) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-center rounded-xl border border-[#242D3D] bg-[#161B26] p-8">
-        <FileText className="h-10 w-10 text-slate-500 mb-3" />
-        <h3 className="text-base font-bold text-white">No Case Selected</h3>
-        <p className="text-xs text-slate-400 mt-1 max-w-sm">
+      <div className="flex flex-col items-center justify-center py-20 text-center rounded-xl border border-slate-200 bg-white p-8 shadow-xs">
+        <FileText className="h-10 w-10 text-slate-400 mb-3" />
+        <h3 className="text-base font-bold text-slate-900">No Case Selected</h3>
+        <p className="text-xs text-slate-500 mt-1 max-w-sm">
           Select a dispute case from the Dispute Queue to inspect the telemetry dossier and causal attribution.
         </p>
         <button
           onClick={onBackToQueue}
-          className="mt-4 flex items-center gap-1.5 rounded-md bg-[#2563EB] px-4 py-2 text-xs font-semibold text-white transition hover:bg-blue-600"
+          className="mt-4 flex items-center gap-1.5 rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-xs transition hover:bg-blue-700"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           <span>Return to Dispute Queue</span>
@@ -111,11 +111,11 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
   return (
     <div className="space-y-4">
       {/* Top Action Bar & Case Selector */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between rounded-xl border border-[#242D3D] bg-[#161B26] p-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
         <div className="flex items-center gap-3">
           <button
             onClick={onBackToQueue}
-            className="flex items-center gap-1 rounded-md border border-[#242D3D] bg-[#0C111D] px-2.5 py-1.5 text-xs font-semibold text-slate-300 transition hover:border-[#334155] hover:text-white"
+            className="flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Dispute Queue</span>
@@ -126,7 +126,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
             <select
               value={order.order_id}
               onChange={(e) => onSelectCase(e.target.value)}
-              className="appearance-none rounded-md border border-[#242D3D] bg-[#0C111D] py-1.5 pl-3 pr-8 text-xs font-mono text-blue-300 focus:border-blue-500 focus:outline-none"
+              className="appearance-none rounded-md border border-slate-200 bg-slate-50 py-1.5 pl-3 pr-8 text-xs font-mono text-blue-700 font-medium focus:border-blue-500 focus:bg-white focus:outline-none shadow-xs"
             >
               {allCases.map((c) => (
                 <option key={c.order.order_id} value={c.order.order_id}>
@@ -142,9 +142,9 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
           {decision && (
             <button
               onClick={handleOpenOverride}
-              className="flex items-center gap-1.5 rounded-md border border-[#334155] bg-[#0C111D] px-3 py-1.5 text-xs font-semibold text-slate-200 transition hover:border-blue-500 hover:text-white"
+              className="flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-xs transition hover:border-blue-400 hover:text-blue-700 hover:bg-blue-50/50"
             >
-              <Sliders className="h-3.5 w-3.5 text-blue-400" />
+              <Sliders className="h-3.5 w-3.5 text-blue-600" />
               <span>Adjuster Override</span>
             </button>
           )}
@@ -152,7 +152,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
           <button
             onClick={() => onEvaluateCase(order.order_id)}
             disabled={isEvaluating}
-            className="flex items-center gap-1.5 rounded-md bg-[#2563EB] hover:bg-blue-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm transition disabled:opacity-50"
+            className="flex items-center gap-1.5 rounded-md bg-blue-600 hover:bg-blue-700 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs transition disabled:opacity-50"
           >
             <Play className={`h-3 w-3 fill-current ${isEvaluating ? "animate-spin" : ""}`} />
             <span>{isEvaluating ? "Analyzing Telemetry..." : decision ? "Re-Run Attribution Engine" : "Run Attribution Engine"}</span>
@@ -161,73 +161,73 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
       </div>
 
       {/* Case Header Dossier Banner */}
-      <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-5">
+      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2.5 flex-wrap">
-              <span className="text-lg font-mono font-bold text-white tracking-tight">
+              <span className="text-lg font-mono font-bold text-slate-900 tracking-tight">
                 {order.order_id}
               </span>
-              <span className="rounded border border-[#242D3D] bg-[#0C111D] px-2 py-0.5 text-xs font-semibold text-slate-300">
+              <span className="rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">
                 {complaint.dispute_category.replace(/_/g, " ").toUpperCase()}
               </span>
               {decision?.status === "AUTO_RESOLVED" && (
-                <span className="inline-flex items-center gap-1 rounded border border-emerald-500/30 bg-emerald-950/40 px-2 py-0.5 text-xs font-semibold text-emerald-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                <span className="inline-flex items-center gap-1 rounded border border-emerald-300 bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
                   Autonomous Settlement (Conclusive Ground Truth)
                 </span>
               )}
               {decision?.status === "NEEDS_HUMAN_REVIEW" && (
-                <span className="inline-flex items-center gap-1 rounded border border-[#D97706]/40 bg-amber-950/40 px-2 py-0.5 text-xs font-semibold text-[#F59E0B]">
-                  <AlertCircle className="h-3.5 w-3.5" />
+                <span className="inline-flex items-center gap-1 rounded border border-amber-300 bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-900">
+                  <AlertCircle className="h-3.5 w-3.5 text-[#D97706]" />
                   Ambiguous Evidence Hold (Confidence &lt; 60%)
                 </span>
               )}
               {decision?.status === "FRAUD_SUSPECT_REVIEW" && (
-                <span className="inline-flex items-center gap-1 rounded border border-rose-500/40 bg-rose-950/40 px-2 py-0.5 text-xs font-semibold text-rose-300">
-                  <ShieldAlert className="h-3.5 w-3.5" />
+                <span className="inline-flex items-center gap-1 rounded border border-rose-300 bg-rose-50 px-2 py-0.5 text-xs font-semibold text-rose-800">
+                  <ShieldAlert className="h-3.5 w-3.5 text-rose-600" />
                   High-Velocity Claim Hold (&ge;4 disputes/30d)
                 </span>
               )}
               {decision?.status === "MANUALLY_OVERRIDDEN" && (
-                <span className="inline-flex items-center gap-1 rounded border border-blue-500/40 bg-blue-950/40 px-2 py-0.5 text-xs font-semibold text-blue-300">
+                <span className="inline-flex items-center gap-1 rounded border border-blue-300 bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-800">
                   Adjuster Manual Override Applied
                 </span>
               )}
             </div>
 
-            <div className="mt-2.5 flex items-center gap-4 text-xs text-slate-400 flex-wrap">
-              <span>Customer: <strong className="text-white">{order.customer_name}</strong></span>
-              <span className="text-slate-600">•</span>
+            <div className="mt-2.5 flex items-center gap-4 text-xs text-slate-500 flex-wrap">
+              <span>Customer: <strong className="text-slate-900">{order.customer_name}</strong></span>
+              <span className="text-slate-300">•</span>
               <span className="flex items-center gap-1">
                 <Store className="h-3.5 w-3.5 text-[#D97706]" />
-                Merchant: <strong className="text-white">{order.restaurant_name}</strong>
+                Merchant: <strong className="text-slate-900">{order.restaurant_name}</strong>
               </span>
-              <span className="text-slate-600">•</span>
+              <span className="text-slate-300">•</span>
               <span className="flex items-center gap-1">
                 <Bike className="h-3.5 w-3.5 text-[#0284C7]" />
-                Delivery Partner: <strong className="text-white">{order.delivery_partner_name}</strong>
+                Delivery Partner: <strong className="text-slate-900">{order.delivery_partner_name}</strong>
               </span>
             </div>
           </div>
 
           {/* Amount Box */}
-          <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-3 flex md:flex-col items-center md:items-end justify-between gap-1 shrink-0">
-            <span className="text-[11px] text-slate-400">Total Dispute Transaction</span>
-            <div className="text-xl font-bold font-mono text-white flex items-center gap-0.5">
-              <IndianRupee className="h-4 w-4 text-slate-400" />
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 flex md:flex-col items-center md:items-end justify-between gap-1 shrink-0">
+            <span className="text-[11px] text-slate-500 font-medium">Total Dispute Transaction</span>
+            <div className="text-xl font-bold font-mono text-slate-900 flex items-center gap-0.5">
+              <IndianRupee className="h-4 w-4 text-slate-500" />
               <span>{order.total_amount.toLocaleString("en-IN")}</span>
             </div>
           </div>
         </div>
 
         {/* Initial Split Ledger Bar */}
-        <div className="mt-4 pt-4 border-t border-[#242D3D]">
-          <div className="flex items-center justify-between text-[11px] text-slate-400 mb-1.5">
-            <span className="font-semibold text-slate-300">Original Razorpay Route Escrow Split:</span>
-            <span className="font-mono">Sum: ₹{order.total_amount.toFixed(2)}</span>
+        <div className="mt-4 pt-4 border-t border-slate-100">
+          <div className="flex items-center justify-between text-[11px] text-slate-500 mb-1.5">
+            <span className="font-semibold text-slate-700">Original Razorpay Route Escrow Split:</span>
+            <span className="font-mono text-slate-900">Sum: ₹{order.total_amount.toFixed(2)}</span>
           </div>
-          <div className="flex h-2.5 w-full overflow-hidden rounded bg-[#0C111D] border border-[#242D3D]">
+          <div className="flex h-2.5 w-full overflow-hidden rounded bg-slate-100 border border-slate-200">
             {order.split.map((s, idx) => (
               <div
                 key={idx}
@@ -243,7 +243,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
               />
             ))}
           </div>
-          <div className="mt-2 flex items-center justify-between text-[11px] text-slate-400 flex-wrap gap-2">
+          <div className="mt-2 flex items-center justify-between text-[11px] text-slate-600 flex-wrap gap-2">
             {order.split.map((s, idx) => (
               <div key={idx} className="flex items-center gap-1.5 font-mono">
                 <span
@@ -255,11 +255,11 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                       : "bg-[#7C3AED]"
                   }`}
                 />
-                <span className="text-slate-300 font-sans">
+                <span className="text-slate-700 font-sans">
                   {s.party === "restaurant" ? "Merchant" : s.party === "delivery_partner" ? "Delivery Partner" : "Platform"}:
                 </span>
-                <span className="text-white font-semibold">₹{s.amount.toFixed(2)}</span>
-                <span className="text-slate-500 font-sans">({s.percentage.toFixed(0)}%)</span>
+                <span className="text-slate-900 font-semibold">₹{s.amount.toFixed(2)}</span>
+                <span className="text-slate-400 font-sans">({s.percentage.toFixed(0)}%)</span>
               </div>
             ))}
           </div>
@@ -270,80 +270,80 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
       <div className="space-y-2">
         {/* Panel Framing Header */}
         <div className="flex items-center justify-between px-1">
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-300">
-            <Scale className="h-4 w-4 text-blue-400" />
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+            <Scale className="h-4 w-4 text-blue-600" />
             <span>Dual-Source Ground Truth Inspector</span>
           </div>
-          <p className="text-[11px] text-slate-400 hidden sm:block">
+          <p className="text-[11px] text-slate-500 hidden sm:block">
             The agent weighs objective delivery telemetry against subjective customer claims when accounts conflict.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Source 1: Customer Claim */}
-          <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-4 flex flex-col justify-between">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 flex flex-col justify-between shadow-xs">
             <div>
-              <div className="flex items-center justify-between border-b border-[#242D3D] pb-2.5 mb-3">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-5 w-5 items-center justify-center rounded bg-rose-950/60 border border-rose-500/30 text-rose-300 text-xs font-bold">
+                  <span className="flex h-5 w-5 items-center justify-center rounded bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold">
                     🗣️
                   </span>
-                  <h4 className="text-xs font-semibold text-slate-200">
+                  <h4 className="text-xs font-semibold text-slate-900">
                     What The Customer Claimed
                   </h4>
                 </div>
-                <span className="text-[10px] text-slate-500 font-mono">
+                <span className="text-[10px] text-slate-400 font-mono">
                   Filed: {new Date(complaint.filed_at).toLocaleTimeString()}
                 </span>
               </div>
 
-              <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-3.5 text-xs text-slate-200 italic leading-relaxed">
+              <div className="rounded-lg border border-slate-200 bg-slate-50 p-3.5 text-xs text-slate-800 italic leading-relaxed">
                 &quot;{complaint.customer_text}&quot;
               </div>
 
               <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                <div className="rounded-lg bg-[#0C111D] p-2 border border-[#242D3D]">
-                  <span className="text-[10px] text-slate-400 block font-medium">Requested Remedy</span>
-                  <span className="font-semibold text-white capitalize">
+                <div className="rounded-lg bg-slate-50 p-2 border border-slate-200">
+                  <span className="text-[10px] text-slate-500 block font-medium">Requested Remedy</span>
+                  <span className="font-semibold text-slate-900 capitalize">
                     {complaint.requested_action.replace("_", " ")}
                   </span>
                 </div>
-                <div className="rounded-lg bg-[#0C111D] p-2 border border-[#242D3D]">
-                  <span className="text-[10px] text-slate-400 block font-medium">Past 30d Claims</span>
+                <div className="rounded-lg bg-slate-50 p-2 border border-slate-200">
+                  <span className="text-[10px] text-slate-500 block font-medium">Past 30d Claims</span>
                   <span
                     className={`font-semibold ${
                       complaint.customer_dispute_history_count >= 4
-                        ? "text-rose-400 flex items-center gap-1"
-                        : "text-slate-300"
+                        ? "text-rose-600 flex items-center gap-1"
+                        : "text-slate-800"
                     }`}
                   >
                     {complaint.customer_dispute_history_count} disputes
                     {complaint.customer_dispute_history_count >= 4 && (
-                      <span className="text-[10px] text-rose-300 font-normal">(High Risk Hold)</span>
+                      <span className="text-[10px] text-rose-600 font-normal">(High Risk Hold)</span>
                     )}
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-[#242D3D] text-[11px] text-slate-500">
+            <div className="mt-3 pt-2.5 border-t border-slate-100 text-[11px] text-slate-500">
               Subjective statement submitted via consumer mobile dispute form.
             </div>
           </div>
 
           {/* Source 2: Objective Telemetry Ground Truth */}
-          <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-4 flex flex-col justify-between">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 flex flex-col justify-between shadow-xs">
             <div>
-              <div className="flex items-center justify-between border-b border-[#242D3D] pb-2.5 mb-3">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-5 w-5 items-center justify-center rounded bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-bold">
+                  <span className="flex h-5 w-5 items-center justify-center rounded bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold">
                     🛰️
                   </span>
-                  <h4 className="text-xs font-semibold text-slate-200">
+                  <h4 className="text-xs font-semibold text-slate-900">
                     What Machine Telemetry Recorded
                   </h4>
                 </div>
-                <span className="text-[10px] rounded border border-blue-500/30 bg-blue-950/50 px-1.5 py-0.5 text-blue-300 font-mono">
+                <span className="text-[10px] rounded border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-blue-700 font-mono font-medium">
                   Signed Ground Truth
                 </span>
               </div>
@@ -351,9 +351,9 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
               {/* Telemetry Timeline Metrics */}
               <div className="grid grid-cols-2 gap-2 text-xs">
                 {/* Merchant Prep vs SLA */}
-                <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-2.5">
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-400 flex items-center gap-1 font-medium">
+                    <span className="text-[10px] text-slate-600 flex items-center gap-1 font-medium">
                       <Store className="h-3 w-3 text-[#D97706]" /> Merchant Prep Time
                     </span>
                     <span className="text-[10px] text-slate-500 font-mono">SLA: {delivery_event.expected_prep_time_minutes}m</span>
@@ -362,20 +362,20 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                     <span
                       className={`text-lg font-bold font-mono ${
                         delivery_event.kitchen_prep_time_minutes > delivery_event.expected_prep_time_minutes + 10
-                          ? "text-rose-400"
-                          : "text-emerald-400"
+                          ? "text-rose-600"
+                          : "text-emerald-700"
                       }`}
                     >
                       {delivery_event.kitchen_prep_time_minutes}
                     </span>
-                    <span className="text-xs text-slate-400">mins</span>
+                    <span className="text-xs text-slate-500">mins</span>
                   </div>
                 </div>
 
                 {/* Delivery Partner Transit vs SLA */}
-                <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-2.5">
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-slate-400 flex items-center gap-1 font-medium">
+                    <span className="text-[10px] text-slate-600 flex items-center gap-1 font-medium">
                       <Bike className="h-3 w-3 text-[#0284C7]" /> Delivery Partner Transit Time
                     </span>
                     <span className="text-[10px] text-slate-500 font-mono">SLA: {delivery_event.expected_transit_time_minutes}m</span>
@@ -384,32 +384,32 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                     <span
                       className={`text-lg font-bold font-mono ${
                         delivery_event.transit_time_minutes > delivery_event.expected_transit_time_minutes + 15
-                          ? "text-rose-400"
-                          : "text-emerald-400"
+                          ? "text-rose-600"
+                          : "text-emerald-700"
                       }`}
                     >
                       {delivery_event.transit_time_minutes}
                     </span>
-                    <span className="text-xs text-slate-400">mins</span>
+                    <span className="text-xs text-slate-500">mins</span>
                   </div>
                 </div>
               </div>
 
               {/* Delay Source Flag */}
-              <div className="mt-2 rounded-lg border border-[#242D3D] bg-[#0C111D] p-2.5">
+              <div className="mt-2 rounded-lg border border-blue-100 bg-blue-50/50 p-2.5">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-[10px] text-slate-400">Telemetry Delay Tag:</span>
-                  <span className="font-mono text-blue-300 font-semibold text-[11px]">
+                  <span className="text-[10px] text-slate-600 font-medium">Telemetry Delay Tag:</span>
+                  <span className="font-mono text-blue-700 font-semibold text-[11px]">
                     {delivery_event.delay_source_flag}
                   </span>
                 </div>
-                <p className="mt-1 text-[11px] text-slate-300">
+                <p className="mt-1 text-[11px] text-slate-700">
                   {delivery_event.telemetry_notes}
                 </p>
               </div>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-[#242D3D] text-[11px] text-slate-500">
+            <div className="mt-3 pt-2.5 border-t border-slate-100 text-[11px] text-slate-500">
               Verified timestamps from Merchant POS terminal &amp; Delivery Partner GPS hardware.
             </div>
           </div>
@@ -421,22 +421,22 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
         <div className="space-y-4">
           {/* Innocent Party Protected Causal Outcome Banner */}
           {decision.is_innocent_party_protected && (
-            <div className="rounded-xl border border-emerald-500/40 bg-[#161B26] p-4">
+            <div className="rounded-xl border border-emerald-300 bg-emerald-50/60 p-4 shadow-xs">
               <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 mt-0.5">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-100 border border-emerald-300 text-emerald-700 mt-0.5">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <h4 className="text-sm font-bold text-emerald-300">
+                    <h4 className="text-sm font-bold text-emerald-900">
                       Innocent {decision.protected_party_type === "restaurant" ? "Merchant" : "Delivery Partner"} Protected from Unfair Chargeback
                     </h4>
-                    <span className="rounded bg-emerald-950 px-2 py-0.5 text-xs font-mono font-bold text-emerald-300 border border-emerald-500/30">
+                    <span className="rounded bg-emerald-100 px-2 py-0.5 text-xs font-mono font-bold text-emerald-800 border border-emerald-300">
                       ₹{decision.protected_amount.toFixed(2)} Preserved
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    A naive marketplace policy would have automatically deducted 100% (₹{decision.protected_amount}) from <strong className="text-white">{decision.protected_party_name}</strong>. The Dispute Engine examined telemetry ground truth, identified the delay occurred in Delivery Partner transit, and spared the merchant from unfair liability.
+                  <p className="text-xs text-slate-700 leading-relaxed">
+                    A naive marketplace policy would have automatically deducted 100% (₹{decision.protected_amount}) from <strong className="text-slate-900">{decision.protected_party_name}</strong>. The Dispute Engine examined telemetry ground truth, identified the delay occurred in Delivery Partner transit, and spared the merchant from unfair liability.
                   </p>
                 </div>
               </div>
@@ -444,26 +444,26 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
           )}
 
           {/* THE SIGNATURE ATTRIBUTION CENTERPIECE */}
-          <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-5 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#242D3D] pb-3">
+          <div className="rounded-xl border border-slate-200 bg-white p-5 space-y-4 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-100 pb-3">
               <div>
-                <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                  <Cpu className="h-4 w-4 text-blue-400" />
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <Cpu className="h-4 w-4 text-blue-600" />
                   Fault-Attribution &amp; Reversal Allocation Centerpiece
                 </h3>
-                <p className="text-xs text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-500 mt-0.5">
                   Exact liability percentage determined by evidence pipeline and executed in Go math engine
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-400 font-medium">Confidence Score:</span>
+                <span className="text-xs text-slate-500 font-medium">Confidence Score:</span>
                 <span
                   className={`text-sm font-mono font-bold rounded px-2.5 py-0.5 border ${
                     decision.confidence >= 80
-                      ? "bg-emerald-950 text-emerald-400 border-emerald-500/30"
+                      ? "bg-emerald-50 text-emerald-800 border-emerald-300"
                       : decision.confidence >= 60
-                      ? "bg-amber-950 text-amber-400 border-[#D97706]/30"
-                      : "bg-rose-950 text-rose-400 border-rose-500/30"
+                      ? "bg-amber-50 text-amber-900 border-amber-300"
+                      : "bg-rose-50 text-rose-800 border-rose-300"
                   }`}
                 >
                   {decision.confidence}%
@@ -473,7 +473,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
 
             {/* Signature Segmented Attribution Ribbon */}
             <div className="space-y-1.5">
-              <div className="flex h-7 w-full overflow-hidden rounded-lg bg-[#0C111D] p-1 border border-[#242D3D]">
+              <div className="flex h-7 w-full overflow-hidden rounded-lg bg-slate-100 p-1 border border-slate-200">
                 {decision.fault_attribution.restaurant > 0 && (
                   <div
                     style={{ width: `${decision.fault_attribution.restaurant}%` }}
@@ -510,32 +510,32 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
 
               {/* Attribution Segment Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs pt-1">
-                <div className="rounded-lg border border-[#D97706]/30 bg-[#0C111D] p-2.5">
-                  <span className="text-[10px] text-[#D97706] font-semibold block">Merchant Prep Fault</span>
+                <div className="rounded-lg border border-amber-200 bg-amber-50/40 p-2.5">
+                  <span className="text-[10px] text-[#B45309] font-bold block">Merchant Prep Fault</span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-white font-mono">{decision.fault_attribution.restaurant}%</span>
-                    <span className="text-[10px] text-slate-400 font-sans">liability</span>
+                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.restaurant}%</span>
+                    <span className="text-[10px] text-slate-500 font-sans">liability</span>
                   </div>
                 </div>
-                <div className="rounded-lg border border-[#0284C7]/30 bg-[#0C111D] p-2.5">
-                  <span className="text-[10px] text-[#0284C7] font-semibold block">Delivery Partner Transit Fault</span>
+                <div className="rounded-lg border border-sky-200 bg-sky-50/40 p-2.5">
+                  <span className="text-[10px] text-[#0369A1] font-bold block">Delivery Partner Transit Fault</span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-white font-mono">{decision.fault_attribution.delivery_partner}%</span>
-                    <span className="text-[10px] text-slate-400 font-sans">liability</span>
+                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.delivery_partner}%</span>
+                    <span className="text-[10px] text-slate-500 font-sans">liability</span>
                   </div>
                 </div>
-                <div className="rounded-lg border border-[#7C3AED]/30 bg-[#0C111D] p-2.5">
-                  <span className="text-[10px] text-[#A78BFA] font-semibold block">Platform Outage Fault</span>
+                <div className="rounded-lg border border-purple-200 bg-purple-50/40 p-2.5">
+                  <span className="text-[10px] text-[#6D28D9] font-bold block">Platform Outage Fault</span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-white font-mono">{decision.fault_attribution.platform}%</span>
-                    <span className="text-[10px] text-slate-400 font-sans">liability</span>
+                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.platform}%</span>
+                    <span className="text-[10px] text-slate-500 font-sans">liability</span>
                   </div>
                 </div>
-                <div className="rounded-lg border border-[#059669]/30 bg-[#0C111D] p-2.5">
-                  <span className="text-[10px] text-emerald-400 font-semibold block">Customer Remorse</span>
+                <div className="rounded-lg border border-emerald-200 bg-emerald-50/40 p-2.5">
+                  <span className="text-[10px] text-[#047857] font-bold block">Customer Remorse</span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-white font-mono">{decision.fault_attribution.customer}%</span>
-                    <span className="text-[10px] text-slate-400 font-sans">non-refundable</span>
+                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.customer}%</span>
+                    <span className="text-[10px] text-slate-500 font-sans">non-refundable</span>
                   </div>
                 </div>
               </div>
@@ -545,33 +545,33 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
           {/* Reasoning & Formal Justification Audit Dossier */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Investigator Case Notes */}
-            <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-4">
-              <h4 className="text-xs font-semibold text-slate-300 flex items-center gap-1.5 mb-2">
-                <FileText className="h-3.5 w-3.5 text-blue-400" />
+            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
+              <h4 className="text-xs font-semibold text-slate-900 flex items-center gap-1.5 mb-2">
+                <FileText className="h-3.5 w-3.5 text-blue-600" />
                 Dispute Investigation Case Analysis
               </h4>
-              <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-3 text-xs text-slate-300 leading-relaxed font-sans">
+              <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700 leading-relaxed font-sans">
                 {decision.reasoning}
               </div>
             </div>
 
             {/* Dispute-Defense Justification Memo */}
-            <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-4 flex flex-col justify-between">
+            <div className="rounded-xl border border-slate-200 bg-white p-4 flex flex-col justify-between shadow-xs">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
-                    <UserCheck className="h-3.5 w-3.5 text-emerald-400" />
+                  <h4 className="text-xs font-semibold text-slate-900 flex items-center gap-1.5">
+                    <UserCheck className="h-3.5 w-3.5 text-emerald-600" />
                     Formal Audit Justification Memo
                   </h4>
                   <button
                     onClick={handleCopyMemo}
-                    className="flex items-center gap-1 text-[11px] text-blue-400 hover:text-blue-300 transition"
+                    className="flex items-center gap-1 text-[11px] text-blue-600 hover:text-blue-700 font-medium transition"
                   >
-                    {copiedMemo ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+                    {copiedMemo ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3" />}
                     <span>{copiedMemo ? "Copied" : "Copy Memo"}</span>
                   </button>
                 </div>
-                <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-3 text-xs text-slate-300 leading-relaxed italic">
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700 leading-relaxed italic">
                   &quot;{decision.justification_memo}&quot;
                 </div>
               </div>
@@ -582,26 +582,26 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
           </div>
 
           {/* Deterministic Split-Reversal Calculations Table */}
-          <div className="overflow-hidden rounded-xl border border-[#242D3D] bg-[#161B26]">
-            <div className="border-b border-[#242D3D] bg-[#0C111D] px-4 py-3 flex items-center justify-between">
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs">
+            <div className="border-b border-slate-200 bg-slate-50 px-4 py-3 flex items-center justify-between">
               <div>
-                <h4 className="text-xs font-semibold text-white">
+                <h4 className="text-xs font-semibold text-slate-900">
                   Deterministic Split-Reversal Calculations (Razorpay Route)
                 </h4>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-slate-500">
                   Exact rupee debits computed via Go arithmetic engine based on fault attribution
                 </p>
               </div>
               <div className="text-right">
-                <span className="text-[10px] text-slate-400 block">Total Refund Debited</span>
-                <span className="text-sm font-bold font-mono text-emerald-400">
+                <span className="text-[10px] text-slate-500 block">Total Refund Debited</span>
+                <span className="text-sm font-bold font-mono text-emerald-700">
                   ₹{decision.total_refund_to_customer.toLocaleString("en-IN")}
                 </span>
               </div>
             </div>
 
             <table className="w-full text-left text-xs">
-              <thead className="border-b border-[#242D3D] text-[11px] font-medium text-slate-400 bg-[#161B26] uppercase">
+              <thead className="border-b border-slate-200 text-[11px] font-medium text-slate-500 bg-slate-50 uppercase">
                 <tr>
                   <th className="py-2.5 pl-4 pr-2">Marketplace Party</th>
                   <th className="py-2.5 px-3">Original Escrow Split</th>
@@ -610,10 +610,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   <th className="py-2.5 pr-4 pl-2 text-right">Net Payout Retained</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#242D3D]/70 font-mono">
+              <tbody className="divide-y divide-slate-100 font-mono">
                 {decision.reversals.map((r, idx) => (
-                  <tr key={idx} className="hover:bg-[#1F2430]/40 transition">
-                    <td className="py-2.5 pl-4 pr-2 font-sans font-medium text-white flex items-center gap-1.5">
+                  <tr key={idx} className="hover:bg-slate-50/80 transition">
+                    <td className="py-2.5 pl-4 pr-2 font-sans font-medium text-slate-900 flex items-center gap-1.5">
                       <span
                         className={`h-2 w-2 rounded-full ${
                           r.party === "restaurant"
@@ -625,12 +625,12 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                       />
                       <span>{r.party_name}</span>
                     </td>
-                    <td className="py-2.5 px-3 text-slate-300">₹{r.original_amount.toFixed(2)}</td>
-                    <td className="py-2.5 px-3 text-blue-400 font-semibold">{r.fault_percentage}%</td>
-                    <td className="py-2.5 px-3 text-rose-400 font-bold">
+                    <td className="py-2.5 px-3 text-slate-700">₹{r.original_amount.toFixed(2)}</td>
+                    <td className="py-2.5 px-3 text-blue-700 font-semibold">{r.fault_percentage}%</td>
+                    <td className="py-2.5 px-3 text-rose-600 font-bold">
                       {r.reversal_amount > 0 ? `-₹${r.reversal_amount.toFixed(2)}` : "₹0.00"}
                     </td>
-                    <td className="py-2.5 pr-4 pl-2 text-right text-emerald-400 font-bold">
+                    <td className="py-2.5 pr-4 pl-2 text-right text-emerald-700 font-bold">
                       ₹{r.net_retained.toFixed(2)}
                     </td>
                   </tr>
@@ -640,18 +640,18 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
           </div>
         </div>
       ) : (
-        <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-8 text-center">
-          <Play className="h-8 w-8 text-blue-400 mx-auto mb-2 fill-current" />
-          <h3 className="text-sm font-bold text-white">
+        <div className="rounded-xl border border-slate-200 bg-white p-8 text-center shadow-xs">
+          <Play className="h-8 w-8 text-blue-600 mx-auto mb-2 fill-current" />
+          <h3 className="text-sm font-bold text-slate-900">
             Dispute Ready for Decision Analysis
           </h3>
-          <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
+          <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
             Click &quot;Run Attribution Engine&quot; to synthesize machine telemetry ground truth against customer claims and calculate deterministic split reversals.
           </p>
           <button
             onClick={() => onEvaluateCase(order.order_id)}
             disabled={isEvaluating}
-            className="mt-4 inline-flex items-center gap-2 rounded-md bg-[#2563EB] px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-blue-600 transition disabled:opacity-50"
+            className="mt-4 inline-flex items-center gap-2 rounded-md bg-blue-600 hover:bg-blue-700 px-4 py-2 text-xs font-semibold text-white shadow-xs transition disabled:opacity-50"
           >
             <Play className={`h-3.5 w-3.5 fill-current ${isEvaluating ? "animate-spin" : ""}`} />
             <span>{isEvaluating ? "Evaluating Case..." : "Run Attribution Engine Now"}</span>
@@ -661,16 +661,16 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
 
       {/* Adjuster Manual Override Modal */}
       {isOverrideOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="w-full max-w-md rounded-xl border border-[#242D3D] bg-[#161B26] p-5 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-[#242D3D] pb-3 mb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
+          <div className="w-full max-w-md rounded-xl border border-slate-200 bg-white p-5 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
               <div className="flex items-center gap-2">
-                <Sliders className="h-4 w-4 text-blue-400" />
-                <h3 className="text-sm font-bold text-white">Adjuster Manual Override</h3>
+                <Sliders className="h-4 w-4 text-blue-600" />
+                <h3 className="text-sm font-bold text-slate-900">Adjuster Manual Override</h3>
               </div>
               <button
                 onClick={() => setIsOverrideOpen(false)}
-                className="text-slate-400 hover:text-white"
+                className="text-slate-400 hover:text-slate-700"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -678,20 +678,20 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
 
             <form onSubmit={handleSaveOverrideSubmit} className="space-y-3.5 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1 font-medium">Adjuster Identifier</label>
+                <label className="text-slate-700 block mb-1 font-medium">Adjuster Identifier</label>
                 <input
                   type="text"
                   value={reviewerName}
                   onChange={(e) => setReviewerName(e.target.value)}
-                  className="w-full rounded-md border border-[#242D3D] bg-[#0C111D] py-1.5 px-3 text-white focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-md border border-slate-200 bg-slate-50 py-1.5 px-3 text-slate-900 focus:border-blue-500 focus:bg-white focus:outline-none"
                 />
               </div>
 
               {/* Sliders for percentages */}
               <div className="space-y-2.5 pt-1">
-                <div className="flex justify-between items-center text-slate-300">
-                  <span className="text-[#D97706] font-semibold">Merchant Fault %</span>
-                  <span className="font-mono">{overrideFault.restaurant}%</span>
+                <div className="flex justify-between items-center text-slate-800">
+                  <span className="text-[#D97706] font-bold">Merchant Fault %</span>
+                  <span className="font-mono font-bold">{overrideFault.restaurant}%</span>
                 </div>
                 <input
                   type="range"
@@ -706,9 +706,9 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   className="w-full accent-[#D97706]"
                 />
 
-                <div className="flex justify-between items-center text-slate-300">
-                  <span className="text-[#0284C7] font-semibold">Delivery Partner Fault %</span>
-                  <span className="font-mono">{overrideFault.delivery_partner}%</span>
+                <div className="flex justify-between items-center text-slate-800">
+                  <span className="text-[#0284C7] font-bold">Delivery Partner Fault %</span>
+                  <span className="font-mono font-bold">{overrideFault.delivery_partner}%</span>
                 </div>
                 <input
                   type="range"
@@ -725,13 +725,13 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1 font-medium">Adjuster Audit Justification Notes</label>
+                <label className="text-slate-700 block mb-1 font-medium">Adjuster Audit Justification Notes</label>
                 <textarea
                   rows={3}
                   value={overrideNotes}
                   onChange={(e) => setOverrideNotes(e.target.value)}
                   placeholder="Explain why the engine fault split is being adjusted..."
-                  className="w-full rounded-md border border-[#242D3D] bg-[#0C111D] p-2.5 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-md border border-slate-200 bg-slate-50 p-2.5 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:bg-white focus:outline-none"
                 />
               </div>
 
@@ -739,13 +739,13 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsOverrideOpen(false)}
-                  className="rounded-md border border-[#242D3D] bg-[#0C111D] px-3 py-1.5 text-slate-300 hover:text-white"
+                  className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-slate-700 hover:bg-slate-50 hover:text-slate-900 shadow-xs"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="rounded-md bg-[#2563EB] px-4 py-1.5 font-semibold text-white hover:bg-blue-600"
+                  className="rounded-md bg-blue-600 px-4 py-1.5 font-semibold text-white hover:bg-blue-700 shadow-xs"
                 >
                   Save &amp; Recalculate Split Reversals
                 </button>

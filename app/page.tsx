@@ -169,7 +169,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0C111D] text-[#F8FAFC] font-sans selection:bg-[#2563EB] selection:text-white pb-16">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-600 selection:text-white pb-16">
       {/* Top Navigation */}
       <Navbar
         activeTab={activeTab}
@@ -194,8 +194,8 @@ export default function Home() {
         {/* Tab Views */}
         {isLoading ? (
           <div className="py-24 text-center">
-            <div className="inline-block h-7 w-7 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
-            <p className="mt-3 text-xs text-slate-400">Loading verified dispute dossiers...</p>
+            <div className="inline-block h-7 w-7 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
+            <p className="mt-3 text-xs text-slate-500 font-medium">Loading verified dispute dossiers...</p>
           </div>
         ) : (
           <>
@@ -235,11 +235,11 @@ export default function Home() {
 
       {/* Notification Toast */}
       {toast && (
-        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-lg border border-[#334155] bg-[#161B26] px-4 py-2.5 text-xs font-medium text-white shadow-xl">
+        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-medium text-slate-800 shadow-lg">
           {toast.type === "success" ? (
-            <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
           ) : (
-            <AlertCircle className="h-4 w-4 text-rose-400 shrink-0" />
+            <AlertCircle className="h-4 w-4 text-rose-600 shrink-0" />
           )}
           <span>{toast.message}</span>
         </div>

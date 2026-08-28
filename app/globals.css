@@ -2,11 +2,11 @@
 
 @layer base {
   :root {
-    --bg-canvas: #0C111D;
-    --bg-surface: #161B26;
-    --bg-elevated: #1F2430;
-    --border-subtle: #242D3D;
-    --border-strong: #334155;
+    --bg-canvas: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --bg-elevated: #F1F5F9;
+    --border-subtle: #E2E8F0;
+    --border-strong: #CBD5E1;
     
     /* Semantic fault palette */
     --fault-restaurant: #D97706;
@@ -16,21 +16,21 @@
   }
 }
 
-/* Custom scrollbar for high-density tables */
+/* Custom scrollbar for clean light tables */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0C111D;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #242D3D;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94A3B8;
 }

@@ -12,17 +12,17 @@ interface MetricsBannerProps {
 export const MetricsBanner: React.FC<MetricsBannerProps> = ({ metrics, onSelectProtectedFilter }) => {
   if (!metrics || metrics.total_cases_processed === 0) {
     return (
-      <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-4 text-slate-200">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 text-slate-800 shadow-xs">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1F2430] border border-[#334155] text-blue-400">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 border border-blue-200 text-blue-600">
               <ShieldCheck className="h-5 w-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white">
+              <h3 className="text-sm font-bold text-slate-900">
                 55 Marketplace Dispute Cases Ready for Settlement Engine
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-500 mt-0.5">
                 Each case contains verified 3-source telemetry: Customer Claim, Merchant POS Timestamps, and Delivery Partner GPS Traces.
               </p>
             </div>
@@ -37,112 +37,112 @@ export const MetricsBanner: React.FC<MetricsBannerProps> = ({ metrics, onSelectP
       {/* 1. Unfair Chargebacks Prevented (Key Causal Showcase) */}
       <div
         onClick={onSelectProtectedFilter}
-        className="rounded-xl border border-emerald-500/40 bg-[#161B26] p-3.5 cursor-pointer hover:border-emerald-400 transition flex flex-col justify-between"
+        className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-3.5 cursor-pointer hover:border-emerald-300 hover:shadow-sm transition flex flex-col justify-between"
       >
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
+          <span className="text-[11px] font-semibold text-emerald-800 uppercase tracking-wider">
             Chargebacks Prevented
           </span>
-          <ShieldCheck className="h-4 w-4 text-emerald-400" />
+          <ShieldCheck className="h-4 w-4 text-emerald-600" />
         </div>
         <div className="mt-2">
-          <div className="flex items-baseline gap-1 text-xl font-bold font-mono text-white">
-            <IndianRupee className="h-4 w-4 text-emerald-400 self-center" />
+          <div className="flex items-baseline gap-1 text-xl font-bold font-mono text-slate-900">
+            <IndianRupee className="h-4 w-4 text-emerald-600 self-center" />
             <span>{metrics.innocent_protected_amount.toLocaleString("en-IN")}</span>
           </div>
-          <p className="text-[11px] font-semibold text-emerald-300 mt-0.5">
+          <p className="text-[11px] font-semibold text-emerald-700 mt-0.5">
             {metrics.innocent_protected_count} innocent merchants &amp; delivery partners spared
           </p>
         </div>
-        <div className="mt-2 pt-2 border-t border-[#242D3D] text-[10px] text-slate-400 leading-tight">
+        <div className="mt-2 pt-2 border-t border-emerald-100 text-[10px] text-slate-600 leading-tight">
           Saved from unfair 100% deduction when telemetry proved Delivery Partner transit delay.
         </div>
       </div>
 
       {/* 2. Autonomous Settlements */}
-      <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-3.5 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs flex flex-col justify-between">
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-semibold text-slate-300 uppercase tracking-wider">
+          <span className="text-[11px] font-semibold text-slate-600 uppercase tracking-wider">
             Autonomous Settlements
           </span>
-          <CheckCircle2 className="h-4 w-4 text-blue-400" />
+          <CheckCircle2 className="h-4 w-4 text-blue-600" />
         </div>
         <div className="mt-2">
           <div className="flex items-baseline gap-2">
-            <span className="text-xl font-bold font-mono text-white">{metrics.auto_resolved_count}</span>
-            <span className="text-xs font-semibold text-blue-400">({metrics.auto_resolved_rate}%)</span>
+            <span className="text-xl font-bold font-mono text-slate-900">{metrics.auto_resolved_count}</span>
+            <span className="text-xs font-semibold text-blue-600">({metrics.auto_resolved_rate}%)</span>
           </div>
-          <p className="text-[11px] text-slate-300 mt-0.5">
+          <p className="text-[11px] text-slate-600 mt-0.5">
             Conclusive telemetry evidence
           </p>
         </div>
-        <div className="mt-2 pt-2 border-t border-[#242D3D] text-[10px] text-slate-400 leading-tight">
+        <div className="mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500 leading-tight">
           Confidence &gt; 80%; split reversals calculated and posted without human delay.
         </div>
       </div>
 
       {/* 3. Ambiguous Evidence Holds */}
-      <div className="rounded-xl border border-[#D97706]/40 bg-[#161B26] p-3.5 flex flex-col justify-between">
+      <div className="rounded-xl border border-amber-200 bg-amber-50/40 p-3.5 shadow-xs flex flex-col justify-between">
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-semibold text-[#F59E0B] uppercase tracking-wider">
+          <span className="text-[11px] font-semibold text-amber-800 uppercase tracking-wider">
             Ambiguous Evidence Holds
           </span>
-          <AlertCircle className="h-4 w-4 text-[#F59E0B]" />
+          <AlertCircle className="h-4 w-4 text-[#D97706]" />
         </div>
         <div className="mt-2">
           <div className="flex items-baseline gap-2">
-            <span className="text-xl font-bold font-mono text-white">{metrics.needs_review_count}</span>
-            <span className="text-[11px] text-amber-400 font-mono">Confidence &lt; 60%</span>
+            <span className="text-xl font-bold font-mono text-slate-900">{metrics.needs_review_count}</span>
+            <span className="text-[11px] text-amber-700 font-mono font-medium">Confidence &lt; 60%</span>
           </div>
-          <p className="text-[11px] text-amber-200/90 mt-0.5">
+          <p className="text-[11px] text-amber-800 font-medium mt-0.5">
             Held for controller sign-off
           </p>
         </div>
-        <div className="mt-2 pt-2 border-t border-[#242D3D] text-[10px] text-slate-400 leading-tight">
+        <div className="mt-2 pt-2 border-t border-amber-100 text-[10px] text-slate-600 leading-tight">
           Complex multi-factor delays; funds held until adjuster verifies evidence.
         </div>
       </div>
 
       {/* 4. High-Frequency Claim Holds */}
-      <div className="rounded-xl border border-rose-500/30 bg-[#161B26] p-3.5 flex flex-col justify-between">
+      <div className="rounded-xl border border-rose-200 bg-rose-50/40 p-3.5 shadow-xs flex flex-col justify-between">
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-semibold text-rose-400 uppercase tracking-wider">
+          <span className="text-[11px] font-semibold text-rose-800 uppercase tracking-wider">
             High-Velocity Claim Holds
           </span>
-          <ShieldAlert className="h-4 w-4 text-rose-400" />
+          <ShieldAlert className="h-4 w-4 text-rose-600" />
         </div>
         <div className="mt-2">
           <div className="flex items-baseline gap-2">
-            <span className="text-xl font-bold font-mono text-white">{metrics.fraud_suspect_count}</span>
-            <span className="text-[11px] text-rose-300 font-mono">&ge; 4 claims/30d</span>
+            <span className="text-xl font-bold font-mono text-slate-900">{metrics.fraud_suspect_count}</span>
+            <span className="text-[11px] text-rose-700 font-mono font-medium">&ge; 4 claims/30d</span>
           </div>
-          <p className="text-[11px] text-rose-200/90 mt-0.5">
+          <p className="text-[11px] text-rose-800 font-medium mt-0.5">
             Abuse watch audit hold
           </p>
         </div>
-        <div className="mt-2 pt-2 border-t border-[#242D3D] text-[10px] text-slate-400 leading-tight">
+        <div className="mt-2 pt-2 border-t border-rose-100 text-[10px] text-slate-600 leading-tight">
           Automatic hold on repeat claimants to prevent refund policy exploitation.
         </div>
       </div>
 
       {/* 5. Turnaround Efficiency */}
-      <div className="rounded-xl border border-[#242D3D] bg-[#161B26] p-3.5 flex flex-col justify-between">
+      <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs flex flex-col justify-between">
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-semibold text-slate-300 uppercase tracking-wider">
+          <span className="text-[11px] font-semibold text-slate-600 uppercase tracking-wider">
             Turnaround Efficiency
           </span>
-          <Clock className="h-4 w-4 text-slate-400" />
+          <Clock className="h-4 w-4 text-slate-500" />
         </div>
         <div className="mt-2">
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-bold font-mono text-white">{metrics.estimated_time_saved_hours}</span>
-            <span className="text-xs font-medium text-slate-300">hours saved</span>
+            <span className="text-xl font-bold font-mono text-slate-900">{metrics.estimated_time_saved_hours}</span>
+            <span className="text-xs font-medium text-slate-600">hours saved</span>
           </div>
-          <p className="text-[11px] text-slate-300 mt-0.5 font-mono">
+          <p className="text-[11px] text-slate-700 mt-0.5 font-mono">
             1.2s AI vs. 12m manual baseline
           </p>
         </div>
-        <div className="mt-2 pt-2 border-t border-[#242D3D] text-[10px] text-slate-400 leading-tight">
+        <div className="mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500 leading-tight">
           Calculated against standard 12 min manual adjuster review per case.
         </div>
       </div>
