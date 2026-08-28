@@ -34,14 +34,14 @@ export const MetricsBanner: React.FC<MetricsBannerProps> = ({ metrics, onSelectP
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-      {/* 1. Unfair Chargebacks Prevented (Key Causal Showcase) */}
+      {/* 1. Innocent Capital Preserved (Unfair Chargebacks Prevented) */}
       <div
         onClick={onSelectProtectedFilter}
         className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-3.5 cursor-pointer hover:border-emerald-300 hover:shadow-sm transition flex flex-col justify-between"
       >
         <div className="flex items-center justify-between">
           <span className="text-[11px] font-semibold text-emerald-800 uppercase tracking-wider">
-            Chargebacks Prevented
+            Innocent Capital Preserved
           </span>
           <ShieldCheck className="h-4 w-4 text-emerald-600" />
         </div>
@@ -51,11 +51,11 @@ export const MetricsBanner: React.FC<MetricsBannerProps> = ({ metrics, onSelectP
             <span>{metrics.innocent_protected_amount.toLocaleString("en-IN")}</span>
           </div>
           <p className="text-[11px] font-semibold text-emerald-700 mt-0.5">
-            {metrics.innocent_protected_count} innocent merchants &amp; delivery partners spared
+            {metrics.innocent_protected_count} innocent partners spared from chargebacks
           </p>
         </div>
         <div className="mt-2 pt-2 border-t border-emerald-100 text-[10px] text-slate-600 leading-tight">
-          Saved from unfair 100% deduction when telemetry proved Delivery Partner transit delay.
+          Partner earnings saved from wrongful 100% deductions when telemetry cleared them.
         </div>
       </div>
 

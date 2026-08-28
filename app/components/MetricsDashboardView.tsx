@@ -140,14 +140,14 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
           </span>
         </div>
 
-        {/* Total Reversals */}
+        {/* Gross Customer Refunds */}
         <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs flex flex-col justify-between">
-          <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Total Reversals</span>
+          <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Gross Refunds Debited</span>
           <span className="text-xl font-bold font-mono text-slate-900 mt-1 block">
             ₹{metrics.total_refunds_processed.toLocaleString("en-IN")}
           </span>
           <span className="text-[10px] text-slate-400 mt-1 border-t border-slate-100 pt-1">
-            Net Route debits calculated
+            Total Route split reversals
           </span>
         </div>
 
@@ -163,6 +163,38 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
           <span className="text-[10px] text-slate-400 mt-1 border-t border-slate-100 pt-1 font-mono">
             vs 12 min/case manual baseline
           </span>
+        </div>
+      </div>
+
+      {/* FINANCIAL LEDGER DISAMBIGUATION & RECONCILIATION CARD */}
+      <div className="rounded-xl border border-blue-200 bg-blue-50/40 p-4 shadow-xs">
+        <div className="flex items-start gap-3">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-700 font-bold text-xs mt-0.5">
+            ₹
+          </div>
+          <div className="space-y-1.5 flex-1">
+            <h4 className="text-xs font-bold text-slate-900 flex items-center gap-2">
+              <span>Financial Ledger Reconciliation: Gross Customer Refunds vs. Innocent Capital Preserved</span>
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+              <div className="rounded-lg bg-white border border-slate-200 p-2.5 shadow-2xs">
+                <span className="text-[10px] font-bold text-blue-700 uppercase tracking-wider block">
+                  1. Gross Customer Refunds Debited (₹{metrics.total_refunds_processed.toLocaleString("en-IN")})
+                </span>
+                <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                  The actual rupee refund volume returned to customers for valid order defects, debited proportionally across at-fault Merchant, Delivery Partner, and Platform escrow accounts.
+                </p>
+              </div>
+              <div className="rounded-lg bg-white border border-emerald-200 p-2.5 shadow-2xs">
+                <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">
+                  2. Innocent Capital Preserved (₹{metrics.innocent_protected_amount.toLocaleString("en-IN")})
+                </span>
+                <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                  The revenue safeguarded for innocent partners who would have been charged 100% under legacy blanket merchant chargeback policies, but were cleared by objective telemetry.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

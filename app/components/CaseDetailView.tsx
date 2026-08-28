@@ -593,7 +593,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 </p>
               </div>
               <div className="text-right">
-                <span className="text-[10px] text-slate-500 block">Total Refund Debited</span>
+                <span className="text-[10px] text-slate-500 block">Customer Refund Debited (Gross Reversal)</span>
                 <span className="text-sm font-bold font-mono text-emerald-700">
                   ₹{decision.total_refund_to_customer.toLocaleString("en-IN")}
                 </span>
