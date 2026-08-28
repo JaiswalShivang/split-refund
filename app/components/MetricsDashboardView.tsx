@@ -15,7 +15,6 @@ import {
   Bike,
   Smartphone,
   User,
-  IndianRupee,
   Cpu,
   Layers,
 } from "lucide-react";
@@ -66,10 +65,10 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
               <span>Verified Revenue Recovery &amp; Innocent Merchant Defense</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-1">
-              Prevented ₹{metrics.innocent_protected_amount.toLocaleString("en-IN")} in Unfair Merchant Chargebacks
+              Prevented ₹{metrics.innocent_protected_amount.toLocaleString("en-IN")} in Unfair Merchant &amp; Delivery Partner Chargebacks
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              In <strong className="text-white">{metrics.innocent_protected_count} dispute cases</strong>, a standard blanket &quot;refund customer from merchant split&quot; rule would have unfairly penalized an innocent seller. The Dispute Engine analyzed machine telemetry ground truth and correctly attributed fault to logistics transit and platform dispatch instead.
+              In <strong className="text-white">{metrics.innocent_protected_count} dispute cases</strong>, a standard blanket &quot;refund customer from merchant split&quot; rule would have unfairly penalized an innocent party. The Dispute Engine analyzed machine telemetry ground truth and correctly attributed fault to Delivery Partner transit and Platform dispatch instead.
             </p>
           </div>
 
@@ -192,11 +191,11 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
               </div>
             </div>
 
-            {/* Carrier Transit */}
+            {/* Delivery Partner Transit */}
             <div>
               <div className="flex justify-between items-center text-slate-300 mb-1">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <Bike className="h-3.5 w-3.5 text-[#0284C7]" /> Carrier Transit Fault (Logistics &amp; Spillage)
+                  <Bike className="h-3.5 w-3.5 text-[#0284C7]" /> Delivery Partner Transit Fault (Logistics &amp; Spillage)
                 </span>
                 <span className="font-mono font-bold text-[#0284C7]">{dist.delivery_partner}%</span>
               </div>
@@ -209,7 +208,7 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
             <div>
               <div className="flex justify-between items-center text-slate-300 mb-1">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <User className="h-3.5 w-3.5 text-emerald-400" /> Customer Non-Refundable (Buyer Remorse)
+                  <User className="h-3.5 w-3.5 text-emerald-400" /> Customer Remorse (Non-Refundable)
                 </span>
                 <span className="font-mono font-bold text-emerald-400">{dist.customer}%</span>
               </div>
@@ -302,7 +301,7 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
               1. Innocent Merchant Protected
             </h4>
             <p className="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Customer claimed food was ice-cold upon arrival; telemetry proved a 54m carrier transit delay. Saved ₹490 for Cream Stone.
+              Customer claimed food was ice-cold upon arrival; telemetry proved a 54m Delivery Partner transit delay. Saved ₹490 for Merchant (Cream Stone).
             </p>
           </div>
 
@@ -340,7 +339,7 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
               3. Platform Outage Absorption
             </h4>
             <p className="text-[11px] text-slate-400 mt-1 line-clamp-2">
-              Platform auto-dispatch outage delayed carrier pickup by 37m. Platform absorbs 100% reversal, sparing merchant and rider.
+              Platform auto-dispatch outage delayed Delivery Partner pickup by 37m. Platform absorbs 100% reversal, sparing Merchant and Delivery Partner.
             </p>
           </div>
         </div>

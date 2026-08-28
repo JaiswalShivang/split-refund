@@ -206,7 +206,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
               <span className="text-slate-600">•</span>
               <span className="flex items-center gap-1">
                 <Bike className="h-3.5 w-3.5 text-[#0284C7]" />
-                Carrier: <strong className="text-white">{order.delivery_partner_name}</strong>
+                Delivery Partner: <strong className="text-white">{order.delivery_partner_name}</strong>
               </span>
             </div>
           </div>
@@ -232,7 +232,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
               <div
                 key={idx}
                 style={{ width: `${s.percentage}%` }}
-                title={`${s.party}: ₹${s.amount} (${s.percentage.toFixed(1)}%)`}
+                title={`${s.party === "restaurant" ? "Merchant" : s.party === "delivery_partner" ? "Delivery Partner" : "Platform"}: ₹${s.amount} (${s.percentage.toFixed(1)}%)`}
                 className={`transition-all duration-300 ${
                   s.party === "restaurant"
                     ? "bg-[#D97706]"
@@ -255,7 +255,9 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                       : "bg-[#7C3AED]"
                   }`}
                 />
-                <span className="capitalize text-slate-300 font-sans">{s.party.replace("_", " ")}:</span>
+                <span className="text-slate-300 font-sans">
+                  {s.party === "restaurant" ? "Merchant" : s.party === "delivery_partner" ? "Delivery Partner" : "Platform"}:
+                </span>
                 <span className="text-white font-semibold">₹{s.amount.toFixed(2)}</span>
                 <span className="text-slate-500 font-sans">({s.percentage.toFixed(0)}%)</span>
               </div>
@@ -348,11 +350,11 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
 
               {/* Telemetry Timeline Metrics */}
               <div className="grid grid-cols-2 gap-2 text-xs">
-                {/* Kitchen Prep vs SLA */}
+                {/* Merchant Prep vs SLA */}
                 <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-2.5">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] text-slate-400 flex items-center gap-1 font-medium">
-                      <Store className="h-3 w-3 text-[#D97706]" /> Kitchen Prep
+                      <Store className="h-3 w-3 text-[#D97706]" /> Merchant Prep Time
                     </span>
                     <span className="text-[10px] text-slate-500 font-mono">SLA: {delivery_event.expected_prep_time_minutes}m</span>
                   </div>
@@ -370,11 +372,11 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   </div>
                 </div>
 
-                {/* Rider Transit vs SLA */}
+                {/* Delivery Partner Transit vs SLA */}
                 <div className="rounded-lg border border-[#242D3D] bg-[#0C111D] p-2.5">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] text-slate-400 flex items-center gap-1 font-medium">
-                      <Bike className="h-3 w-3 text-[#0284C7]" /> Carrier Transit
+                      <Bike className="h-3 w-3 text-[#0284C7]" /> Delivery Partner Transit Time
                     </span>
                     <span className="text-[10px] text-slate-500 font-mono">SLA: {delivery_event.expected_transit_time_minutes}m</span>
                   </div>
@@ -408,7 +410,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
             </div>
 
             <div className="mt-3 pt-2.5 border-t border-[#242D3D] text-[11px] text-slate-500">
-              Verified timestamps from Merchant POS terminal &amp; Carrier GPS hardware.
+              Verified timestamps from Merchant POS terminal &amp; Delivery Partner GPS hardware.
             </div>
           </div>
         </div>
@@ -427,14 +429,14 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <h4 className="text-sm font-bold text-emerald-300">
-                      Innocent {decision.protected_party_type === "restaurant" ? "Merchant" : "Carrier"} Protected from Unfair Chargeback
+                      Innocent {decision.protected_party_type === "restaurant" ? "Merchant" : "Delivery Partner"} Protected from Unfair Chargeback
                     </h4>
                     <span className="rounded bg-emerald-950 px-2 py-0.5 text-xs font-mono font-bold text-emerald-300 border border-emerald-500/30">
                       ₹{decision.protected_amount.toFixed(2)} Preserved
                     </span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    A naive marketplace policy would have automatically deducted 100% (₹{decision.protected_amount}) from <strong className="text-white">{decision.protected_party_name}</strong>. The Dispute Engine examined telemetry ground truth, identified the delay occurred in carrier transit, and spared the merchant from unfair liability.
+                    A naive marketplace policy would have automatically deducted 100% (₹{decision.protected_amount}) from <strong className="text-white">{decision.protected_party_name}</strong>. The Dispute Engine examined telemetry ground truth, identified the delay occurred in Delivery Partner transit, and spared the merchant from unfair liability.
                   </p>
                 </div>
               </div>
@@ -485,7 +487,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                     style={{ width: `${decision.fault_attribution.delivery_partner}%` }}
                     className="h-full rounded bg-[#0284C7] transition-all duration-500 flex items-center justify-center text-[10px] font-mono font-bold text-white"
                   >
-                    {decision.fault_attribution.delivery_partner >= 10 ? `Carrier: ${decision.fault_attribution.delivery_partner}%` : ""}
+                    {decision.fault_attribution.delivery_partner >= 10 ? `Delivery Partner: ${decision.fault_attribution.delivery_partner}%` : ""}
                   </div>
                 )}
                 {decision.fault_attribution.platform > 0 && (
@@ -516,7 +518,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   </div>
                 </div>
                 <div className="rounded-lg border border-[#0284C7]/30 bg-[#0C111D] p-2.5">
-                  <span className="text-[10px] text-[#0284C7] font-semibold block">Carrier Transit Fault</span>
+                  <span className="text-[10px] text-[#0284C7] font-semibold block">Delivery Partner Transit Fault</span>
                   <div className="flex items-baseline gap-1 mt-0.5">
                     <span className="text-lg font-bold text-white font-mono">{decision.fault_attribution.delivery_partner}%</span>
                     <span className="text-[10px] text-slate-400 font-sans">liability</span>
@@ -574,7 +576,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 </div>
               </div>
               <p className="mt-2 text-[10px] text-slate-500">
-                Audit trail memorandum formatted for merchant/rider dispute dispute resolution portals.
+                Audit trail memorandum formatted for Merchant and Delivery Partner dispute resolution portals.
               </p>
             </div>
           </div>
@@ -705,7 +707,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 />
 
                 <div className="flex justify-between items-center text-slate-300">
-                  <span className="text-[#0284C7] font-semibold">Carrier Fault %</span>
+                  <span className="text-[#0284C7] font-semibold">Delivery Partner Fault %</span>
                   <span className="font-mono">{overrideFault.delivery_partner}%</span>
                 </div>
                 <input

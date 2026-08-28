@@ -23,7 +23,7 @@ export const MetricsBanner: React.FC<MetricsBannerProps> = ({ metrics, onSelectP
                 55 Marketplace Dispute Cases Ready for Settlement Engine
               </h3>
               <p className="text-xs text-slate-400 mt-0.5">
-                Each case contains verified 3-source telemetry: Customer Claim, Merchant POS Timestamps, and Carrier GPS Traces.
+                Each case contains verified 3-source telemetry: Customer Claim, Merchant POS Timestamps, and Delivery Partner GPS Traces.
               </p>
             </div>
           </div>
@@ -51,11 +51,11 @@ export const MetricsBanner: React.FC<MetricsBannerProps> = ({ metrics, onSelectP
             <span>{metrics.innocent_protected_amount.toLocaleString("en-IN")}</span>
           </div>
           <p className="text-[11px] font-semibold text-emerald-300 mt-0.5">
-            {metrics.innocent_protected_count} innocent merchants &amp; riders spared
+            {metrics.innocent_protected_count} innocent merchants &amp; delivery partners spared
           </p>
         </div>
         <div className="mt-2 pt-2 border-t border-[#242D3D] text-[10px] text-slate-400 leading-tight">
-          Saved from unfair 100% deduction when telemetry proved logistics delay.
+          Saved from unfair 100% deduction when telemetry proved Delivery Partner transit delay.
         </div>
       </div>
 

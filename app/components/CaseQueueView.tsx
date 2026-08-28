@@ -79,7 +79,7 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
           <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
             type="text"
-            placeholder="Search by Order ID, Merchant, Carrier, Customer, or Dispute Text..."
+            placeholder="Search by Order ID, Merchant, Delivery Partner, Customer, or Dispute Text..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full rounded-lg border border-[#242D3D] bg-[#0C111D] py-2 pl-10 pr-4 text-xs text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
@@ -152,8 +152,8 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
         </span>
         {[
           { key: "ALL", label: "All Categories" },
-          { key: "clear_restaurant_fault", label: "Kitchen Prep Delay (15)" },
-          { key: "clear_delivery_fault", label: "Transit Logistics Delay (15)" },
+          { key: "clear_restaurant_fault", label: "Merchant Prep Delay (15)" },
+          { key: "clear_delivery_fault", label: "Delivery Partner Transit Delay (15)" },
           { key: "customer_remorse", label: "Post-Dispatch Cancellation (10)" },
           { key: "ambiguous_shared_fault", label: "Shared Weather & Traffic (5)" },
           { key: "repeat_offender_fraud", label: "High-Velocity Claim Flag (5)" },
@@ -214,7 +214,7 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
                           </span>
                           {isProtected && (
                             <span
-                              title={`Innocent ${c.decision?.protected_party_type} protected from unfair penalty!`}
+                              title={`Innocent ${c.decision?.protected_party_type === "restaurant" ? "Merchant" : "Delivery Partner"} protected from unfair chargeback!`}
                               className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400"
                             >
                               <ShieldCheck className="h-3 w-3" />
@@ -231,12 +231,12 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
                       <td className="py-3 px-3">
                         <div className="text-white font-medium">{c.customer_name}</div>
                         <div className="flex items-center gap-2 mt-0.5 text-[11px] text-slate-400">
-                          <span className="flex items-center gap-1 truncate max-w-[130px]" title={c.restaurant_name}>
+                          <span className="flex items-center gap-1 truncate max-w-[130px]" title={`Merchant: ${c.restaurant_name}`}>
                             <Store className="h-3 w-3 text-[#D97706] shrink-0" />
                             {c.restaurant_name}
                           </span>
                           <span className="text-slate-600">•</span>
-                          <span className="flex items-center gap-1 truncate max-w-[110px]" title={c.rider_name}>
+                          <span className="flex items-center gap-1 truncate max-w-[110px]" title={`Delivery Partner: ${c.rider_name}`}>
                             <Bike className="h-3 w-3 text-[#0284C7] shrink-0" />
                             {c.rider_name}
                           </span>
@@ -297,7 +297,7 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
                               />
                               <div
                                 style={{ width: `${c.fault_attribution.delivery_partner}%` }}
-                                title={`Carrier: ${c.fault_attribution.delivery_partner}%`}
+                                title={`Delivery Partner: ${c.fault_attribution.delivery_partner}%`}
                                 className="bg-[#0284C7]"
                               />
                               <div
@@ -313,7 +313,7 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
                             </div>
                             <div className="mt-1 flex justify-between text-[10px] text-slate-400 font-mono">
                               {c.fault_attribution.restaurant > 0 && <span className="text-[#D97706]">M:{c.fault_attribution.restaurant}%</span>}
-                              {c.fault_attribution.delivery_partner > 0 && <span className="text-[#0284C7]">C:{c.fault_attribution.delivery_partner}%</span>}
+                              {c.fault_attribution.delivery_partner > 0 && <span className="text-[#0284C7]">DP:{c.fault_attribution.delivery_partner}%</span>}
                               {c.fault_attribution.platform > 0 && <span className="text-[#7C3AED]">P:{c.fault_attribution.platform}%</span>}
                               {c.fault_attribution.customer > 0 && <span className="text-[#059669]">Cust:{c.fault_attribution.customer}%</span>}
                             </div>

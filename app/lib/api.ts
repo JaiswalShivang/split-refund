@@ -108,44 +108,44 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     confidence = 48;
     status = "FRAUD_SUSPECT_REVIEW";
     primaryCause = "suspected_fraud_repeat_offender";
-    reasoning = `Customer has filed ${c.complaint.customer_dispute_history_count} disputes in the past 30 days. Telemetry proves on-time delivery (${c.delivery_event.kitchen_prep_time_minutes + c.delivery_event.transit_time_minutes}m total). Flagged for fraud review safety gate.`;
-    memo = "Case placed on hold and escalated to Revenue Fraud Controller due to abnormal historical dispute velocity.";
+    reasoning = `Customer has filed ${c.complaint.customer_dispute_history_count} disputes in the past 30 days (abuse watch threshold: ≥4). Telemetry proves on-time fulfillment in ${c.delivery_event.kitchen_prep_time_minutes + c.delivery_event.transit_time_minutes}m total. Held for manual policy verification.`;
+    memo = "Case placed on hold and escalated to Revenue Adjuster due to high historical claim frequency (≥4 disputes in 30 days).";
   } else if (c.delivery_event.delay_source_flag === "platform_dispatch_error" || c.archetype === "platform_dispatch_error") {
     fault = { restaurant: 0, delivery_partner: 0, platform: 100, customer: 0 };
     confidence = 95;
     status = "AUTO_RESOLVED";
     primaryCause = "platform_dispatch_error";
-    reasoning = `Telemetry confirms platform auto-dispatch failure. Merchant prepared order in ${c.delivery_event.kitchen_prep_time_minutes} mins and rider completed transit in ${c.delivery_event.transit_time_minutes} mins. Delay originated solely within platform routing infrastructure.`;
-    memo = "100% of customer refund absorbed by Platform Service Reliability subsidy. Merchant and delivery partner retain full split.";
+    reasoning = `Telemetry confirms platform auto-dispatch failure. Merchant prepared order in ${c.delivery_event.kitchen_prep_time_minutes} mins and Delivery Partner completed transit in ${c.delivery_event.transit_time_minutes} mins. Delay originated solely within platform routing infrastructure.`;
+    memo = "100% of customer refund absorbed by Platform Service Reliability subsidy. Merchant and Delivery Partner retain full split.";
   } else if (c.archetype === "customer_remorse" || c.complaint.dispute_category.includes("buyer_remorse")) {
     fault = { restaurant: 0, delivery_partner: 0, platform: 0, customer: 100 };
     confidence = 94;
     status = "AUTO_RESOLVED";
     primaryCause = "buyer_remorse_cancellation";
-    reasoning = `Order was fulfilled on-time with zero merchant or logistics defects (Prep: ${c.delivery_event.kitchen_prep_time_minutes}m, Transit: ${c.delivery_event.transit_time_minutes}m). Customer initiated cancellation after dispatch.`;
+    reasoning = `Order was fulfilled on-time with zero Merchant or Delivery Partner defects (Prep: ${c.delivery_event.kitchen_prep_time_minutes}m, Transit: ${c.delivery_event.transit_time_minutes}m). Customer initiated cancellation after dispatch.`;
     memo = "Dispute declined per Section 4.2 of Marketplace Terms: on-time customized food orders are non-refundable upon preparation.";
   } else if (c.delivery_event.delay_source_flag === "rider_transit_delay" || c.archetype === "clear_delivery_fault" || c.delivery_event.transit_time_minutes >= 35) {
     fault = { restaurant: 5, delivery_partner: 90, platform: 0, customer: 5 };
     confidence = 91;
     status = "AUTO_RESOLVED";
     primaryCause = "rider_transit_delay";
-    reasoning = `Objective telemetry proves food was handed over on-time by ${c.order.restaurant_name} in ${c.delivery_event.kitchen_prep_time_minutes} mins (SLA: ${c.delivery_event.expected_prep_time_minutes}m). Transit duration reached ${c.delivery_event.transit_time_minutes} mins (SLA: ${c.delivery_event.expected_transit_time_minutes}m). Delay and temperature drop occurred during rider transit.`;
-    memo = `Dispute analysis establishes delay occurred in logistics transit (${c.delivery_event.transit_time_minutes} mins vs ${c.delivery_event.expected_transit_time_minutes} min SLA). Route reversal applied to delivery carrier account ${c.order.delivery_partner_name}; merchant payment is protected.`;
+    reasoning = `Objective telemetry proves food was handed over on-time by Merchant (${c.order.restaurant_name}) in ${c.delivery_event.kitchen_prep_time_minutes} mins (SLA: ${c.delivery_event.expected_prep_time_minutes}m). Transit duration reached ${c.delivery_event.transit_time_minutes} mins (SLA: ${c.delivery_event.expected_transit_time_minutes}m). Delay occurred during Delivery Partner transit.`;
+    memo = `Dispute analysis establishes delay occurred in logistics transit (${c.delivery_event.transit_time_minutes} mins vs ${c.delivery_event.expected_transit_time_minutes} min SLA). Route reversal applied to Delivery Partner account ${c.order.delivery_partner_name}; Merchant payment is protected.`;
   } else if (c.delivery_event.delay_source_flag === "restaurant_prep_delay" || c.archetype === "clear_restaurant_fault" || c.delivery_event.kitchen_prep_time_minutes >= 30) {
     fault = { restaurant: 88, delivery_partner: 7, platform: 0, customer: 5 };
     confidence = 89;
     status = "AUTO_RESOLVED";
     primaryCause = "restaurant_prep_delay";
-    reasoning = `Kitchen prep time (${c.delivery_event.kitchen_prep_time_minutes} mins) exceeded standard SLA (${c.delivery_event.expected_prep_time_minutes} mins) by ${c.delivery_event.kitchen_prep_time_minutes - c.delivery_event.expected_prep_time_minutes} mins. Delivery partner waited at outlet and completed transit in ${c.delivery_event.transit_time_minutes} mins.`;
-    memo = `Deduction of refund applied to merchant account ${c.order.restaurant_name} due to verified kitchen preparation bottleneck (${c.delivery_event.kitchen_prep_time_minutes} mins vs ${c.delivery_event.expected_prep_time_minutes} min SLA).`;
+    reasoning = `Merchant prep time (${c.delivery_event.kitchen_prep_time_minutes} mins) exceeded standard SLA (${c.delivery_event.expected_prep_time_minutes} mins) by ${c.delivery_event.kitchen_prep_time_minutes - c.delivery_event.expected_prep_time_minutes} mins. Delivery Partner waited at outlet and completed transit in ${c.delivery_event.transit_time_minutes} mins.`;
+    memo = `Deduction of refund applied to Merchant account ${c.order.restaurant_name} due to verified Merchant preparation bottleneck (${c.delivery_event.kitchen_prep_time_minutes} mins vs ${c.delivery_event.expected_prep_time_minutes} min SLA).`;
   } else {
     // Ambiguous / Shared Fault
     fault = { restaurant: 50, delivery_partner: 40, platform: 10, customer: 0 };
     confidence = 54;
     status = "NEEDS_HUMAN_REVIEW";
     primaryCause = "shared_weather_traffic_delay";
-    reasoning = `Both kitchen prep (${c.delivery_event.kitchen_prep_time_minutes}m) and transit (${c.delivery_event.transit_time_minutes}m) had concurrent moderate delays under adverse conditions. Shared liability recommended.`;
-    memo = "Refund liability shared between merchant and delivery partner with platform goodwill support.";
+    reasoning = `Both Merchant prep (${c.delivery_event.kitchen_prep_time_minutes}m) and Delivery Partner transit (${c.delivery_event.transit_time_minutes}m) had concurrent moderate delays under adverse conditions. Shared liability recommended.`;
+    memo = "Refund liability shared between Merchant and Delivery Partner with Platform goodwill support.";
   }
 
   const { reversals, totalRefund } = calculateReversalsLocal(c.order, fault);
