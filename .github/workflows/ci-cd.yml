@@ -26,13 +26,12 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
           run_install: false
 
-      - name: Setup Node.js (v20)
+      - name: Setup Node.js (v22)
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'pnpm'
 
       - name: Install Dependencies
@@ -42,7 +41,7 @@ jobs:
         run: pnpm run lint
 
       - name: 2. TypeScript Type Check
-        run: pnpm run typecheck
+        run: npx tsc --noEmit
 
       - name: 3. Next.js Production Build
         run: pnpm run build
@@ -59,13 +58,12 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
           run_install: false
 
-      - name: Setup Node.js (v20)
+      - name: Setup Node.js (v22)
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'pnpm'
 
       - name: Install Vercel CLI
