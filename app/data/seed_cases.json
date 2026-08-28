@@ -68,7 +68,7 @@
       "transit_time_minutes": 12,
       "expected_transit_time_minutes": 15,
       "delay_source_flag": "restaurant_prep_delay",
-      "telemetry_notes": "Rider arrived at restaurant at +9 min and waited 39 minutes for food preparation. Transit was only 11 mins."
+      "telemetry_notes": "Rider arrived at restaurant at +9 min and waited 39 minutes for food preparation. Transit was only 12 mins."
     }
   },
   {
@@ -1153,7 +1153,7 @@
       "transit_time_minutes": 54,
       "expected_transit_time_minutes": 15,
       "delay_source_flag": "rider_transit_delay",
-      "telemetry_notes": "Food ready in 11 minutes. Rider took 54 mins for a 3km delivery due to unauthorized multi-app detours."
+      "telemetry_notes": "Food ready in 12 minutes. Rider took 54 mins for a 3km delivery due to unauthorized multi-app detours."
     }
   },
   {
@@ -1868,7 +1868,7 @@
       "transit_time_minutes": 50,
       "expected_transit_time_minutes": 15,
       "delay_source_flag": "rider_transit_delay",
-      "telemetry_notes": "Kitchen prep was 11 mins. Transit took 50 mins."
+      "telemetry_notes": "Kitchen prep was 12 mins. Transit took 50 mins."
     }
   },
   {
