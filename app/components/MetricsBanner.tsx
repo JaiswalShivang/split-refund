@@ -2,7 +2,7 @@
 
 import React from "react";
 import { BatchMetrics } from "../types";
-import { ShieldCheck, CheckCircle2, AlertCircle, ShieldAlert, Clock, IndianRupee, HelpCircle } from "lucide-react";
+import { ShieldCheck, CheckCircle2, AlertCircle, ShieldAlert, Clock, IndianRupee } from "lucide-react";
 
 interface MetricsBannerProps {
   metrics: BatchMetrics | null;
