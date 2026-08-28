@@ -146,6 +146,18 @@ export const MetricsBanner: React.FC<MetricsBannerProps> = ({ metrics, onSelectP
           Calculated against standard 12 min manual adjuster review per case.
         </div>
       </div>
+
+      <div className="sm:col-span-2 lg:col-span-5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs text-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-1 shadow-2xs">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="font-semibold text-slate-900 flex items-center gap-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 inline-block" />
+            Operational &amp; Financial Distinction:
+          </span>
+          <span className="text-slate-600">
+            <strong>Autonomous Settlements</strong> ({metrics.auto_resolved_count} cases) tracks speed &amp; automation; <strong>Chargeback Protection</strong> ({metrics.innocent_protected_count} cases, ₹{metrics.innocent_protected_amount.toLocaleString("en-IN")}) is the capital saved for innocent partners within those resolutions.
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

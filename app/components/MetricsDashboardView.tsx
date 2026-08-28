@@ -70,6 +70,10 @@ export const MetricsDashboardView: React.FC<MetricsDashboardViewProps> = ({
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
               In <strong className="text-slate-900">{metrics.innocent_protected_count} dispute cases</strong>, a standard blanket &quot;refund customer from merchant split&quot; rule would have unfairly penalized an innocent party. The Dispute Engine analyzed machine telemetry ground truth and correctly attributed fault to Delivery Partner transit and Platform dispatch instead.
             </p>
+            <div className="pt-1 text-[11px] text-slate-600 flex items-center gap-1.5 flex-wrap">
+              <span className="font-semibold text-slate-800">Operational vs Capital Metric:</span>
+              <span><strong>Autonomous Settlements ({metrics.auto_resolved_count})</strong> measures automation volume; <strong>Chargeback Protection (₹{metrics.innocent_protected_amount.toLocaleString("en-IN")})</strong> is the partner capital protected within those resolutions.</span>
+            </div>
           </div>
 
           {/* Quick Stat Pill */}
