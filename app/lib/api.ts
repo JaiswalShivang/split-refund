@@ -103,45 +103,70 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
   let reasoning = "";
   let memo = "";
 
+  const prepOverrun = Math.max(0, c.delivery_event.kitchen_prep_time_minutes - c.delivery_event.expected_prep_time_minutes);
+  const transOverrun = Math.max(0, c.delivery_event.transit_time_minutes - c.delivery_event.expected_transit_time_minutes);
+
   if (c.complaint.customer_dispute_history_count >= 4 || c.archetype === "repeat_offender_fraud") {
-    fault = { restaurant: 10, delivery_partner: 10, platform: 0, customer: 80 };
-    confidence = 48;
+    const claimCount = Math.max(4, c.complaint.customer_dispute_history_count);
+    const custFault = round2(72.0 + Math.min(claimCount, 8) * 2.5);
+    const rem = round2(100.0 - custFault);
+    const restFault = round2(rem * 0.55);
+    const dpFault = round2(rem - restFault);
+
+    fault = { restaurant: restFault, delivery_partner: dpFault, platform: 0, customer: custFault };
+    confidence = 44 + Math.min(claimCount * 2, 10);
     status = "FRAUD_SUSPECT_REVIEW";
     primaryCause = "suspected_fraud_repeat_offender";
     reasoning = `Customer has filed ${c.complaint.customer_dispute_history_count} disputes in the past 30 days (abuse watch threshold: ≥4). Telemetry proves on-time fulfillment in ${c.delivery_event.kitchen_prep_time_minutes + c.delivery_event.transit_time_minutes}m total. Held for manual policy verification.`;
-    memo = "Case placed on hold and escalated to Revenue Adjuster due to high historical claim frequency (≥4 disputes in 30 days).";
+    memo = `Case placed on hold and escalated to Revenue Adjuster due to high historical claim frequency (${c.complaint.customer_dispute_history_count} disputes in 30 days).`;
   } else if (c.delivery_event.delay_source_flag === "platform_dispatch_error" || c.archetype === "platform_dispatch_error") {
     fault = { restaurant: 0, delivery_partner: 0, platform: 100, customer: 0 };
-    confidence = 95;
+    confidence = 94 + (c.delivery_event.kitchen_prep_time_minutes % 5);
     status = "AUTO_RESOLVED";
     primaryCause = "platform_dispatch_error";
     reasoning = `Telemetry confirms platform auto-dispatch failure. Merchant prepared order in ${c.delivery_event.kitchen_prep_time_minutes} mins and Delivery Partner completed transit in ${c.delivery_event.transit_time_minutes} mins. Delay originated solely within platform routing infrastructure.`;
     memo = "100% of customer refund absorbed by Platform Service Reliability subsidy. Merchant and Delivery Partner retain full split.";
-  } else if (c.archetype === "customer_remorse" || c.complaint.dispute_category.includes("buyer_remorse")) {
+  } else if (c.archetype === "customer_remorse" || c.complaint.dispute_category.includes("buyer_remorse") || c.complaint.dispute_category.includes("customer_")) {
     fault = { restaurant: 0, delivery_partner: 0, platform: 0, customer: 100 };
-    confidence = 94;
+    confidence = 92 + (c.delivery_event.transit_time_minutes % 6);
     status = "AUTO_RESOLVED";
     primaryCause = "buyer_remorse_cancellation";
     reasoning = `Order was fulfilled on-time with zero Merchant or Delivery Partner defects (Prep: ${c.delivery_event.kitchen_prep_time_minutes}m, Transit: ${c.delivery_event.transit_time_minutes}m). Customer initiated cancellation after dispatch.`;
     memo = "Dispute declined per Section 4.2 of Marketplace Terms: on-time customized food orders are non-refundable upon preparation.";
   } else if (c.delivery_event.delay_source_flag === "rider_transit_delay" || c.archetype === "clear_delivery_fault" || c.delivery_event.transit_time_minutes >= 35) {
-    fault = { restaurant: 5, delivery_partner: 90, platform: 0, customer: 5 };
-    confidence = 91;
+    const ratio = transOverrun / (transOverrun + Math.max(1, prepOverrun * 0.5));
+    const dpFault = Math.min(96, round2(78.0 + ratio * 16.0));
+    const custShare = round2(2.0 + (c.delivery_event.kitchen_prep_time_minutes % 4));
+    const restFault = round2(100.0 - dpFault - custShare);
+
+    fault = { restaurant: restFault, delivery_partner: dpFault, platform: 0, customer: custShare };
+    confidence = 86 + Math.min(11, Math.floor(ratio * 11));
     status = "AUTO_RESOLVED";
     primaryCause = "rider_transit_delay";
     reasoning = `Objective telemetry proves food was handed over on-time by Merchant (${c.order.restaurant_name}) in ${c.delivery_event.kitchen_prep_time_minutes} mins (SLA: ${c.delivery_event.expected_prep_time_minutes}m). Transit duration reached ${c.delivery_event.transit_time_minutes} mins (SLA: ${c.delivery_event.expected_transit_time_minutes}m). Delay occurred during Delivery Partner transit.`;
     memo = `Dispute analysis establishes delay occurred in logistics transit (${c.delivery_event.transit_time_minutes} mins vs ${c.delivery_event.expected_transit_time_minutes} min SLA). Route reversal applied to Delivery Partner account ${c.order.delivery_partner_name}; Merchant payment is protected.`;
   } else if (c.delivery_event.delay_source_flag === "restaurant_prep_delay" || c.archetype === "clear_restaurant_fault" || c.delivery_event.kitchen_prep_time_minutes >= 30) {
-    fault = { restaurant: 88, delivery_partner: 7, platform: 0, customer: 5 };
-    confidence = 89;
+    const ratio = prepOverrun / (prepOverrun + Math.max(1, transOverrun * 0.5));
+    const restFault = Math.min(95, round2(76.0 + ratio * 18.0));
+    const custShare = round2(2.0 + (c.delivery_event.transit_time_minutes % 4));
+    const dpFault = round2(100.0 - restFault - custShare);
+
+    fault = { restaurant: restFault, delivery_partner: dpFault, platform: 0, customer: custShare };
+    confidence = 85 + Math.min(11, Math.floor(ratio * 11));
     status = "AUTO_RESOLVED";
     primaryCause = "restaurant_prep_delay";
     reasoning = `Merchant prep time (${c.delivery_event.kitchen_prep_time_minutes} mins) exceeded standard SLA (${c.delivery_event.expected_prep_time_minutes} mins) by ${c.delivery_event.kitchen_prep_time_minutes - c.delivery_event.expected_prep_time_minutes} mins. Delivery Partner waited at outlet and completed transit in ${c.delivery_event.transit_time_minutes} mins.`;
     memo = `Deduction of refund applied to Merchant account ${c.order.restaurant_name} due to verified Merchant preparation bottleneck (${c.delivery_event.kitchen_prep_time_minutes} mins vs ${c.delivery_event.expected_prep_time_minutes} min SLA).`;
   } else {
     // Ambiguous / Shared Fault
-    fault = { restaurant: 50, delivery_partner: 40, platform: 10, customer: 0 };
-    confidence = 54;
+    const totalDelay = Math.max(1, prepOverrun + transOverrun);
+    const prepRatio = prepOverrun / totalDelay;
+    const restFault = round2(prepRatio * 74.0 + 10.0);
+    const platShare = round2(8.0 + (c.delivery_event.kitchen_prep_time_minutes % 4));
+    const dpFault = round2(100.0 - restFault - platShare);
+
+    fault = { restaurant: restFault, delivery_partner: dpFault, platform: platShare, customer: 0 };
+    confidence = 50 + Math.floor((1.0 - Math.abs(prepRatio - 0.5)) * 12);
     status = "NEEDS_HUMAN_REVIEW";
     primaryCause = "shared_weather_traffic_delay";
     reasoning = `Both Merchant prep (${c.delivery_event.kitchen_prep_time_minutes}m) and Delivery Partner transit (${c.delivery_event.transit_time_minutes}m) had concurrent moderate delays under adverse conditions. Shared liability recommended.`;
