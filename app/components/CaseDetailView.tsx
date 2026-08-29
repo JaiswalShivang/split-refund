@@ -5,7 +5,6 @@ import { AssembledCase, EvaluationDecision, FaultAttribution, HumanOverride } fr
 import {
   ArrowLeft,
   Play,
-  ShieldCheck,
   CheckCircle2,
   AlertCircle,
   ShieldAlert,
@@ -20,7 +19,6 @@ import {
   X,
   ChevronDown,
   Scale,
-  Cpu,
   UserCheck,
 } from "lucide-react";
 
@@ -236,10 +234,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 style={{ width: `${s.percentage}%` }}
                 title={`${s.party === "restaurant" ? "Merchant" : s.party === "delivery_partner" ? "Delivery Partner" : "Platform"}: ₹${s.amount} (${s.percentage.toFixed(1)}%)`}
                 className={`transition-all duration-300 ${s.party === "restaurant"
-                    ? "bg-[#D97706]"
-                    : s.party === "delivery_partner"
-                      ? "bg-[#0284C7]"
-                      : "bg-[#7C3AED]"
+                  ? "bg-[#D97706]"
+                  : s.party === "delivery_partner"
+                    ? "bg-[#0284C7]"
+                    : "bg-[#7C3AED]"
                   }`}
               />
             ))}
@@ -249,10 +247,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
               <div key={idx} className="flex items-center gap-1.5 font-mono">
                 <span
                   className={`h-2 w-2 rounded-full ${s.party === "restaurant"
-                      ? "bg-[#D97706]"
-                      : s.party === "delivery_partner"
-                        ? "bg-[#0284C7]"
-                        : "bg-[#7C3AED]"
+                    ? "bg-[#D97706]"
+                    : s.party === "delivery_partner"
+                      ? "bg-[#0284C7]"
+                      : "bg-[#7C3AED]"
                     }`}
                 />
                 <span className="text-slate-700 font-sans">
@@ -312,8 +310,8 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   <span className="text-[10px] text-slate-500 block font-medium">Past 30d Claims</span>
                   <span
                     className={`font-semibold ${complaint.customer_dispute_history_count >= 4
-                        ? "text-rose-600 flex items-center gap-1"
-                        : "text-slate-800"
+                      ? "text-rose-600 flex items-center gap-1"
+                      : "text-slate-800"
                       }`}
                   >
                     {complaint.customer_dispute_history_count} disputes
@@ -360,8 +358,8 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   <div className="mt-1 flex items-baseline gap-1">
                     <span
                       className={`text-lg font-bold font-mono ${delivery_event.kitchen_prep_time_minutes > delivery_event.expected_prep_time_minutes + 10
-                          ? "text-rose-600"
-                          : "text-emerald-700"
+                        ? "text-rose-600"
+                        : "text-emerald-700"
                         }`}
                     >
                       {delivery_event.kitchen_prep_time_minutes}
@@ -381,8 +379,8 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   <div className="mt-1 flex items-baseline gap-1">
                     <span
                       className={`text-lg font-bold font-mono ${delivery_event.transit_time_minutes > delivery_event.expected_transit_time_minutes + 15
-                          ? "text-rose-600"
-                          : "text-emerald-700"
+                        ? "text-rose-600"
+                        : "text-emerald-700"
                         }`}
                     >
                       {delivery_event.transit_time_minutes}
@@ -457,10 +455,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 )}
                 <span
                   className={`text-xs font-mono font-bold rounded px-2.5 py-1 border ${decision.confidence >= 80
-                      ? "bg-emerald-50 text-emerald-800 border-emerald-300"
-                      : decision.confidence >= 60
-                        ? "bg-amber-50 text-amber-900 border-amber-300"
-                        : "bg-rose-50 text-rose-800 border-rose-300"
+                    ? "bg-emerald-50 text-emerald-800 border-emerald-300"
+                    : decision.confidence >= 60
+                      ? "bg-amber-50 text-amber-900 border-amber-300"
+                      : "bg-rose-50 text-rose-800 border-rose-300"
                     }`}
                 >
                   Confidence: {decision.confidence}%
@@ -687,10 +685,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                     <td className="py-2.5 pl-4 pr-2 font-sans font-medium text-slate-900 flex items-center gap-1.5">
                       <span
                         className={`h-2 w-2 rounded-full ${r.party === "restaurant"
-                            ? "bg-[#D97706]"
-                            : r.party === "delivery_partner"
-                              ? "bg-[#0284C7]"
-                              : "bg-[#7C3AED]"
+                          ? "bg-[#D97706]"
+                          : r.party === "delivery_partner"
+                            ? "bg-[#0284C7]"
+                            : "bg-[#7C3AED]"
                           }`}
                       />
                       <span>{r.party_name}</span>
