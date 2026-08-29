@@ -176,9 +176,6 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     // Ambiguous / Shared Fault (Concurrent multi-factor weather/traffic delays or telemetry gaps)
     const totalDelay = Math.max(1, prepOverrun + transOverrun);
     const prepRatio = prepOverrun / totalDelay;
-    const restFault = round2(prepRatio * 74.0 + 10.0);
-    const platShare = round2(8.0 + (c.delivery_event.kitchen_prep_time_minutes % 4));
-    const dpFault = round2(100.0 - restFault - platShare);
 
     confidence = Math.min(55, 48 + Math.floor((1.0 - Math.abs(prepRatio - 0.5)) * 5) + (c.delivery_event.kitchen_prep_time_minutes % 3));
     status = "NEEDS_HUMAN_REVIEW";
