@@ -114,21 +114,22 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     const dpFault = round2(rem - restFault);
 
     fault = { restaurant: restFault, delivery_partner: dpFault, platform: 0, customer: custFault };
-    confidence = 44 + Math.min(claimCount * 2, 10);
+    confidence = Math.min(54, 52 - Math.min(8, (claimCount - 4) * 2) + (c.delivery_event.kitchen_prep_time_minutes % 3));
     status = "FRAUD_SUSPECT_REVIEW";
     primaryCause = "suspected_fraud_repeat_offender";
     reasoning = `Customer has filed ${c.complaint.customer_dispute_history_count} disputes in the past 30 days (abuse watch threshold: ≥4). Telemetry proves on-time fulfillment in ${c.delivery_event.kitchen_prep_time_minutes + c.delivery_event.transit_time_minutes}m total. Held for manual policy verification.`;
     memo = `Case placed on hold and escalated to Revenue Adjuster due to high historical claim frequency (${c.complaint.customer_dispute_history_count} disputes in 30 days).`;
   } else if (c.delivery_event.delay_source_flag === "platform_dispatch_error" || c.archetype === "platform_dispatch_error") {
     fault = { restaurant: 0, delivery_partner: 0, platform: 100, customer: 0 };
-    confidence = 94 + (c.delivery_event.kitchen_prep_time_minutes % 5);
+    confidence = 92 + Math.min(6, (c.delivery_event.kitchen_prep_time_minutes % 4) + (c.delivery_event.transit_time_minutes % 4));
     status = "AUTO_RESOLVED";
     primaryCause = "platform_dispatch_error";
     reasoning = `Telemetry confirms platform auto-dispatch failure. Merchant prepared order in ${c.delivery_event.kitchen_prep_time_minutes} mins and Delivery Partner completed transit in ${c.delivery_event.transit_time_minutes} mins. Delay originated solely within platform routing infrastructure.`;
     memo = "100% of customer refund absorbed by Platform Service Reliability subsidy. Merchant and Delivery Partner retain full split.";
   } else if (c.archetype === "customer_remorse" || c.complaint.dispute_category.includes("buyer_remorse") || c.complaint.dispute_category.includes("customer_")) {
+    const totalTime = c.delivery_event.kitchen_prep_time_minutes + c.delivery_event.transit_time_minutes;
     fault = { restaurant: 0, delivery_partner: 0, platform: 0, customer: 100 };
-    confidence = 92 + (c.delivery_event.transit_time_minutes % 6);
+    confidence = Math.min(98, 96 - Math.min(7, Math.max(0, totalTime - 22)) + (c.delivery_event.kitchen_prep_time_minutes % 3));
     status = "AUTO_RESOLVED";
     primaryCause = "buyer_remorse_cancellation";
     reasoning = `Order was fulfilled on-time with zero Merchant or Delivery Partner defects (Prep: ${c.delivery_event.kitchen_prep_time_minutes}m, Transit: ${c.delivery_event.transit_time_minutes}m). Customer initiated cancellation after dispatch.`;
@@ -139,8 +140,15 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     const custShare = round2(2.0 + (c.delivery_event.kitchen_prep_time_minutes % 4));
     const restFault = round2(100.0 - dpFault - custShare);
 
+    let baseConf = 78 + Math.min(14, Math.floor(transOverrun * 0.45));
+    if (c.delivery_event.kitchen_prep_time_minutes <= 12) {
+      baseConf += Math.min(4, Math.floor((15 - c.delivery_event.kitchen_prep_time_minutes) / 2));
+    } else if (prepOverrun > 0) {
+      baseConf -= Math.min(5, Math.floor(prepOverrun * 1.5));
+    }
+
     fault = { restaurant: restFault, delivery_partner: dpFault, platform: 0, customer: custShare };
-    confidence = 86 + Math.min(11, Math.floor(ratio * 11));
+    confidence = Math.min(97, Math.max(76, baseConf));
     status = "AUTO_RESOLVED";
     primaryCause = "rider_transit_delay";
     reasoning = `Objective telemetry proves food was handed over on-time by Merchant (${c.order.restaurant_name}) in ${c.delivery_event.kitchen_prep_time_minutes} mins (SLA: ${c.delivery_event.expected_prep_time_minutes}m). Transit duration reached ${c.delivery_event.transit_time_minutes} mins (SLA: ${c.delivery_event.expected_transit_time_minutes}m). Delay occurred during Delivery Partner transit.`;
@@ -151,8 +159,15 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     const custShare = round2(2.0 + (c.delivery_event.transit_time_minutes % 4));
     const dpFault = round2(100.0 - restFault - custShare);
 
+    let baseConf = 77 + Math.min(15, Math.floor(prepOverrun * 0.5));
+    if (c.delivery_event.transit_time_minutes <= 12) {
+      baseConf += Math.min(4, Math.floor((15 - c.delivery_event.transit_time_minutes) / 2));
+    } else if (transOverrun > 0) {
+      baseConf -= Math.min(5, Math.floor(transOverrun * 1.5));
+    }
+
     fault = { restaurant: restFault, delivery_partner: dpFault, platform: 0, customer: custShare };
-    confidence = 85 + Math.min(11, Math.floor(ratio * 11));
+    confidence = Math.min(96, Math.max(76, baseConf));
     status = "AUTO_RESOLVED";
     primaryCause = "restaurant_prep_delay";
     reasoning = `Merchant prep time (${c.delivery_event.kitchen_prep_time_minutes} mins) exceeded standard SLA (${c.delivery_event.expected_prep_time_minutes} mins) by ${c.delivery_event.kitchen_prep_time_minutes - c.delivery_event.expected_prep_time_minutes} mins. Delivery Partner waited at outlet and completed transit in ${c.delivery_event.transit_time_minutes} mins.`;
@@ -165,7 +180,7 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     const platShare = round2(8.0 + (c.delivery_event.kitchen_prep_time_minutes % 4));
     const dpFault = round2(100.0 - restFault - platShare);
 
-    confidence = 48 + Math.floor((1.0 - Math.abs(prepRatio - 0.5)) * 6);
+    confidence = Math.min(55, 48 + Math.floor((1.0 - Math.abs(prepRatio - 0.5)) * 5) + (c.delivery_event.kitchen_prep_time_minutes % 3));
     status = "NEEDS_HUMAN_REVIEW";
     primaryCause = "shared_weather_traffic_delay";
     reasoning = `Both Merchant prep (${c.delivery_event.kitchen_prep_time_minutes}m vs ${c.delivery_event.expected_prep_time_minutes}m SLA) and Delivery Partner transit (${c.delivery_event.transit_time_minutes}m vs ${c.delivery_event.expected_transit_time_minutes}m SLA) experienced concurrent delays with overlapping external factors. Conclusive single-party fault cannot be established with high confidence (${confidence}%).`;
