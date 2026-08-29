@@ -133,7 +133,7 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     primaryCause = "buyer_remorse_cancellation";
     reasoning = `Order was fulfilled on-time with zero Merchant or Delivery Partner defects (Prep: ${c.delivery_event.kitchen_prep_time_minutes}m, Transit: ${c.delivery_event.transit_time_minutes}m). Customer initiated cancellation after dispatch.`;
     memo = "Dispute declined per Section 4.2 of Marketplace Terms: on-time customized food orders are non-refundable upon preparation.";
-  } else if (c.delivery_event.delay_source_flag === "rider_transit_delay" || c.archetype === "clear_delivery_fault" || c.delivery_event.transit_time_minutes >= 35) {
+  } else if ((c.delivery_event.delay_source_flag === "rider_transit_delay" || c.archetype === "clear_delivery_fault" || (c.delivery_event.transit_time_minutes >= 35 && prepOverrun <= 5)) && c.archetype !== "ambiguous_shared_fault" && c.delivery_event.delay_source_flag !== "weather_traffic_external" && c.delivery_event.delay_source_flag !== "telemetry_gap_conflict") {
     const ratio = transOverrun / (transOverrun + Math.max(1, prepOverrun * 0.5));
     const dpFault = Math.min(96, round2(78.0 + ratio * 16.0));
     const custShare = round2(2.0 + (c.delivery_event.kitchen_prep_time_minutes % 4));
@@ -145,7 +145,7 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     primaryCause = "rider_transit_delay";
     reasoning = `Objective telemetry proves food was handed over on-time by Merchant (${c.order.restaurant_name}) in ${c.delivery_event.kitchen_prep_time_minutes} mins (SLA: ${c.delivery_event.expected_prep_time_minutes}m). Transit duration reached ${c.delivery_event.transit_time_minutes} mins (SLA: ${c.delivery_event.expected_transit_time_minutes}m). Delay occurred during Delivery Partner transit.`;
     memo = `Dispute analysis establishes delay occurred in logistics transit (${c.delivery_event.transit_time_minutes} mins vs ${c.delivery_event.expected_transit_time_minutes} min SLA). Route reversal applied to Delivery Partner account ${c.order.delivery_partner_name}; Merchant payment is protected.`;
-  } else if (c.delivery_event.delay_source_flag === "restaurant_prep_delay" || c.archetype === "clear_restaurant_fault" || c.delivery_event.kitchen_prep_time_minutes >= 30) {
+  } else if ((c.delivery_event.delay_source_flag === "restaurant_prep_delay" || c.archetype === "clear_restaurant_fault" || (c.delivery_event.kitchen_prep_time_minutes >= 30 && transOverrun <= 5)) && c.archetype !== "ambiguous_shared_fault" && c.delivery_event.delay_source_flag !== "weather_traffic_external" && c.delivery_event.delay_source_flag !== "telemetry_gap_conflict") {
     const ratio = prepOverrun / (prepOverrun + Math.max(1, transOverrun * 0.5));
     const restFault = Math.min(95, round2(76.0 + ratio * 18.0));
     const custShare = round2(2.0 + (c.delivery_event.transit_time_minutes % 4));
@@ -158,19 +158,24 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
     reasoning = `Merchant prep time (${c.delivery_event.kitchen_prep_time_minutes} mins) exceeded standard SLA (${c.delivery_event.expected_prep_time_minutes} mins) by ${c.delivery_event.kitchen_prep_time_minutes - c.delivery_event.expected_prep_time_minutes} mins. Delivery Partner waited at outlet and completed transit in ${c.delivery_event.transit_time_minutes} mins.`;
     memo = `Deduction of refund applied to Merchant account ${c.order.restaurant_name} due to verified Merchant preparation bottleneck (${c.delivery_event.kitchen_prep_time_minutes} mins vs ${c.delivery_event.expected_prep_time_minutes} min SLA).`;
   } else {
-    // Ambiguous / Shared Fault
+    // Ambiguous / Shared Fault (Concurrent multi-factor weather/traffic delays or telemetry gaps)
     const totalDelay = Math.max(1, prepOverrun + transOverrun);
     const prepRatio = prepOverrun / totalDelay;
     const restFault = round2(prepRatio * 74.0 + 10.0);
     const platShare = round2(8.0 + (c.delivery_event.kitchen_prep_time_minutes % 4));
     const dpFault = round2(100.0 - restFault - platShare);
 
-    fault = { restaurant: restFault, delivery_partner: dpFault, platform: platShare, customer: 0 };
-    confidence = 50 + Math.floor((1.0 - Math.abs(prepRatio - 0.5)) * 12);
+    confidence = 48 + Math.floor((1.0 - Math.abs(prepRatio - 0.5)) * 6);
     status = "NEEDS_HUMAN_REVIEW";
     primaryCause = "shared_weather_traffic_delay";
-    reasoning = `Both Merchant prep (${c.delivery_event.kitchen_prep_time_minutes}m) and Delivery Partner transit (${c.delivery_event.transit_time_minutes}m) had concurrent moderate delays under adverse conditions. Shared liability recommended.`;
-    memo = "Refund liability shared between Merchant and Delivery Partner with Platform goodwill support.";
+    reasoning = `Both Merchant prep (${c.delivery_event.kitchen_prep_time_minutes}m vs ${c.delivery_event.expected_prep_time_minutes}m SLA) and Delivery Partner transit (${c.delivery_event.transit_time_minutes}m vs ${c.delivery_event.expected_transit_time_minutes}m SLA) experienced concurrent delays with overlapping external factors. Conclusive single-party fault cannot be established with high confidence (${confidence}%).`;
+    memo = "Refund liability shared across Merchant and Delivery Partner with Platform goodwill subsidy; held for controller confirmation.";
+
+    if (c.delivery_event.delay_source_flag === "telemetry_gap_conflict" || (c.delivery_event.telemetry_notes && (c.delivery_event.telemetry_notes.toLowerCase().includes("gps") || c.delivery_event.telemetry_notes.toLowerCase().includes("discrepancy")))) {
+      primaryCause = "conflicting_telemetry_gap";
+      reasoning = `Machine telemetry exhibits conflicting signals: ${c.delivery_event.telemetry_notes}. Handover timestamp and GPS telemetry mismatch prevents conclusive automated fault attribution (${confidence}% confidence). Escalated for controller sign-off.`;
+      memo = "Case held under Ambiguous Evidence policy due to sensor/timestamp conflicts between merchant POS and rider GPS.";
+    }
   }
 
   const { reversals, totalRefund } = calculateReversalsLocal(c.order, fault);

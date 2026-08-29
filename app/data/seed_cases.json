@@ -2889,31 +2889,31 @@
       ],
       "order_time": "2026-08-21T06:20:00Z",
       "promised_by": "2026-08-21T06:55:00Z",
-      "delivered_at": "2026-08-21T07:20:00Z",
+      "delivered_at": "2026-08-21T07:03:00Z",
       "delivery_status": "delivered_late"
     },
     "complaint": {
       "complaint_id": "cmp_5041",
       "order_id": "ord_1041",
       "customer_id": "cust_401",
-      "customer_text": "Order was delayed by over 45 minutes and arrived lukewarm during evening thunderstorm.",
+      "customer_text": "Order was delayed by over 45 minutes and arrived lukewarm during evening rush hour.",
       "dispute_category": "shared_delay_dispute",
       "requested_action": "partial_refund",
-      "filed_at": "2026-08-21T07:26:00Z",
+      "filed_at": "2026-08-21T07:09:00Z",
       "customer_dispute_history_count": 1
     },
     "delivery_event": {
       "order_id": "ord_1041",
       "assigned_at": "2026-08-21T06:21:00Z",
       "rider_arrival_at_restaurant": "2026-08-21T06:30:00Z",
-      "pickup_time": "2026-08-21T06:48:00Z",
-      "actual_delivery_time": "2026-08-21T07:20:00Z",
-      "kitchen_prep_time_minutes": 28,
+      "pickup_time": "2026-08-21T06:42:00Z",
+      "actual_delivery_time": "2026-08-21T07:03:00Z",
+      "kitchen_prep_time_minutes": 22,
       "expected_prep_time_minutes": 15,
-      "transit_time_minutes": 32,
+      "transit_time_minutes": 21,
       "expected_transit_time_minutes": 15,
-      "delay_source_flag": "weather_traffic_external",
-      "telemetry_notes": "Moderate kitchen delay (28m vs 15m) combined with traffic/rain transit delay (32m vs 15m)."
+      "delay_source_flag": "concurrent_delay",
+      "telemetry_notes": "Concurrent moderate SLA overrun: kitchen prep 22m (SLA: 15m) and rider transit 21m (SLA: 15m). Neither party's overrun individually accounts for total delay breach."
     }
   },
   {
@@ -2961,31 +2961,31 @@
       ],
       "order_time": "2026-08-21T06:37:00Z",
       "promised_by": "2026-08-21T07:12:00Z",
-      "delivered_at": "2026-08-21T07:32:00Z",
+      "delivered_at": "2026-08-21T07:23:00Z",
       "delivery_status": "delivered_late"
     },
     "complaint": {
       "complaint_id": "cmp_5042",
       "order_id": "ord_1042",
       "customer_id": "cust_402",
-      "customer_text": "Food took nearly an hour and gravies were leaking slightly around edges.",
+      "customer_text": "Waited nearly 50 minutes. Driver claimed restaurant delayed, restaurant claimed driver was late to collect.",
       "dispute_category": "shared_delay_dispute",
       "requested_action": "partial_refund",
-      "filed_at": "2026-08-21T07:38:00Z",
+      "filed_at": "2026-08-21T07:29:00Z",
       "customer_dispute_history_count": 1
     },
     "delivery_event": {
       "order_id": "ord_1042",
       "assigned_at": "2026-08-21T06:38:00Z",
       "rider_arrival_at_restaurant": "2026-08-21T06:47:00Z",
-      "pickup_time": "2026-08-21T07:03:00Z",
-      "actual_delivery_time": "2026-08-21T07:32:00Z",
-      "kitchen_prep_time_minutes": 26,
+      "pickup_time": "2026-08-21T07:01:00Z",
+      "actual_delivery_time": "2026-08-21T07:23:00Z",
+      "kitchen_prep_time_minutes": 24,
       "expected_prep_time_minutes": 15,
-      "transit_time_minutes": 29,
+      "transit_time_minutes": 22,
       "expected_transit_time_minutes": 15,
-      "delay_source_flag": "weather_traffic_external",
-      "telemetry_notes": "Both prep and transit exceeded baseline SLA by ~12-14 mins each. Packaging seal weak."
+      "delay_source_flag": "telemetry_gap_conflict",
+      "telemetry_notes": "Telemetry conflict: Merchant POS logged order ready at 19:22, but Rider app recorded handover scan at 19:34. 11-minute GPS transponder signal gap detected in transit corridor."
     }
   },
   {
@@ -3033,31 +3033,31 @@
       ],
       "order_time": "2026-08-21T06:54:00Z",
       "promised_by": "2026-08-21T07:29:00Z",
-      "delivered_at": "2026-08-21T07:49:00Z",
+      "delivered_at": "2026-08-21T07:41:00Z",
       "delivery_status": "delivered_late"
     },
     "complaint": {
       "complaint_id": "cmp_5043",
       "order_id": "ord_1043",
       "customer_id": "cust_403",
-      "customer_text": "Took 55 mins total. Pizza was warm but crust was soggy from prolonged steam.",
+      "customer_text": "Severe delay over 45 minutes; packaging was soaked and food was cold during rainstorm.",
       "dispute_category": "shared_delay_dispute",
       "requested_action": "partial_refund",
-      "filed_at": "2026-08-21T07:55:00Z",
+      "filed_at": "2026-08-21T07:47:00Z",
       "customer_dispute_history_count": 1
     },
     "delivery_event": {
       "order_id": "ord_1043",
       "assigned_at": "2026-08-21T06:55:00Z",
       "rider_arrival_at_restaurant": "2026-08-21T07:04:00Z",
-      "pickup_time": "2026-08-21T07:21:00Z",
-      "actual_delivery_time": "2026-08-21T07:49:00Z",
-      "kitchen_prep_time_minutes": 27,
+      "pickup_time": "2026-08-21T07:17:00Z",
+      "actual_delivery_time": "2026-08-21T07:41:00Z",
+      "kitchen_prep_time_minutes": 23,
       "expected_prep_time_minutes": 15,
-      "transit_time_minutes": 28,
+      "transit_time_minutes": 24,
       "expected_transit_time_minutes": 15,
       "delay_source_flag": "weather_traffic_external",
-      "telemetry_notes": "Even delay distribution across merchant prep and logistics transit."
+      "telemetry_notes": "Severe flash thunderstorm and arterial waterlogging alert logged during delivery window. Kitchen power flicker (8m) overlapping rider rerouting detour (9m). Unclear if delay was avoidable."
     }
   },
   {
@@ -3105,31 +3105,31 @@
       ],
       "order_time": "2026-08-21T07:11:00Z",
       "promised_by": "2026-08-21T07:46:00Z",
-      "delivered_at": "2026-08-21T08:11:00Z",
+      "delivered_at": "2026-08-21T07:57:00Z",
       "delivery_status": "delivered_late"
     },
     "complaint": {
       "complaint_id": "cmp_5044",
       "order_id": "ord_1044",
       "customer_id": "cust_404",
-      "customer_text": "Overall delay ruined party timing. Arrived 40 minutes past promised slot.",
+      "customer_text": "Food was stone cold upon arrival despite driver claiming swift delivery from restaurant.",
       "dispute_category": "shared_delay_dispute",
       "requested_action": "partial_refund",
-      "filed_at": "2026-08-21T08:17:00Z",
+      "filed_at": "2026-08-21T08:03:00Z",
       "customer_dispute_history_count": 1
     },
     "delivery_event": {
       "order_id": "ord_1044",
       "assigned_at": "2026-08-21T07:12:00Z",
       "rider_arrival_at_restaurant": "2026-08-21T07:21:00Z",
-      "pickup_time": "2026-08-21T07:40:00Z",
-      "actual_delivery_time": "2026-08-21T08:11:00Z",
-      "kitchen_prep_time_minutes": 29,
+      "pickup_time": "2026-08-21T07:36:00Z",
+      "actual_delivery_time": "2026-08-21T07:57:00Z",
+      "kitchen_prep_time_minutes": 25,
       "expected_prep_time_minutes": 15,
-      "transit_time_minutes": 31,
+      "transit_time_minutes": 21,
       "expected_transit_time_minutes": 15,
-      "delay_source_flag": "weather_traffic_external",
-      "telemetry_notes": "Peak rush congestion at both kitchen and city traffic junction."
+      "delay_source_flag": "telemetry_gap_conflict",
+      "telemetry_notes": "Discrepancy between automated kitchen dispatch sensor and rider pickup scan (8-minute timestamp gap). Kitchen heat-lamp logs conflict with customer cold food claim."
     }
   },
   {
@@ -3177,31 +3177,31 @@
       ],
       "order_time": "2026-08-21T07:28:00Z",
       "promised_by": "2026-08-21T08:03:00Z",
-      "delivered_at": "2026-08-21T08:23:00Z",
+      "delivered_at": "2026-08-21T08:12:00Z",
       "delivery_status": "delivered_late"
     },
     "complaint": {
       "complaint_id": "cmp_5045",
       "order_id": "ord_1045",
       "customer_id": "cust_405",
-      "customer_text": "Late delivery and burger box was bent in half.",
+      "customer_text": "Late delivery and burger box was bent in half; dispute over when driver arrived at gate.",
       "dispute_category": "shared_delay_dispute",
       "requested_action": "partial_refund",
-      "filed_at": "2026-08-21T08:29:00Z",
+      "filed_at": "2026-08-21T08:18:00Z",
       "customer_dispute_history_count": 1
     },
     "delivery_event": {
       "order_id": "ord_1045",
       "assigned_at": "2026-08-21T07:29:00Z",
       "rider_arrival_at_restaurant": "2026-08-21T07:38:00Z",
-      "pickup_time": "2026-08-21T07:53:00Z",
-      "actual_delivery_time": "2026-08-21T08:23:00Z",
-      "kitchen_prep_time_minutes": 25,
+      "pickup_time": "2026-08-21T07:49:00Z",
+      "actual_delivery_time": "2026-08-21T08:12:00Z",
+      "kitchen_prep_time_minutes": 21,
       "expected_prep_time_minutes": 15,
-      "transit_time_minutes": 30,
+      "transit_time_minutes": 23,
       "expected_transit_time_minutes": 15,
-      "delay_source_flag": "weather_traffic_external",
-      "telemetry_notes": "Combined slight merchant prep delay and handling transit strain."
+      "delay_source_flag": "telemetry_gap_conflict",
+      "telemetry_notes": "Combined slight merchant prep delay (21m vs 15m) and transit congestion. GPS geofence shows rider reached gate 7m before marked delivery; proximity ping log mismatch."
     }
   },
   {
