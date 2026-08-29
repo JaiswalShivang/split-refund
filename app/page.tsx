@@ -69,6 +69,13 @@ export default function Home() {
           const first = list[0];
           setSelectedOrderId((prev) => prev || first.order.order_id);
           setSelectedCase((prev) => prev || first);
+          const firstDecision = loadedCases.find((c) => c.order_id === first.order.order_id)?.decision;
+          if (firstDecision) {
+            setSelectedDecision(firstDecision);
+          } else {
+            const { decision } = await fetchCaseDetail(first.order.order_id);
+            if (isMounted) setSelectedDecision(decision || null);
+          }
         }
       } catch {
         if (isMounted) {

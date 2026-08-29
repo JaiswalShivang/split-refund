@@ -272,7 +272,7 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
                         )}
                         {c.status === "PENDING" && (
                           <div className="inline-flex items-center gap-1.5 rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
-                            <span>Pending Ingestion</span>
+                            <span>Pending</span>
                           </div>
                         )}
                       </td>

@@ -157,7 +157,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
             className="flex items-center gap-1.5 rounded-md bg-blue-600 hover:bg-blue-700 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs transition disabled:opacity-50"
           >
             <Play className={`h-3 w-3 fill-current ${isEvaluating ? "animate-spin" : ""}`} />
-            <span>{isEvaluating ? "Analyzing Telemetry..." : decision ? "Re-Run Attribution Engine" : "Run Attribution Engine"}</span>
+            <span>{isEvaluating ? "Analyzing Telemetry..." : decision ? "Re-Run Attribution Engine" : "Run Attribution Engine Now"}</span>
           </button>
         </div>
       </div>

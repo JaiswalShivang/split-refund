@@ -215,6 +215,19 @@ export function evaluateCaseLocal(c: AssembledCase): EvaluationDecision {
   };
 }
 
+const PENDING_CASE_IDS = new Set(["ord_1053", "ord_1054", "ord_1055"]);
+
+async function initLocalDecisions(): Promise<Record<string, EvaluationDecision>> {
+  if (Object.keys(inMemoryDecisions).length > 0) return inMemoryDecisions;
+  const cases = await getLocalAssembledCases();
+  for (const c of cases) {
+    if (!PENDING_CASE_IDS.has(c.order.order_id)) {
+      inMemoryDecisions[c.order.order_id] = evaluateCaseLocal(c);
+    }
+  }
+  return inMemoryDecisions;
+}
+
 export async function fetchCases(): Promise<{ cases: CaseListItem[]; count: number }> {
   try {
     const res = await fetch(`${API_BASE_URL}/api/cases`, { cache: "no-store", signal: AbortSignal.timeout(3000) });
@@ -223,9 +236,9 @@ export async function fetchCases(): Promise<{ cases: CaseListItem[]; count: numb
       return data;
     }
   } catch {
-    // fallback to client-side data
   }
 
+  await initLocalDecisions();
   const cases = await getLocalAssembledCases();
   const list: CaseListItem[] = cases.map((c) => {
     const dec = inMemoryDecisions[c.order.order_id];
@@ -258,9 +271,9 @@ export async function fetchCaseDetail(orderId: string): Promise<{ case: Assemble
       return data;
     }
   } catch {
-    // fallback
   }
 
+  await initLocalDecisions();
   const cases = await getLocalAssembledCases();
   const found = cases.find((c) => c.order.order_id === orderId);
   if (!found) throw new Error(`Case ${orderId} not found`);
@@ -373,19 +386,19 @@ export async function fetchMetricsAPI(): Promise<BatchMetrics> {
       return data.metrics;
     }
   } catch {
-    // fallback
   }
 
+  await initLocalDecisions();
   const decisions = Object.values(inMemoryDecisions);
   return calculateMetricsLocal(decisions);
 }
 
 export async function resetBatchAPI(): Promise<void> {
   inMemoryDecisions = {};
+  await initLocalDecisions();
   try {
     await fetch(`${API_BASE_URL}/api/batch/reset`, { method: "POST" });
   } catch {
-    // ignore
   }
 }
 
