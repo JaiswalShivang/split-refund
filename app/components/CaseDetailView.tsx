@@ -235,13 +235,12 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 key={idx}
                 style={{ width: `${s.percentage}%` }}
                 title={`${s.party === "restaurant" ? "Merchant" : s.party === "delivery_partner" ? "Delivery Partner" : "Platform"}: ₹${s.amount} (${s.percentage.toFixed(1)}%)`}
-                className={`transition-all duration-300 ${
-                  s.party === "restaurant"
+                className={`transition-all duration-300 ${s.party === "restaurant"
                     ? "bg-[#D97706]"
                     : s.party === "delivery_partner"
-                    ? "bg-[#0284C7]"
-                    : "bg-[#7C3AED]"
-                }`}
+                      ? "bg-[#0284C7]"
+                      : "bg-[#7C3AED]"
+                  }`}
               />
             ))}
           </div>
@@ -249,13 +248,12 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
             {order.split.map((s, idx) => (
               <div key={idx} className="flex items-center gap-1.5 font-mono">
                 <span
-                  className={`h-2 w-2 rounded-full ${
-                    s.party === "restaurant"
+                  className={`h-2 w-2 rounded-full ${s.party === "restaurant"
                       ? "bg-[#D97706]"
                       : s.party === "delivery_partner"
-                      ? "bg-[#0284C7]"
-                      : "bg-[#7C3AED]"
-                  }`}
+                        ? "bg-[#0284C7]"
+                        : "bg-[#7C3AED]"
+                    }`}
                 />
                 <span className="text-slate-700 font-sans">
                   {s.party === "restaurant" ? "Merchant" : s.party === "delivery_partner" ? "Delivery Partner" : "Platform"}:
@@ -313,11 +311,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 <div className="rounded-lg bg-slate-50 p-2 border border-slate-200">
                   <span className="text-[10px] text-slate-500 block font-medium">Past 30d Claims</span>
                   <span
-                    className={`font-semibold ${
-                      complaint.customer_dispute_history_count >= 4
+                    className={`font-semibold ${complaint.customer_dispute_history_count >= 4
                         ? "text-rose-600 flex items-center gap-1"
                         : "text-slate-800"
-                    }`}
+                      }`}
                   >
                     {complaint.customer_dispute_history_count} disputes
                     {complaint.customer_dispute_history_count >= 4 && (
@@ -362,11 +359,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   </div>
                   <div className="mt-1 flex items-baseline gap-1">
                     <span
-                      className={`text-lg font-bold font-mono ${
-                        delivery_event.kitchen_prep_time_minutes > delivery_event.expected_prep_time_minutes + 10
+                      className={`text-lg font-bold font-mono ${delivery_event.kitchen_prep_time_minutes > delivery_event.expected_prep_time_minutes + 10
                           ? "text-rose-600"
                           : "text-emerald-700"
-                      }`}
+                        }`}
                     >
                       {delivery_event.kitchen_prep_time_minutes}
                     </span>
@@ -384,11 +380,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   </div>
                   <div className="mt-1 flex items-baseline gap-1">
                     <span
-                      className={`text-lg font-bold font-mono ${
-                        delivery_event.transit_time_minutes > delivery_event.expected_transit_time_minutes + 15
+                      className={`text-lg font-bold font-mono ${delivery_event.transit_time_minutes > delivery_event.expected_transit_time_minutes + 15
                           ? "text-rose-600"
                           : "text-emerald-700"
-                      }`}
+                        }`}
                     >
                       {delivery_event.transit_time_minutes}
                     </span>
@@ -418,11 +413,9 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
         </div>
       </div>
 
-      {/* SIGNATURE VISUAL CENTERPIECE: FAULT ATTRIBUTION & CAUSAL SETTLEMENT */}
       {decision ? (
         <div className="space-y-4">
-          {/* EXPLICIT FINAL SETTLEMENT VERDICT BOX (Evidence-Based Ruling) */}
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs space-y-3.5">
+          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 border border-blue-200 text-blue-700 shrink-0">
@@ -430,10 +423,10 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                    <span>Final Attribution Verdict &amp; Settlement Ruling</span>
+                    <span>Final Attribution</span>
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Conclusive ruling synthesized from dual-truth telemetry &amp; deterministic Route rules
+                    Dual-truth telemetry ground truth synthesis and deterministic split-reversal allocation
                   </p>
                 </div>
               </div>
@@ -462,151 +455,29 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                     <span>ADJUSTER MANUAL OVERRIDE</span>
                   </span>
                 )}
-                <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 border border-slate-200 rounded px-2.5 py-1">
+                <span
+                  className={`text-xs font-mono font-bold rounded px-2.5 py-1 border ${decision.confidence >= 80
+                      ? "bg-emerald-50 text-emerald-800 border-emerald-300"
+                      : decision.confidence >= 60
+                        ? "bg-amber-50 text-amber-900 border-amber-300"
+                        : "bg-rose-50 text-rose-800 border-rose-300"
+                    }`}
+                >
                   Confidence: {decision.confidence}%
                 </span>
               </div>
             </div>
 
-            {/* Verdict Ruling Callout */}
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-3.5 text-xs text-slate-800 leading-relaxed">
+            <div className="rounded-lg border border-blue-100 bg-blue-50/60 p-3.5 text-xs text-slate-800 leading-relaxed shadow-2xs">
               <div className="font-semibold text-slate-900 mb-1 flex items-center gap-1.5 flex-wrap">
-                <span className="text-blue-700 font-bold">Causal Verdict Finding:</span>
+                <span className="text-blue-700 font-bold">Causal Justification:</span>
                 <span className="font-mono text-slate-600 text-[11px] bg-white border border-slate-200 rounded px-1.5 py-0.5">
                   {decision.primary_cause.replace(/_/g, " ").toUpperCase()}
                 </span>
               </div>
-              <p className="text-slate-700">{decision.reasoning}</p>
+              <p className="text-slate-800 text-xs font-medium leading-relaxed">{decision.reasoning}</p>
             </div>
 
-            {/* Executive Settlement Summary Metrics Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-0.5 text-xs">
-              {/* 1. Primary Liable Party */}
-              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
-                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Primary Liable Party</span>
-                <div className="mt-1 flex items-baseline gap-1 font-semibold text-slate-900">
-                  {decision.fault_attribution.restaurant >= 50 && (
-                    <span className="text-[#B45309] flex items-center gap-1">
-                      <Store className="h-3.5 w-3.5" /> Merchant ({decision.fault_attribution.restaurant}%)
-                    </span>
-                  )}
-                  {decision.fault_attribution.delivery_partner >= 50 && (
-                    <span className="text-[#0369A1] flex items-center gap-1">
-                      <Bike className="h-3.5 w-3.5" /> Delivery Partner ({decision.fault_attribution.delivery_partner}%)
-                    </span>
-                  )}
-                  {decision.fault_attribution.customer >= 50 && (
-                    <span className="text-[#047857] flex items-center gap-1">
-                      Customer Remorse ({decision.fault_attribution.customer}%)
-                    </span>
-                  )}
-                  {decision.fault_attribution.platform >= 50 && (
-                    <span className="text-[#6D28D9] flex items-center gap-1">
-                      Platform Subsidized ({decision.fault_attribution.platform}%)
-                    </span>
-                  )}
-                  {Math.max(
-                    decision.fault_attribution.restaurant,
-                    decision.fault_attribution.delivery_partner,
-                    decision.fault_attribution.customer,
-                    decision.fault_attribution.platform
-                  ) < 50 && (
-                    <span className="text-amber-800">Shared Multi-Party Split</span>
-                  )}
-                </div>
-              </div>
-
-              {/* 2. Customer Refund Debited */}
-              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
-                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Customer Refund Executed</span>
-                <div className="mt-1 text-base font-bold font-mono text-emerald-700 flex items-center gap-0.5">
-                  <IndianRupee className="h-3.5 w-3.5 text-emerald-600" />
-                  <span>{decision.total_refund_to_customer.toFixed(2)}</span>
-                </div>
-              </div>
-
-              {/* 3. Innocent Capital Preserved */}
-              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
-                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Innocent Capital Preserved</span>
-                <div className="mt-1 text-base font-bold font-mono text-slate-900 flex items-center gap-0.5">
-                  {decision.is_innocent_party_protected ? (
-                    <span className="text-emerald-700 flex items-center gap-1">
-                      <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
-                      <span>₹{decision.protected_amount.toFixed(2)}</span>
-                    </span>
-                  ) : (
-                    <span className="text-slate-400 font-normal text-xs">—</span>
-                  )}
-                </div>
-              </div>
-
-              {/* 4. Escrow Reversal Action */}
-              <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-2xs">
-                <span className="text-[10px] text-slate-500 font-medium block uppercase tracking-wider">Route Settlement Status</span>
-                <span className="mt-1 inline-block text-[11px] font-mono font-semibold text-blue-700">
-                  {decision.status === "AUTO_RESOLVED"
-                    ? "Split Reversal Posted"
-                    : decision.status === "MANUALLY_OVERRIDDEN"
-                    ? "Adjuster Override Posted"
-                    : "Escrow Transfer Held"}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Innocent Party Protected Causal Outcome Banner */}
-          {decision.is_innocent_party_protected && (
-            <div className="rounded-xl border border-emerald-300 bg-emerald-50/60 p-4 shadow-xs">
-              <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-100 border border-emerald-300 text-emerald-700 mt-0.5">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <h4 className="text-sm font-bold text-emerald-900">
-                      Innocent {decision.protected_party_type === "restaurant" ? "Merchant" : "Delivery Partner"} Protected from Unfair Chargeback
-                    </h4>
-                    <span className="rounded bg-emerald-100 px-2 py-0.5 text-xs font-mono font-bold text-emerald-800 border border-emerald-300">
-                      ₹{decision.protected_amount.toFixed(2)} Preserved
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-700 leading-relaxed">
-                    A naive marketplace policy would have automatically deducted 100% (₹{decision.protected_amount}) from <strong className="text-slate-900">{decision.protected_party_name}</strong>. The Dispute Engine examined telemetry ground truth, identified the delay occurred in Delivery Partner transit, and spared the merchant from unfair liability.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* THE SIGNATURE ATTRIBUTION CENTERPIECE */}
-          <div className="rounded-xl border border-slate-200 bg-white p-5 space-y-4 shadow-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-100 pb-3">
-              <div>
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <Cpu className="h-4 w-4 text-blue-600" />
-                  Fault-Attribution &amp; Reversal Allocation Centerpiece
-                </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  Exact liability percentage determined by evidence pipeline and executed in Go math engine
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-500 font-medium">Confidence Score:</span>
-                <span
-                  className={`text-sm font-mono font-bold rounded px-2.5 py-0.5 border ${
-                    decision.confidence >= 80
-                      ? "bg-emerald-50 text-emerald-800 border-emerald-300"
-                      : decision.confidence >= 60
-                      ? "bg-amber-50 text-amber-900 border-amber-300"
-                      : "bg-rose-50 text-rose-800 border-rose-300"
-                  }`}
-                >
-                  {decision.confidence}%
-                </span>
-              </div>
-            </div>
-
-            {/* Signature Segmented Attribution Ribbon */}
             <div className="space-y-1.5">
               <div className="flex h-7 w-full overflow-hidden rounded-lg bg-slate-100 p-1 border border-slate-200">
                 {decision.fault_attribution.restaurant > 0 && (
@@ -643,43 +514,109 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 )}
               </div>
 
-              {/* Attribution Segment Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs pt-1">
-                <div className="rounded-lg border border-amber-200 bg-amber-50/40 p-2.5">
-                  <span className="text-[10px] text-[#B45309] font-bold block">Merchant Prep Fault</span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.restaurant}%</span>
-                    <span className="text-[10px] text-slate-500 font-sans">liability</span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs">
+                <div className="rounded-lg border border-amber-200 bg-amber-50/40 p-3 shadow-2xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-[#B45309] font-bold uppercase tracking-wider flex items-center gap-1">
+                      <Store className="h-3 w-3" /> Merchant
+                    </span>
+                    <span className="font-mono font-bold text-amber-800 text-xs">{decision.fault_attribution.restaurant}%</span>
+                  </div>
+                  <div className="mt-2 space-y-0.5">
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Reversal:</span>
+                      <span className="font-mono font-semibold text-rose-600">
+                        {(() => {
+                          const r = decision.reversals.find((x) => x.party === "restaurant");
+                          return r && r.reversal_amount > 0 ? `-₹${r.reversal_amount.toFixed(2)}` : "₹0.00";
+                        })()}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Retained:</span>
+                      <span className="font-mono font-semibold text-emerald-700">
+                        {(() => {
+                          const r = decision.reversals.find((x) => x.party === "restaurant");
+                          return r ? `₹${r.net_retained.toFixed(2)}` : "₹0.00";
+                        })()}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="rounded-lg border border-sky-200 bg-sky-50/40 p-2.5">
-                  <span className="text-[10px] text-[#0369A1] font-bold block">Delivery Partner Transit Fault</span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.delivery_partner}%</span>
-                    <span className="text-[10px] text-slate-500 font-sans">liability</span>
+
+                <div className="rounded-lg border border-sky-200 bg-sky-50/40 p-3 shadow-2xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-[#0369A1] font-bold uppercase tracking-wider flex items-center gap-1">
+                      <Bike className="h-3 w-3" /> Delivery Partner
+                    </span>
+                    <span className="font-mono font-bold text-sky-800 text-xs">{decision.fault_attribution.delivery_partner}%</span>
+                  </div>
+                  <div className="mt-2 space-y-0.5">
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Reversal:</span>
+                      <span className="font-mono font-semibold text-rose-600">
+                        {(() => {
+                          const r = decision.reversals.find((x) => x.party === "delivery_partner");
+                          return r && r.reversal_amount > 0 ? `-₹${r.reversal_amount.toFixed(2)}` : "₹0.00";
+                        })()}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Retained:</span>
+                      <span className="font-mono font-semibold text-emerald-700">
+                        {(() => {
+                          const r = decision.reversals.find((x) => x.party === "delivery_partner");
+                          return r ? `₹${r.net_retained.toFixed(2)}` : "₹0.00";
+                        })()}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="rounded-lg border border-purple-200 bg-purple-50/40 p-2.5">
-                  <span className="text-[10px] text-[#6D28D9] font-bold block">Platform Outage Fault</span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.platform}%</span>
-                    <span className="text-[10px] text-slate-500 font-sans">liability</span>
+
+                <div className="rounded-lg border border-purple-200 bg-purple-50/40 p-3 shadow-2xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-[#6D28D9] font-bold uppercase tracking-wider">Platform Subsidy</span>
+                    <span className="font-mono font-bold text-purple-800 text-xs">{decision.fault_attribution.platform}%</span>
+                  </div>
+                  <div className="mt-2 space-y-0.5">
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Platform Cost:</span>
+                      <span className="font-mono font-semibold text-purple-700">
+                        {decision.fault_attribution.platform > 0 ? `₹${decision.total_refund_to_customer.toFixed(2)}` : "₹0.00"}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Policy:</span>
+                      <span className="text-[10px] text-slate-600 truncate">{decision.fault_attribution.platform > 0 ? "Absorbed" : "Standard"}</span>
+                    </div>
                   </div>
                 </div>
-                <div className="rounded-lg border border-emerald-200 bg-emerald-50/40 p-2.5">
-                  <span className="text-[10px] text-[#047857] font-bold block">Customer Remorse</span>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-lg font-bold text-slate-900 font-mono">{decision.fault_attribution.customer}%</span>
-                    <span className="text-[10px] text-slate-500 font-sans">non-refundable</span>
+
+                <div className="rounded-lg border border-emerald-200 bg-emerald-50/40 p-3 shadow-2xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-[#047857] font-bold uppercase tracking-wider">Customer Outcome</span>
+                    <span className="font-mono font-bold text-emerald-800 text-xs">{decision.fault_attribution.customer}%</span>
+                  </div>
+                  <div className="mt-2 space-y-0.5">
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Refund Debited:</span>
+                      <span className="font-mono font-bold text-emerald-700">
+                        ₹{decision.total_refund_to_customer.toFixed(2)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-[11px]">
+                      <span className="text-slate-500">Status:</span>
+                      <span className="text-[10px] font-semibold text-slate-700">
+                        {decision.total_refund_to_customer > 0 ? "Refund Executed" : "Declined"}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Reasoning & Formal Justification Audit Dossier */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Investigator Case Notes */}
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
               <h4 className="text-xs font-semibold text-slate-900 flex items-center gap-1.5 mb-2">
                 <FileText className="h-3.5 w-3.5 text-blue-600" />
@@ -690,7 +627,6 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
               </div>
             </div>
 
-            {/* Dispute-Defense Justification Memo */}
             <div className="rounded-xl border border-slate-200 bg-white p-4 flex flex-col justify-between shadow-xs">
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -750,13 +686,12 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                   <tr key={idx} className="hover:bg-slate-50/80 transition">
                     <td className="py-2.5 pl-4 pr-2 font-sans font-medium text-slate-900 flex items-center gap-1.5">
                       <span
-                        className={`h-2 w-2 rounded-full ${
-                          r.party === "restaurant"
+                        className={`h-2 w-2 rounded-full ${r.party === "restaurant"
                             ? "bg-[#D97706]"
                             : r.party === "delivery_partner"
-                            ? "bg-[#0284C7]"
-                            : "bg-[#7C3AED]"
-                        }`}
+                              ? "bg-[#0284C7]"
+                              : "bg-[#7C3AED]"
+                          }`}
                       />
                       <span>{r.party_name}</span>
                     </td>
