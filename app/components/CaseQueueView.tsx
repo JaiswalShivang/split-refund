@@ -248,7 +248,10 @@ export const CaseQueueView: React.FC<CaseQueueViewProps> = ({
                       {/* Status Encoding (Visual Distinction) */}
                       <td className="py-3 px-3 whitespace-nowrap">
                         {c.status === "AUTO_RESOLVED" && (
-                          <div className="inline-flex items-center gap-1.5 rounded border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
+                          <div
+                            title="Autonomous settlement — reversible via Adjuster Override within 72-hour window if new evidence emerges"
+                            className="inline-flex items-center gap-1.5 rounded border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-800 cursor-help"
+                          >
                             <CheckCircle2 className="h-3 w-3 text-emerald-600" />
                             <span>Autonomous</span>
                           </div>

@@ -20,6 +20,7 @@ import {
   ChevronDown,
   Scale,
   UserCheck,
+  Info,
 } from "lucide-react";
 
 interface CaseDetailViewProps {
@@ -142,6 +143,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
           {decision && (
             <button
               onClick={handleOpenOverride}
+              title="Human-in-the-loop oversight: Adjusters can manually override autonomous rulings within 72 hours if new evidence emerges"
               className="flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-xs transition hover:border-blue-400 hover:text-blue-700 hover:bg-blue-50/50"
             >
               <Sliders className="h-3.5 w-3.5 text-blue-600" />
@@ -160,7 +162,6 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
         </div>
       </div>
 
-      {/* Case Header Dossier Banner */}
       <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
@@ -195,6 +196,15 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
                 </span>
               )}
             </div>
+
+            {decision?.status === "AUTO_RESOLVED" && (
+              <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-600 bg-slate-50 border border-slate-200/80 rounded-md px-2.5 py-1 max-w-2xl">
+                <Info className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+                <span>
+                  Autonomous settlements are reversible via <strong>Adjuster Override</strong> within a 72-hour dispute window if new telemetry or counterparty appeals emerge.
+                </span>
+              </div>
+            )}
 
             <div className="mt-2.5 flex items-center gap-4 text-xs text-slate-500 flex-wrap">
               <span>Customer: <strong className="text-slate-900">{order.customer_name}</strong></span>
@@ -731,17 +741,22 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
       {isOverrideOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
           <div className="w-full max-w-md rounded-xl border border-slate-200 bg-white p-5 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-              <div className="flex items-center gap-2">
-                <Sliders className="h-4 w-4 text-blue-600" />
-                <h3 className="text-sm font-bold text-slate-900">Adjuster Manual Override</h3>
+            <div className="border-b border-slate-100 pb-3 mb-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Sliders className="h-4 w-4 text-blue-600" />
+                  <h3 className="text-sm font-bold text-slate-900">Adjuster Manual Override</h3>
+                </div>
+                <button
+                  onClick={() => setIsOverrideOpen(false)}
+                  className="text-slate-400 hover:text-slate-700"
+                >
+                  <X className="h-4 w-4" />
+                </button>
               </div>
-              <button
-                onClick={() => setIsOverrideOpen(false)}
-                className="text-slate-400 hover:text-slate-700"
-              >
-                <X className="h-4 w-4" />
-              </button>
+              <p className="mt-1 text-[11px] text-slate-500 leading-relaxed">
+                Human-in-the-loop governance: Senior adjusters can supersede automated attribution and adjust party split liability during the 72-hour dispute window.
+              </p>
             </div>
 
             <form onSubmit={handleSaveOverrideSubmit} className="space-y-3.5 text-xs">
